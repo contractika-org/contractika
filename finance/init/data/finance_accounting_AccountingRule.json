@@ -1,0 +1,15 @@
+[
+    {
+        "name": "finance\\accounting\\AccountingRule",
+        "lang": "en",
+        "data": [
+            {
+                "id": 1,
+                "name": "Sale",
+                "type": "sale",
+                "vat_rule_id": 4,
+                "description": "Default rule for sales."
+            }
+        ]
+    }
+]

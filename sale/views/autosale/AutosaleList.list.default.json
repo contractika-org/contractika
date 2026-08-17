@@ -1,0 +1,32 @@
+{
+    "name": "Autosale Lists",
+    "description": "This view is intended for displaying the list of autosale.",
+    "access": {
+        "groups": ["sale.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "date_from",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "date_to",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "label": "List Category",
+                "value": "autosale_list_category_id",
+                "width": "20%"
+            }
+        ]
+    }
+}

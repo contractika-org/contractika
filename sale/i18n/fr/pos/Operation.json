@@ -1,0 +1,57 @@
+{
+    "name": "Operation",
+    "plural": "Operations",
+    "description": "",
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Mnémo court pour identifier l'opération.",
+            "help": ""
+        },
+        "type": {
+            "label": "Type",
+            "description": "Le genre d'opération.",
+            "selection": {
+                "opening": "ouverture",
+                "sale": "vente",
+                "move": "mouvement"
+            },
+            "help": ""
+        },
+        "user_id": {
+            "label": "Utilisateur",
+            "description": "Utilisateur à l'origine de l'opération.",
+            "help": ""
+        },
+        "cashdesk_id": {
+            "label": "Caisse",
+            "description": "Caisse à laquelle se rapporte l'opération.",
+            "help": ""
+        },
+        "amount": {
+            "label": "Montant de l'opération",
+            "description": "Variation dans la caisse (montant positif ou négatif).",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Operation",
+            "description": "",
+            "layout": {
+                "section.operation_section": {
+                    "label": "Détails"
+                },
+                "section.payments_section": {
+                    "label": "Paiements"
+                }
+            }
+        },
+        "list.default": {
+            "name": "Operations",
+            "description": "Liste des operations.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

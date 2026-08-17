@@ -1,0 +1,42 @@
+{
+    "name": "Establishments",
+    "description": "This view is intended for displaying basic listing of existing Establishments.",
+    "access": {
+        "groups": ["booking.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "label": "Organization",
+                "value": "organisation_id",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "address_street",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "address_city",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "phone",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "email",
+                "width": "20%"
+            }
+        ]
+    }
+}

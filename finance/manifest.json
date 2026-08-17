@@ -1,0 +1,7 @@
+{
+    "name": "finance",
+    "depends_on": [
+        "core"
+    ],
+    "apps": ["accounting"]
+}

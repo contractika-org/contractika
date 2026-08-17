@@ -1,0 +1,71 @@
+{
+    "name": "Échances de Paiement",
+    "plural": "Échances de Paiement",
+    "description": "",
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Court mémo de l'échéance.",
+            "help": ""
+        },
+        "delay_from_event": {
+            "label": "À partir de",
+            "description": "Événement de départ du délai avant échéance.",
+            "selection": {
+                "booking": "Prise de réservation",
+                "checkin": "Arrivée (checkin)",
+                "checkout": "Départ (checkout)"
+            },
+            "help": ""
+        },
+        "delay_from_event_offset": {
+            "label": "Décalage",
+            "description": "Ajustement pour obtenir la date de demande de paiement.",
+            "help": ""
+        },
+        "delay_count": {
+            "label": "Délai",
+            "description": "Nombre de jours avant échéance.",
+            "help": ""
+        },
+        "type": {
+            "label": "Type d'échéance",
+            "description": "Les délais sont échelonnés sauf le dernier (facture définitive).",
+            "selection": {
+                "installment": "acompte",
+                "invoice": "facture"
+            },
+            "help": ""
+        },
+        "is_balance_invoice": {
+            "label": "Facture de solde",
+            "description": "La facture finale peut être générée directement.",
+            "help": ""
+        },
+        "amount_share": {
+            "label": "Part du paiement",
+            "description": "Part du paiement sur le montant total dû.",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Date Limite de Paiement",
+            "description": "",
+            "layout": {
+                "section.payment_section": {
+                    "label": "Détails"
+                },
+                "section.fundings_section": {
+                    "label": "Financements"
+                }
+            }
+        },
+        "list.default": {
+            "name": "Dates Limite de Paiement",
+            "description": "Liste des Dates limite de paiement.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

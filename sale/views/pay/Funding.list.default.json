@@ -1,0 +1,37 @@
+{
+    "name": "Fundings",
+    "description": "This view is intended for displaying the list of fundings.",
+    "access": {
+        "groups": ["sale.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "due_date",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "type",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "label": "Amount Due",
+                "value": "due_amount",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "is_paid",
+                "width": "10%"
+            }
+        ]
+    }
+}

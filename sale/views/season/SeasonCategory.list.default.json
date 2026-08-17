@@ -1,0 +1,21 @@
+{
+    "name": "Season Categories",
+    "description": "This view is intended for displaying the list of season categories.",
+    "access": {
+        "groups": ["sale.default.admin"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "seasons_ids",
+                "width": "20%"
+            }
+        ]
+    }
+}

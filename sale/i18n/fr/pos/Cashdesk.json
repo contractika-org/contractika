@@ -1,0 +1,25 @@
+{
+	"name": "Caisse",
+	"plural": "Caisses",
+	"description": "",
+	"model": {
+		"name": {
+			"label": "Nom",
+			"description": "Nom du caissier.",
+			"help": ""
+		}
+	},
+	"view": {
+		"form.default": {
+			"name": "Caisse",
+			"description": "",
+			"layout": {}
+		},
+		"list.default": {
+			"name": "Caisses",
+			"description": "Liste des caisses.",
+			"layout": {}
+		}
+	},
+	"error": {}
+}

@@ -1,0 +1,22 @@
+{
+    "name": "PoS menu",
+    "access": {
+        "groups": ["pos.default.user"]
+    },
+    "layout": {
+        "items": [
+            {
+                "id": "item.home",
+                "label": "Home",
+                "description": "",
+                "icon": "menu_book",
+                "type": "entry",
+                "route": "/",
+                "context": {
+                    "entity": "lodging\\sale\\pos\\CashdeskSession",
+                    "view": "dashboard.default"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,126 @@
+{
+    "name": "Produit",
+    "plural": "Produits",
+    "description": "",
+    "model": {
+        "name": {
+            "label": "Identification",
+            "description": "Nom complet (calculé: libellé + SKU).",
+            "help": ""
+        },
+        "label": {
+            "label": "Libellé",
+            "description": "Mnémo pour identifier le produit (doublons autorisés).",
+            "help": ""
+        },
+        "sku": {
+            "label": "Sku",
+            "description": "Code unique pour référence interne (Stock Keeping Unit).",
+            "help": ""
+        },
+        "ean": {
+            "label": "EAN",
+            "description": "Code IAN/EAN pour la génération de codes-barres.",
+            "help": ""
+        },
+        "description": {
+            "label": "Description",
+            "description": "Description du produit variant (spécificités).",
+            "help": ""
+        },
+        "product_model_id": {
+            "label": "Modèle de produit",
+            "description": "Modèle de produit du variant.",
+            "help": ""
+        },
+        "prices_ids": {
+            "label": "Prix",
+            "description": "Liste de  prix  liés au produit.",
+            "help": ""
+        },
+        "is_pack": {
+            "label": "Pack",
+            "description": "Contient d'autres produits.",
+            "help": ""
+        },
+        "has_own_price": {
+            "label": "A son propre prix",
+            "description": "Pack avec prix propre.",
+            "help": ""
+        },
+        "family_id": {
+            "label": "Famille",
+            "description": "Famille à laquelle appartient le produit.",
+            "help": ""
+        },
+        "can_buy": {
+            "label": "Peut être acheté",
+            "description": "Ce produit peut-il être acheté ?",
+            "help": ""
+        },
+        "can_sell": {
+            "label": "Peut être vendu",
+            "description": "Produit visible et sélectionnable ?",
+            "help": ""
+        },
+        "stat_section_id": {
+            "label": "Statistiques",
+            "description": "Section statistique associée au produit.",
+            "help": ""
+        },
+        "pack_lines_ids": {
+            "label": "Produits du pack",
+            "description": "Liste des produits du pack.",
+            "help": ""
+        },
+        "product_attributes_ids": {
+            "label": "Attributs",
+            "description": "Attributs définis pour le produit.",
+            "help": ""
+        },
+        "groups_ids": {
+            "label": "Groupes",
+            "description": "Groupes de produits.",
+            "help": ""
+        },
+        "has_age_range": {
+            "label": "Tranche d'âge?",
+            "description": "Assigné à une tranche d'âge spécifique.",
+            "help": ""
+        },
+        "age_range_id": {
+            "label": "Age (tranche)",
+            "description": "Tranche d'âge cible du produit.",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Produit",
+            "description": "Un produit est une variante de modèle de produit (template). Il y a toujours au moins un produit pour un modèle de produit donné.",
+            "layout": {
+                "section.products_Section": {
+                    "label": "Détails"
+                },
+                "section.prices_section": {
+                    "label": "Prix"
+                },
+                "section.attributes": {
+                    "label": "Attributs"
+                },
+                "section.groups": {
+                    "label": "Groupes"
+                },
+                "section.pack_lines": {
+                    "label": "Produits du pack"
+                }
+            }
+        },
+        "list.default": {
+            "name": "Produits",
+            "description": "Liste de toutes les variantes de produits.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

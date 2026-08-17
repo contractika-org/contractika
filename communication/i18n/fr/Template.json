@@ -1,0 +1,45 @@
+{
+    "name": "Modèle",
+    "plural": "Modèles",
+    "description": "",
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Code mnémo du modèle.",
+            "help": ""
+        },
+        "category_id": {
+            "label": "Catégorie",
+            "description": "La catégorie à laquelle appartient le modèle.",
+            "help": ""
+        },
+        "type": {
+            "label": "Type",
+            "description": "Le contexte auquel le modèle est destiné.",
+            "selection": {
+                "quote": "devis",
+                "contract": "contrat",
+                "invoice": "facture",
+                "option": "option"
+            },
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Modèle",
+            "description": "Les modèles sont utilisés dans la communication et contiennent plusieurs catégories.",
+            "layout": {
+                "template.content": {
+                    "label": "Contenu"
+                }
+            }
+        },
+        "list.default": {
+            "name": "Liste des Modèles",
+            "description": "Liste des modèles.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

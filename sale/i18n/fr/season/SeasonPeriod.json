@@ -1,0 +1,50 @@
+{
+    "name": "Période de la saison",
+    "plural": "Périodes de la saison",
+    "description": "Les saisons de l'année.",
+    "model": {
+		"season_id": {
+			"label": "Saison",
+			"description": "Saison relative à la période.",
+			"help": ""
+		},
+        "date_from": {
+            "label": "Valide du",
+            "description": "Date (incluse) de début de la saison.",
+            "help": ""
+        },
+        "date_to": {
+            "label": "Jusqu'au",
+            "description": "Date (incluse) à laquelle la saison se termine.",
+            "help": ""
+        },
+        "month": {
+            "label": "Mois",
+            "description": "Le mois du premier jour de la période.",
+            "help": ""
+        },
+        "year": {
+            "label": "Année",
+            "description": "L'année pour laquelle s'applique la période.",
+            "help": ""
+        },
+        "season_type_id": {
+            "label": "Type",
+            "description": "Le type lié au volume de fréquentation.",
+            "help": "Le type lié au volume de fréquentation (basse saison, moyenne saison, ...)."
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Période de la saison",
+            "description": "",
+            "layout": {}
+        },
+        "list.default": {
+            "name": "Période de la saison",
+            "description": "Liste des périodes de la saison.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

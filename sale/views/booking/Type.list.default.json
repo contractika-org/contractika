@@ -1,0 +1,15 @@
+{
+    "name": "Types",
+    "access": {
+        "groups": ["booking.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",            
+                "value": "name",
+                "width": "5%"
+            }
+        ]
+    }
+}

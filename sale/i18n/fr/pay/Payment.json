@@ -1,0 +1,90 @@
+{
+    "name": "Paiement",
+    "plural": "Paiements",
+    "description": "",
+    "model": {
+        "partner_id": {
+            "label": "Client",
+            "description": "Client de la réservation associée au paiement.",
+            "help": ""
+        },
+        "amount": {
+            "label": "Montant",
+            "description": "Montant assigné au paiement.",
+            "help": ""
+        },
+        "communication": {
+            "label": "Communication",
+            "description": "Message du payeur.",
+            "help": ""
+        },
+        "receipt_date": {
+            "label": "Date de réception",
+            "description": "Heure de réception du paiement.",
+            "help": ""
+        },
+        "payment_origin": {
+            "label": "Origine de paiment",
+            "description": "Origine de l'argent reçu.",
+            "selection": {
+                "cashdesk": "Caisse",
+                "bank": "Banque"
+            },
+            "help": ""
+        },
+        "payment_method": {
+            "label": "Mode de paiement",
+            "description": "Le mode de paiement utilisé.",
+            "selection": {
+                "voucher": "Chèque cadeau (voucher)",
+                "cash": "Espèces",
+                "bank_card": "Carte bancaire"
+            },
+            "help": ""
+        },
+        "operation_id": {
+            "label": "Operation",
+            "description": "L'opération à laquelle se rapporte le paiement.",
+            "help": ""
+        },
+        "statement_line_id": {
+            "label": "Ligne d'extrait'",
+            "description": "La ligne de relevé bancaire à laquelle se rapporte le paiement.",
+            "help": ""
+        },
+        "voucher_ref": {
+            "label": "Référence du voucher",
+            "description": "La référence du chèque utilisé pour le paiement.",
+            "help": ""
+        },
+        "funding_id": {
+            "label": "Financement",
+            "description": "Financement de réservation lié au paiement.",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Paiement",
+            "description": "",
+            "layout": {
+                "section.payment_section": {
+                    "label": "Détails"
+                },
+                "section.fundings_section": {
+                    "label": "Financements"
+                }
+            }            
+        },
+        "list.default": {
+            "name": "Paiements",
+            "description": "Liste des paiements.",
+            "layout": {}
+        }
+    },
+    "error": {
+        "amount": {
+            "excessive_amount": "Le montant du paiement ne peut pas être supérieur à celui de la ligne d'extrait."
+        }
+    }
+}

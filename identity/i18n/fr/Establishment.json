@@ -1,0 +1,98 @@
+{
+    "name": "Unité d'établissement",
+    "plural": "Unités d'établissement",
+    "description": "Une entreprise ou une autre organisation, ou le lieu où une organisation exerce ses activités.",
+
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Nom de l'établissement.",
+            "help": ""
+        },
+        "organisation_id": {
+            "label": "Organisation",
+            "description": "L'organisation à laquelle appartient l'établissement.",
+            "help": ""
+        },
+        "phone": {
+            "label": "Téléphone",
+            "description": "Numéro de téléphone de contact officiel.",
+            "help": ""
+        },
+        "email": {
+            "label": "Email",
+            "description": "Adresse e-mail de contact officielle.",
+            "help": ""
+        },
+        "address_street": {
+            "label": "Rue",
+            "description": "Rue et numéro de l'adresse d'établissement.",
+            "help": ""
+        },
+        "address_dispatch": {
+            "label": "Complément d'adresse",
+            "description": "Infos optionnelles pour l'envoi du courrier.",
+            "help": "Infos optionnelles pour l'envoi du courrier (appartement, box, étage, ...)."
+        },
+        "address_city": {
+            "label": "Ville",
+            "description": "Ville dans laquelle se situe l'établissement.",
+            "help": ""
+        },
+        "address_zip": {
+            "label": "Code postal",
+            "description": "Code Postal.",
+            "help": ""
+        },
+        "address_state": {
+            "label": "État",
+            "description": "État ou région.",
+            "help": ""
+        },
+        "address_country": {
+            "label": "Pays",
+            "description": "Pays dans lequel se situe l'établissement.",
+            "help": ""
+        },
+        "registration_number": {
+            "label": "Numéro d'enregistrement",
+            "description": "Numéro d'unité de l'établissement.",
+            "help": ""
+        },
+        "bank_account_iban": {
+            "label": "IBAN",
+            "description": "Numéro de compte bancaire au format international.",
+            "help": ""
+        },
+        "bank_account_bic": {
+            "label": "BIC",
+            "description": "Numéro d'identification de la banque.",
+            "help": ""
+        },
+        "analytic_section_id":{
+            "label":"Section analytique", 
+            "description": "Code de la section analytique associée.",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Unité d'établissement",
+            "description": "Formulaire de base pour afficher un Etablissement.",
+            "layout": {}
+        },
+        "list.default": {
+            "name": "Unités d'établissement",
+            "description": "Liste de base des établissements existants.",
+            "layout": {}
+        }
+    },
+    "error": {
+        "bank_account_iban": {
+            "invalid_account": "Le compte doit être un numéro IBAN valide."
+        },
+        "bank_account_bic": {
+            "invalid_code": "L'identifiant doit être un code BIC valide."
+        }
+    }
+}

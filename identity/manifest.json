@@ -1,0 +1,6 @@
+{
+    "name": "identity",
+    "depends_on": [
+        "core"
+    ]
+}

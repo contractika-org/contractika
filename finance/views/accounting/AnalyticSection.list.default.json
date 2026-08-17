@@ -1,0 +1,31 @@
+{
+    "name": "Analytic Section List",
+    "description": "This view is intented for displaying the analytic section.",
+    "access": {
+        "groups": ["finance.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "code",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "label",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "analytic_chart_id",
+                "width": "20%"
+            }
+        ]
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "name": "Contacts",
+    "description": "Listing of existing contacts Partners.",
+    "access": {
+        "groups": ["booking.default.user", "sale.default.user"]
+     },
+    "domain": ["relationship", "=", "contact"],
+    "layout": {
+        "items": [
+            {
+                "type": "field",            
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",            
+                "value": "partner_position",
+                "width": "20%"
+            },    
+            {
+                "type": "field",            
+                "value": "relationship",
+                "width": "20%"
+            }
+        ]
+    }
+}

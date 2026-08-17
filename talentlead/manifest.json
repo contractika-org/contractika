@@ -1,0 +1,5 @@
+{
+    "name": "Talent Lead",
+    "depends_on": ["core","identity","sale"],
+    "apps": ["talentlead"]
+}

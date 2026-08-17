@@ -1,0 +1,83 @@
+{
+    "name": "Relation",
+    "plural": "Relations",
+    "description": "Les relations sont un lien entre deux Identités (contact, employé, client, fournisseur, payeur, autre).",
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Nom affiché du partenaire (lié au nom de l'identité).",
+            "help": ""
+        },
+        "owner_identity_id": {
+            "label": "Organisation",
+            "description": "L'organisation dont l'identité ciblée est partenaire.",
+            "help": ""
+        },
+        "partner_identity_id": {
+            "label": "Identité Partenaire",
+            "description": "L'identité ciblée (le partenaire).",
+            "help": ""
+        },
+        "partner_organisation_id": {
+            "label": "Organisation du partenaire",
+            "description": "Organisation au sein de laquelle travaille le contact.",
+            "help": ""
+        },
+        "partner_position": {
+            "label": "Fonction",
+            "description": "Rôle du contact au sein de l'organisation.",
+            "help": "Rôle du contact au sein de l'organisation (ex. directeur, PDG, responsable régional)."
+        },
+        "customer_external_ref": {
+            "label": "Référence externe",
+            "description": "Identifiant du client via référence externe.",
+            "help": "Identifiant du client via référence externe (fournisseur ou autre)."
+        },
+        "relationship": {
+            "label": "Relation",
+            "description": "Le genre de partenariat qui existe entre les identités.",
+            "selection": {
+                "contact": "contact",
+                "employee": "employé",
+                "customer": "client",
+                "provider": "fournisseur",
+                "payer": "payeur",
+                "other": "autre"
+            },
+            "help": ""
+        },
+        "lang_id": {
+            "label": "Langue",
+            "description": "Langue du client (en lien avec son identité).",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Relation",
+            "description": "Formulaire de base pour afficher un partenaire",
+            "layout": {}
+        },
+        "list.default": {
+            "name": "Relations",
+            "description": "Liste de base des partenaires existants.",
+            "layout": {}
+        },
+        "form.customer": {
+            "name": "Client",
+            "description": "Formulaire de base pour afficher un client (Partenaire)",
+            "layout": {}
+        },
+        "list.customer": {
+            "name": "Clients",
+            "description": "Liste de base des clients existants.",
+            "layout": {}
+        },
+        "list.contact": {
+            "name": "Contacts",
+            "description": "Liste des contacts existants Partenaires.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

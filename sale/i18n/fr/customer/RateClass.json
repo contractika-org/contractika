@@ -1,0 +1,30 @@
+{
+	"name": "Catégorie tarifaire",
+	"plural": "Catégories tarifaire",
+	"description": "",
+	"model": {
+		"name": {
+			"label": "Identifiant",
+			"description": "Mnémo d'identification de la catégorie (T1-7).",
+			"help": ""
+		},
+		"description": {
+			"label": "Description",
+			"description": "Brève description de la catégorie tarifaire.",
+			"help": ""
+		}
+	},
+	"view": {
+		"form.default": {
+			"name": "Catégorie tarifaire",
+			"description": "",
+			"layout": {}
+		},
+		"list.default": {
+			"name": "Liste de catégories tarifaire",
+			"description": "Liste des catégories tarifaire.",
+			"layout": {}
+		}
+	},
+	"error": {}
+}

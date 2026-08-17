@@ -1,0 +1,46 @@
+{
+    "name": "Payment Deadlines",
+    "description": "This view is intended for displaying the list of payment deadlines.",
+    "access": {
+        "groups": ["sale.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "type",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "is_balance_invoice",
+                "width": "15%"
+            },            
+            {
+                "type": "field",
+                "value": "delay_count",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "delay_from_event",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "delay_from_event_offset",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "amount_share",
+                "width": "20%"
+            }
+        ]
+    }
+}

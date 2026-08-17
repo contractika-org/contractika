@@ -1,0 +1,5 @@
+.vscode
+.browserslistrc
+.editorconfig
+/core
+/demo

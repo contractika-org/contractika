@@ -1,0 +1,36 @@
+{
+    "name": "Addresses",
+    "description": "This view is intended for displaying basic listing of existing Addresses.",
+    "access": {
+        "groups": ["booking.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",            
+                "value": "identity_name",
+                "width": "20%"
+            },
+            {
+                "type": "field",            
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",            
+                "value": "role",
+                "width": "20%"
+            },
+            {
+                "type": "field",            
+                "value": "address_street",
+                "width": "20%"
+            },
+            {
+                "type": "field",            
+                "value": "address_city",
+                "width": "20%"
+            }
+        ]
+    }
+}

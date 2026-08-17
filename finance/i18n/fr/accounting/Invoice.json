@@ -1,0 +1,111 @@
+{
+    "name": "Facture",
+    "plural": "Factures",
+    "description": "Une facture est un document juridique délivré à un acheteur, qui se rapporte à une vente, et fait partie du système comptable.",
+    "model": {
+        "name": {
+            "label": "Numéro",
+            "description": "Identification de la facture.",
+            "help": ""
+        },
+        "customer_ref": {
+            "label": "Référence client",
+            "description": "Référence à indiquer sur la facture (si renseignée par le client).",
+            "help": ""
+        },
+        "status": {
+            "label": "Statut",
+            "description": "La situation à un moment donné au cours d'un processus.",
+            "selection": {
+                "proforma": "pro forma",
+                "invoice": "facture",
+                "cancelled": "annulée"
+            },
+            "help": ""
+        },
+        "type": {
+            "label": "Type",
+            "description": "Type de document comptable.",
+            "selection": {
+                "invoice": "facture",
+                "credit_note": "note de crédit"
+            },
+            "help": ""
+        },
+        "number": {
+            "label": "Numéro de la facture",
+            "description": "Numéro de la facture, selon la logique d'organisation.",
+            "help": "Numéro de la facture, selon la logique d'organisation."
+        },
+        "is_paid": {
+            "label": "Payée",
+            "description": "Indicateur pour marquer la facture comme entièrement payée.",
+            "help": ""
+        },
+        "date": {
+            "label": "Date",
+            "description": "Date de création de la facture.",
+            "help": ""
+        },
+        "partner_id": {
+            "label": "Destinataire",
+            "description": "Organisation responsable de payer la facture.",
+            "help": "Client ou organisation responsable de payer les biens et services liés à la vente."
+        },
+        "organisation_id": {
+            "label": "Organisation émettrice",
+            "description": "Organisation à l'origine de la facture.",
+            "help": ""
+        },
+        "price": {
+            "label": "Prix",
+            "description": "Montant TVAC de la facture.",
+            "help": ""
+        },
+        "total": {
+            "label": "Total",
+            "description": "Total HTVA de la facture.",
+            "help": ""
+        },
+        "due_date": {
+            "label": "Échéance",
+            "description": "Date limité avant laquelle le montant est dû.",
+            "help": ""
+        },
+        "invoice_lines_ids": {
+            "label": "Lignes de facture",
+            "description": "Lignes de vente de la facture.",
+            "help": ""
+        },
+        "accounting_entries_ids": {
+            "label": "Écritures comptables",
+            "description": "Lignes d'écruture comptables de la facture.",
+            "help": ""
+        },
+        "reversed_invoice_id": {
+            "label": "Note de crédit",
+            "description": "La note de crédit associée à la facture.",
+            "help": ""
+        }        
+    },
+    "view": {
+        "form.default": {
+            "name": "Facture",
+            "description": "Une facture est un document juridique délivré par un vendeur à un acheteur qui se rapporte à une vente et fait partie du système comptable.",
+            "layout": {
+                "sections.invoice.lines": {
+                    "label": "Lignes de facture"
+                },
+                "sections.invoice.entries": {
+                    "label": "Écritures comptables"
+                }
+            }
+        },
+        "list.default": {
+            "name": "Factures",
+            "description": "Liste des factures.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

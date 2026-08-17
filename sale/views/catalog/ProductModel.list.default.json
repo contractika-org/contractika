@@ -1,0 +1,42 @@
+{
+    "name": "Product Models",
+    "description": "This view is intended for displaying the list of product models.",
+    "access": {
+        "groups": ["pos.default.user", "sale.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "type",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "family_id",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "can_sell",
+                "width": "5%"
+            },
+            {
+                "type": "field",
+                "value": "is_pack",
+                "width": "5%"
+            },
+            {
+                "type": "field",
+                "value": "stat_section_id",
+                "width": "5%"
+            }            
+            
+        ]
+    }
+}

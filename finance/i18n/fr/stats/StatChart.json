@@ -1,0 +1,34 @@
+{
+    "name": "Plan statistique",
+    "plural": "Plan statistique",
+    "description": "Le plan statistique est une liste des groupes statistiques de l'entreprise.",
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Nom du Plan statistique.",
+            "help": ""
+        },
+        "organisation_id": {
+            "label": "Organisation",
+            "description": "L'organisation à laquelle appartient l'organigramme.",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Plan statistique",
+            "description": "Formulaire par défaut pour le plan statistique avec tous les champs.",
+            "layout": {
+                "section.accounting_rules_section": {
+                    "label": "Détails"
+                }
+            }
+        },
+        "list.default": {
+            "name": "Liste de plan statistique",
+            "description": "Cette vue est destinée à afficher les plans statistiques.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

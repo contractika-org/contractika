@@ -1,0 +1,4 @@
+{
+    "name": "calendar",
+    "depends_on": ["core"]
+}

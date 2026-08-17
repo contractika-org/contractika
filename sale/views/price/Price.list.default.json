@@ -1,0 +1,67 @@
+{
+    "name": "Price List",
+    "description": "This view is intended for displaying the list of prices.",
+    "access": {
+        "groups": ["sale.default.user"]
+    },
+    "header": {
+        "actions": {
+            "ACTION.CREATE" : [
+                {
+                    "view": "form.create",
+                    "description": "overload form to use for price creation"
+                }
+            ]
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "25%"
+            },
+            {
+                "type": "field",
+                "label": "Product",
+                "value": "product_id",
+                "width": "25%"
+            },
+            {
+                "type": "field",
+                "value": "price_list_id",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "price",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "vat_rate",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "price_vat",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "is_active",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "accounting_rule_id",
+                "width": "10%",
+                "sortable": true
+            }
+        ]
+    }
+}

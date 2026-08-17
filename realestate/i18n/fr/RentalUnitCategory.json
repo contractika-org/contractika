@@ -1,0 +1,30 @@
+{
+	"name": "Catégorie d'unité locative",
+	"plural": "Catégories d'unités locative",
+	"description": "Une unité locative est une ressource qui peut être louée à un client.",
+	"model": {
+		"name": {
+			"label": "Nom",
+			"description": "Code abrégé de la catégorie d'unité locatif.",
+			"help": ""
+		},
+        "description": {
+			"label": "Description",
+			"description": "Raison de la catégorisation des logements locatifs.",
+			"help": ""
+		}
+	},
+	"view": {
+		"form.default": {
+			"name": "Catégorie d'unité locative",
+			"description": "Une unité locative est une ressource qui peut être louée à un client.",
+			"layout": {}
+		},
+		"list.default": {
+			"name": "Catégories d'unité locative",
+			"description": "Liste des logements locatifs.",
+			"layout": {}
+		}
+	},
+	"error": {}
+}

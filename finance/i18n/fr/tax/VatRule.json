@@ -1,0 +1,39 @@
+{
+	"name": "Règle de TVA",
+	"plural": "Règles de TVA",
+	"description": "Les règles de TVA permettent de spécifier quel taux de TVA s'applique pour un type d'opération donné.",
+	"model": {
+		"name": {
+			"label": "Nom",
+			"description": "Nom de la règle TVA.",
+			"help": ""
+		},
+		"rate": {
+			"label": "Taux",
+			"description": "Taux de TVA de la règle.",
+			"help": ""
+		},
+		"type": {
+			"label": "Type",
+			"description": "Type d'opération auquel la règle se rapporte.",
+			"selection": {
+				"purchase": "achat",
+				"sale": "vente"
+			},
+			"help": ""
+		}
+	},
+	"view": {
+		"form.default": {
+			"name": "Règles de TVA",
+			"description": "Les règles de TVA permettent de spécifier quel taux de TVA s'applique pour un type d'opération donné.",
+			"layout": {}
+		},
+		"list.default": {
+			"name": "Liste de Règles de TVA",
+			"description": "Cette vue est destinée à afficher les règles de TVA.",
+			"layout": {}
+		}
+	},
+	"error": {}
+}

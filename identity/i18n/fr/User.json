@@ -1,0 +1,30 @@
+{
+	"name": "Utilisateur",
+	"plural": "Utilisateurs",
+	"description": "Les utilisateurs peuvent se connecter, être assignés à des groupes et recevoir des permissions spécifiques.",
+	"model": {
+		"name": {
+			"label": "Nom de l'utilisateur",
+			"description": "Le nom d'affichage de l'utilisateur.",
+			"help": ""
+		},
+		"identity_id": {
+			"label": "Identité",
+			"description": "Le contact lié à l'utilisateur.",
+			"help": ""
+		}
+	},
+	"view": {
+		"form.default": {
+			"name": "Utilisateur",
+			"description": "Formulaire de base pour afficher un utilisateur.",
+			"layout": {}
+		},
+		"list.default": {
+			"name": "Utilisateurs",
+			"description": "Liste de base des utilisateurs existants.",
+			"layout": {}
+		}
+	},
+	"error": {}
+}

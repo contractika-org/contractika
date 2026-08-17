@@ -1,0 +1,37 @@
+{
+    "name": "Conditions",
+    "description": "This view is intended for displaying the list of conditions.",
+    "access": {
+        "groups": ["sale.default.user"]
+     },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "operand",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "operator",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "value": "value",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "label": "Autosale Line",
+                "value": "autosale_line_id",
+                "width": "20%"
+            }
+        ]
+    }
+}

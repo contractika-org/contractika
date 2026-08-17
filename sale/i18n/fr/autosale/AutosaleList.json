@@ -1,0 +1,52 @@
+{
+	"name": "Liste de produits automatiques",
+	"plural": "Listes de produits automatiques",
+	"description": "",
+	"model": {
+		"name": {
+			"label": "Identification",
+			"description": "Contexte dans lequel la remise est destinée à être utilisée.",
+			"help": ""
+		},
+		"date_from": {
+			"label": "Du",
+			"description": "Date (incluse) de début de la saison.",
+			"help": ""
+		},
+		"date_to": {
+			"label": "Au",
+			"description": "Date (exclue) à laquelle la saison se termine.",
+			"help": ""
+		},
+		"autosale_lines_ids": {
+			"label": "Produits automatiques",
+			"description": "Les produits relatifs à la liste.",
+			"help": ""
+		},
+		"autosale_list_category_id": {
+			"label": "Catégorie",
+			"description": "La catégorie de liste de produits automatiques de la liste.",
+			"help": ""
+		}
+	},
+	"view": {
+		"form.default": {
+			"name": "Liste de catégorie de vente automatique",
+			"description": "",
+			"layout": {
+				"section.autosale_list_section": {
+					"label": "Détails"
+				},
+				"section.autosale_lines_section": {
+					"label": "Produits automatiques"
+				}
+			}
+		},
+		"list.default": {
+			"name": "Listes de catégorie de vente automatique",
+			"description": "Liste des ventes automatiques.",
+			"layout": {}
+		}
+	},
+	"error": {}
+}

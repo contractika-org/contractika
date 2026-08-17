@@ -1,0 +1,35 @@
+{
+	"name": "Type de client",
+	"plural": "Types de client",
+	"description": "",
+	"model": {
+		"code": {
+			"label": "Identifiant",
+			"description": "Mnémonique du type de client.",
+			"help": ""
+		},
+		"description": {
+			"label": "Description",
+			"description": "Brève description du type de client.",
+			"help": ""
+		},
+		"rate_class_id": {
+			"label": "Catégorie tarifaire",
+			"description": "La catégorie tarifaire qui s'applique à ce type de client.",
+			"help": ""
+		}
+	},
+	"view": {
+		"form.default": {
+			"name": "Type de client",
+			"description": "",
+			"layout": {}
+		},
+		"list.default": {
+			"name": "Liste de Types de client",
+			"description": "Liste des types de client.",
+			"layout": {}
+		}
+	},
+	"error": {}
+}

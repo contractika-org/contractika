@@ -1,0 +1,74 @@
+{
+    "name": "Prix",
+    "plural": "Prix",
+    "description": "Le prix du produit.",
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Le nom d'affichage du prix.",
+            "help": ""
+        },
+        "price": {
+            "label": "Prix HTVA",
+            "description": "Prix hors taxes.",
+            "help": ""
+        },
+        "price_vat": {
+            "label": "Prix TVAC",
+            "description": "Prix taxes incluses.",
+            "help": ""
+        },
+        "vat_rate": {
+            "label": "Taux TVA",
+            "description": "Taux de TVA appliqué au prix.",
+            "help": ""
+        },        
+        "type": {
+            "label": "Type",
+            "description": "Type de prix.",
+            "selection": {
+                "direct": "direct",
+                "computed": "calculé"
+            },
+            "help": ""
+        },
+        "calculation_method_id": {
+            "label": "Méthode de calcul",
+            "description": "Méthode à utiliser pour le calcul des prix.",
+            "help": ""
+        },
+        "price_list_id": {
+            "label": "Liste de prix",
+            "description": "La liste de prix à laquelle appartient le prix.",
+            "help": ""
+        },
+        "accounting_rule_id": {
+            "label": "Règle comptable",
+            "description": "Règle comptable de vente. Elle remplace la règle du produit.",
+            "help": "Règle comptable de vente. Si défini, remplace la règle du produit."
+        },
+        "product_id": {
+            "label": "Produit",
+            "description": "Le produit (sku) auquel le prix s'applique.",
+            "help": ""
+        },
+		"is_active": {
+			"label": "Actif?",
+			"description": "Le prix est en cours d'application.",
+			"help": ""
+		}
+    },
+    "view": {
+        "form.default": {
+            "name": "Prix",
+            "description": "",
+            "layout": {}
+        },
+        "list.default": {
+            "name": "Liste de Prix",
+            "description": "Liste des prix.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

@@ -1,0 +1,9 @@
+{
+    "name": "sale",
+    "depends_on": [
+        "core",
+        "identity",
+        "finance"
+    ],
+    "apps": ["sale", "pos"]
+}

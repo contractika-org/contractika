@@ -1,0 +1,66 @@
+{
+    "name": "Paiement de commande",
+    "plural": "Paiements de commandes",
+    "description": "",
+    "model": {
+        "name": {
+            "label": "Name",
+            "description": "Identifant du paiement.",
+            "help": ""
+        },
+        "order_id": {
+            "label": "Commande",
+            "description": "The order the line relates to.",
+            "help": ""
+        },
+        "status": {
+            "label": "Statut",
+            "description": "Description.",
+            "selection": {
+                "pending": "en cours",
+                "paid": "payé"
+            },
+            "help": ""
+        },
+        "order_lines_ids": {
+            "label": "Lignes de commande",
+            "description": "Les lignes de commande sélectionnées pour le paiement.",
+            "help": ""
+        },
+        "order_payment_parts_ids": {
+            "label": "Lignes de paiement",
+            "description": "Les lignes, avec leur mode de paiement, composants le paiement.",
+            "help": "Lignes, avec leur mode de paiement, composants le paiement."
+        },
+        "total_due": {
+            "label": "Total dû",
+            "description": "Montant total (TTC) des lignes de commande sélectionnées.",
+            "help": ""
+        },
+        "total_paid": {
+            "label": "Total payé",
+            "description": "Montant total reçu.",
+            "help": ""
+        }                
+    },
+    "view": {
+        "form.default": {
+            "layout": {
+                "section.order_lines": {
+                    "label": "Lignes de commande"
+                },
+                "section.payment_parts": {
+                    "label": "Lignes de paiement"
+                }
+            },
+            "actions": {
+                "action.validate": {
+                    "description": "Le paiement sera marqué comme payé et les operations de caisse seront créées."
+                }
+            }
+        }
+    },
+    "error": {
+
+    }
+}

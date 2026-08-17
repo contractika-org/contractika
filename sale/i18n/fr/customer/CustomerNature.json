@@ -1,0 +1,45 @@
+{
+    "name": "Nature client",
+    "plural": "Natures client",
+    "description": "",
+    "model": {
+        "name": {
+            "label": "Nom",
+            "description": "Description de la nature client.",
+            "help": ""
+        },
+        "code": {
+            "label": "Code",
+            "description": "Mnémonique de la nature client.",
+            "help": ""
+        },
+        "description": {
+            "label": "Description",
+            "description": "Brève description de la nature.",
+            "help": ""
+        },
+        "rate_class_id": {
+            "label": "Catégorie tarifaire",
+            "description": "La catégorie tarifaire qui s'applique à cette nature.",
+            "help": ""
+        },
+        "customer_type_id": {
+            "label": "Type de client",
+            "description": "Le type de client qui s'applique à cette nature.",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Nature client",
+            "description": "",
+            "layout": {}
+        },
+        "list.default": {
+            "name": "Liste de Nature client",
+            "description": "Liste des natures de clients.",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

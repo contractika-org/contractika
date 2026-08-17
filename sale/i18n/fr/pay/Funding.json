@@ -1,0 +1,95 @@
+{
+    "name": "Financement",
+    "plural": "FinancementS",
+    "description": "",
+    "model": {
+        "description": {
+            "label": "Description",
+            "description": "Description complémentaire pour identifier le financement.",
+            "help": ""
+        },
+        "payments_ids": {
+            "label": "Paiements",
+            "description": "Liste de paiements.",
+            "help": ""
+        },
+        "type": {
+            "label": "Type",
+            "description": "Les délais sont échelonnés sauf le dernier : facture définitive.",
+            "selection": {
+                "installment": "versement",
+                "invoice": "facture"
+            },
+            "help": ""
+        },
+        "due_amount": {
+            "label": "Montant",
+            "description": "Montant total à recevoir.",
+            "help": ""
+        },
+        "paid_amount": {
+            "label": "Reçu",
+            "description": "Montant payé par le client.",
+            "help": ""
+        },
+        "amount_share": {
+            "label": "Part",
+            "description": "Part du financement sur le prix total.",
+            "help": ""
+        },
+        "due_date": {
+            "label": "Date d'échéance",
+            "description": "Date limite avant laquelle le financement est attendu.",
+            "help": ""
+        },
+        "issue_date": {
+            "label": "Date d'émission",
+            "description": "Date à partir de laquelle la demande de paiment doit être émise.",
+            "help": ""
+        },
+        "is_paid": {
+            "label": "Payé",
+            "description": "Le paiement intégralement reçu ?",
+            "help": ""
+        },
+        "payment_deadline_id": {
+            "label": "Modèle d'échéance",
+            "description": "Le modèle de date limite utilisé pour créer le financement.",
+            "help": "Le modèle de date limite utilisé pour créer le financement, le cas échéant."
+        },
+        "invoice_id": {
+            "label": "Facture associée",
+            "description": "La facture visée par le financement, le cas échéant.",
+            "help": ""
+        },
+        "payment_reference": {
+            "label": "Référence",
+            "description": "Communication structurée utilisée pour le paiement.",
+            "help": ""
+        }
+    },
+    "view": {
+        "form.default": {
+            "name": "Financement",
+            "description": "",
+            "layout": {
+                "section.funding_section": {
+                    "label": "Détails"
+                },
+                "section.payments_section": {
+                    "label": "Paiments"
+                }
+            }
+        },
+        "list.default": {
+            "name": "Financements",
+            "description": "Liste des financements.",
+            "layout": {}
+        }
+    },
+    "error": {
+        "errors": {
+            "non_editable": "Un financement déjà payé ne peut plus être modifié."
+        }
+    }
+}
