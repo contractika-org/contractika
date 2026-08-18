@@ -1,0 +1,42 @@
+site_name: Contractika
+site_url: ""
+docs_dir: docs
+repo_name: contractika
+edit_uri: ""
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+plugins:
+  - search
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+nav:
+  - 'Contractika':
+      - 'Vue d'ensemble': 'index.md'
+  - 'Produit':
+      - 'Concepts métier': 'product/concepts.md'
+      - 'Cycle de vie clients et contrats': 'product/customer-contract-lifecycle.md'
+  - 'Architecture':
+      - 'Systèmes intégrés': 'architecture/integrations.md'
+      - 'Synchronisations': 'architecture/synchronization.md'
+  - 'Fonctionnement':
+      - 'Service Accounts': 'operations/service-accounts.md'
+      - 'Reports': 'operations/reports.md'
+      - 'Imports NAV': 'operations/nav-imports.md'
+      - 'Alertes': 'operations/alerts.md'
+  - 'Référence':
+      - 'Points à confirmer': 'reference/points-a-confirmer.md'

@@ -1,0 +1,15 @@
+- 'Contractika':
+    - 'Vue d'ensemble': 'index.md'
+- 'Produit':
+    - 'Concepts métier': 'product/concepts.md'
+    - 'Cycle de vie clients et contrats': 'product/customer-contract-lifecycle.md'
+- 'Architecture':
+    - 'Systèmes intégrés': 'architecture/integrations.md'
+    - 'Synchronisations': 'architecture/synchronization.md'
+- 'Fonctionnement':
+    - 'Service Accounts': 'operations/service-accounts.md'
+    - 'Reports': 'operations/reports.md'
+    - 'Imports NAV': 'operations/nav-imports.md'
+    - 'Alertes': 'operations/alerts.md'
+- 'Référence':
+    - 'Points à confirmer': 'reference/points-a-confirmer.md'
