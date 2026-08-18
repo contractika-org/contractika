@@ -32,9 +32,9 @@ jobs:
       - run:
           name: List files in config directory
           command: ls -la ~/repo/config/
-      # create a config file with Discope specifics
+      # create a config file with Contractika specifics
       - run:
-          name: Create a config file with Discope specifics
+          name: Create a config file with Contractika specifics
           command: |
             echo '{"DEFAULT_LANG": "fr", "ORM_EVENTS_FORCE_ONUPDATE_AT_CREATION": true}' > ~/repo/config/config.json
       # Verify the content of the file
@@ -92,10 +92,10 @@ jobs:
       # create an empty database
       - run: php run.php --do=init_db
       # initialize database with demo data
-      - run: php run.php --do=init_package --package=discope --ignore_platform=true
+      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
       # run test units
       - run: php run.php --do=test_package --package=core
-      - run: php run.php --do=test_package --package=discope
+      - run: php run.php --do=test_package --package=contractika
       # export logs on failure
       - run:
           command: |
@@ -133,9 +133,9 @@ jobs:
       - run:
           name: List files in config directory
           command: ls -la ~/repo/config/
-      # create a config file with Discope specifics
+      # create a config file with Contractika specifics
       - run:
-          name: Create a config file with Discope specifics
+          name: Create a config file with Contractika specifics
           command: |
             echo '{"DEFAULT_LANG": "fr", "ORM_EVENTS_FORCE_ONUPDATE_AT_CREATION": true}' > ~/repo/config/config.json
       # Verify the content of the file
@@ -193,10 +193,10 @@ jobs:
       # create an empty database
       - run: php run.php --do=init_db
       # initialize database with demo data
-      - run: php run.php --do=init_package --package=discope --ignore_platform=true
+      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
       # run test units
       - run: php run.php --do=test_package --package=core
-      - run: php run.php --do=test_package --package=discope
+      - run: php run.php --do=test_package --package=contractika
       # export logs on failure
       - run:
           command: |
@@ -234,9 +234,9 @@ jobs:
       - run:
           name: List files in config directory
           command: ls -la ~/repo/config/
-      # create a config file with Discope specifics
+      # create a config file with Contractika specifics
       - run:
-          name: Create a config file with Discope specifics
+          name: Create a config file with Contractika specifics
           command: |
             echo '{"DEFAULT_LANG": "fr", "ORM_EVENTS_FORCE_ONUPDATE_AT_CREATION": true}' > ~/repo/config/config.json
       # Verify the content of the file
@@ -294,10 +294,10 @@ jobs:
       # create an empty database
       - run: php run.php --do=init_db
       # initialize database with demo data
-      - run: php run.php --do=init_package --package=discope --ignore_platform=true
+      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
       # run test units
       - run: php run.php --do=test_package --package=core
-      - run: php run.php --do=test_package --package=discope
+      - run: php run.php --do=test_package --package=contractika
       # export logs on failure
       - run:
           command: |
@@ -335,9 +335,9 @@ jobs:
       - run:
           name: List files in config directory
           command: ls -la ~/repo/config/
-      # create a config file with Discope specifics
+      # create a config file with Contractika specifics
       - run:
-          name: Create a config file with Discope specifics
+          name: Create a config file with Contractika specifics
           command: |
             echo '{"DEFAULT_LANG": "fr", "ORM_EVENTS_FORCE_ONUPDATE_AT_CREATION": true}' > ~/repo/config/config.json
       # Verify the content of the file
@@ -395,10 +395,10 @@ jobs:
       # create an empty database
       - run: php run.php --do=init_db
       # initialize database with demo data
-      - run: php run.php --do=init_package --package=discope --ignore_platform=true
+      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
       # run test units
       - run: php run.php --do=test_package --package=core
-      - run: php run.php --do=test_package --package=discope
+      - run: php run.php --do=test_package --package=contractika
       # export logs on failure
       - run:
           command: |
