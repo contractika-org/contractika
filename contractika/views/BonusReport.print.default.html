@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<title>Bonus Report</title>
+<style type="text/css">
+@page {
+  margin: 1cm;
+}
+body {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    text-align: justify;
+    width: 100%;
+    padding-top: 20px;
+}
+
+div, table, table tr td {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table thead th {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+div.header,
+div.footer {
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+}
+
+div.inner {
+    height: auto;
+    box-sizing: border-box;
+    border: none;
+}
+
+div.inner p {
+    margin: 0;
+}
+
+div.inner .wrapper {
+    margin: 0px;
+    margin-top: 10px;
+    padding: 0px;
+    border: none;
+    /* page-break-inside: avoid; */
+}
+
+div.inner .wrapper > table, div.inner .wrapper > table tr, div.inner .wrapper > table tr td {
+    page-break-inside: auto;
+}
+
+div.section-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+div.inner .wrapper.trailer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: visible;
+    border-top: solid 1px black;
+    padding-top: 10px;
+}
+
+div.header {
+    top: 0;
+    left: 0;
+    height: 20px;
+}
+
+div.header > table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: separate;
+    border: solid 1px black;
+}
+
+div.footer {
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    overflow: visible;
+    z-index: 200;
+    font-size: 0.8em !important;
+}
+
+hr {
+    page-break-after: always;
+    border: 0;
+    height: 0;
+    visibility: hidden;
+}
+</style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="section-title">Bonus Report {{date_from}} - {{date_to}}</div>
+    </div>
+
+    <div class="footer">
+    </div>
+
+    <div class="inner">
+        <div class="wrapper">
+            <table width="100%" cellpadding="4" cellspacing="0">
+                <thead style="border-bottom: solid 1px black; border-left: 0px; border-right: 0px;">
+                    <tr>
+                        <th width="45%" style="text-align: left; padding-left: 7px;">
+                            Customer
+                        </th>
+                        <th width="10%" style="text-align: center; padding-left: 7px;">
+                            NAV ID
+                        </th>
+                        <th width="20%" style="text-align: center; padding-right: 7px;">
+                            SA Name
+                        </th>
+                        <th width="10%" style="text-align: center; padding-right: 7px;">
+                            SA ID
+                        </th>
+                        <th width="15%" style="text-align: right; padding-right: 7px;">
+                            Total
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for line in lines %}
+                    <tr valign="top">
+                        <td style="text-align: left;">
+                            {{line.customer}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{line.customer_nav_id}}
+                        </td>
+                        <td style="text-align: center; padding-right: 7px;">
+                            {{line.service_account}}
+                        </td>
+                        <td style="text-align: center; padding-right: 7px;">
+                            {{line.service_account_id}}
+                        </td>
+                        <td style="text-align: right; padding-right: 7px;">
+                            {{line.points}}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="wrapper trailer" style="margin-top: -1px;">
+            <table width="100%" style="border: 0px;" cellpadding="4" cellspacing="0">
+                <tr valign="top">
+                    <td width="85%" style="text-align: right; font-size: 14px; ">
+                        <!-- Total points for period -->
+                        TOTAL
+                    </td>
+                    <td width="15%" style="text-align: right; font-size: 14px; font-weight: bold; padding-right: 8px;">
+                        {{total}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

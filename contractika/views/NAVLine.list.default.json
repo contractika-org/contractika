@@ -1,0 +1,139 @@
+{
+    "name": "NAV Lines",
+    "description": "Imported Lines from NAV invoices.",
+    "order": "date",
+    "sort": "asc",
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        },
+        "selection": {
+            "default" : false,
+            "actions" : [
+                {
+                    "id": "header.selection.actions.bulk_reconcile",
+                    "label": "Reconcile",
+                    "icon": "",
+                    "controller": "contractika_navline_bulk-reconcile"
+                },
+                {
+                    "id": "header.selection.actions.bulk_ignore",
+                    "label": "Ignore",
+                    "icon": "",
+                    "controller": "contractika_navline_bulk-ignore"
+                },
+                {
+                    "id": "header.selection.actions.bulk_discrad_alerts",
+                    "label": "Discard alerts",
+                    "icon": "report_off",
+                    "controller": "contractika_navline_bulk-discard-alerts"
+                }
+            ]
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "id",
+                "width": "10%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Customer NAV",
+                "value": "extref_customer",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Customer CT",
+                "value": "customer_id",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Document No",
+                "value": "extref_document_no",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Contract Ref",
+                "value": "extref_description2",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Service Account",
+                "value": "service_account_id",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "date",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "value": "description",
+                "width": "30%"
+            },
+            {
+                "type": "field",
+                "label": "Points",
+                "value": "points",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "label": "Unit Pc",
+                "value": "extref_unit_price",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "label": "Amount",
+                "value": "extref_amount",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "has_error",
+                "width": "10%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "status",
+                "width": "10%",
+                "widget": {
+                    "sortable": true
+                }
+            }
+        ]
+    }
+}

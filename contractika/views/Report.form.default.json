@@ -1,0 +1,210 @@
+{
+    "name": "Report",
+    "description": "Report form.",
+    "header": {
+        "actions": {
+            "ACTION.EDIT": false
+        }
+    },
+    "actions": [
+        {
+            "id": "action.release",
+            "label": "Release",
+            "description": "The report will be released and the service account will be updated. (This action cannot be undone.)",
+            "controller": "contractika_report_do-release",
+            "confirm": true,
+            "visible": ["status", "in", ["pending"]]
+        },
+        {
+            "id": "action.send",
+            "label": "Send",
+            "description": "The PDF version of the report will be embedded into a differed email sent to the Customer's contacts.",
+            "controller": "contractika_report_do-send",
+            "confirm": true,
+            "visible": [["status", "=", "released"], ["is_sendable", "=", true]]
+        },
+        {
+            "id": "action.resend",
+            "label": "Re-Send",
+            "description": "The PDF version of the report will be embedded into an instant email sent to the Customer's contacts.\nATTENTION: an email has already been sent for this report.",
+            "controller": "contractika_report_do-resend",
+            "confirm": true,
+            "visible": [["status", "=", "sent"], ["is_sendable", "=", true]]
+        },
+        {
+            "id": "action.archive",
+            "label": "Archive",
+            "description": "This will mark the Report as Archived, whatever the setting of the related Service Account.",
+            "controller": "contractika_report_do-archive",
+            "confirm": true,
+            "visible": ["status", "=", "released"]
+        },
+        {
+            "id": "action.archive_send",
+            "label": "Send",
+            "description": "The PDF version of the report will be embedded into an instant email sent to the Customer's contacts.\nATTENTION: an email has already been sent for this report.",
+            "controller": "contractika_report_do-send",
+            "confirm": true,
+            "visible": [["status", "=", "archived"], ["is_sendable", "=", true]]
+        },
+        {
+            "id": "action.delete",
+            "label": "Delete",
+            "description": "This will remove the Report and detach all related Service Account lines from it.",
+            "controller": "contractika_report_do-delete",
+            "confirm": true,
+            "visible": ["status", "=", "pending"]
+        }
+    ],
+    "layout": {
+        "groups": [
+            {
+                "sections": [
+                    {
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "50%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "status",
+                                                "visible": false
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "is_sendable",
+                                                "visible": false
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Service Account",
+                                                "value": "service_account_id",
+                                                "width": "66%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "date",
+                                                "width": "33%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Has non posted",
+                                                "value": "has_non_posted",
+                                                "width": "33%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Is empty",
+                                                "value": "is_empty",
+                                                "width": "33%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "View as PDF",
+                                                "value": "link",
+                                                "width": "33%"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "50%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "balance_old",
+                                                "width": "25%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "balance_new",
+                                                "width": "25%"
+                                            },
+                                            {
+                                                "type": "label",
+                                                "value": "",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Task&Ticket",
+                                                "value": "total_points",
+                                                "width": "25%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Credit&Correct.",
+                                                "value": "total_credits",
+                                                "width": "25%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sections": [
+                    {
+                        "id": "section.lines",
+                        "label": "Lines",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "sa_lines_ids",
+                                                "width": "100%",
+                                                "widget": {
+                                                    "header": {
+                                                        "actions": {
+                                                            "ACTION.CREATE": false
+                                                        }
+                                                    },
+                                                    "actions": false,
+                                                    "view": "list.report"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "section.mails",
+                        "label": "Mails",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "mails_ids",
+                                                "width": "100%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

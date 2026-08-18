@@ -1,0 +1,117 @@
+
+[
+    {
+        "name": "core\\Task",
+        "lang": "en",
+        "data": [
+            {
+                "id": 1,
+                "status": "idle",
+                "moment": "2023-05-31T19:00:00+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "day",
+                "repeat_step": 1,
+                "name": "Pull Customers (AT companies)",
+                "controller": "contractika_pull-customers",
+                "params": ""
+            },
+            {
+                "id": 2,
+                "status": "idle",
+                "moment": "2023-05-31T20:00:02+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "day",
+                "repeat_step": 1,
+                "name": "Pull Service Accounts (AT contracts)",
+                "controller": "contractika_pull-contracts",
+                "params": ""
+            },
+            {
+                "id": 3,
+                "status": "idle",
+                "moment": "2023-05-31T21:00:02+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "day",
+                "repeat_step": 1,
+                "name": "Pull SA Lines (AT time entries & ticket\/task)",
+                "controller": "contractika_sync-timeentries",
+                "params": ""
+            },
+            {
+                "id": 4,
+                "status": "idle",
+                "moment": "2023-06-01T03:00:02+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "month",
+                "repeat_step": 1,
+                "name": "Generate reports",
+                "controller": "contractika_serviceaccount_batch-reports",
+                "params": "Array"
+            },
+            {
+                "id": 6,
+                "status": "idle",
+                "moment": "2024-05-01T13:23:39+00:00",
+                "is_active": false,
+                "is_recurring": false,
+                "repeat_axis": "week",
+                "repeat_step": 4,
+                "name": "Reset All Points",
+                "controller": "contractika_reset-points",
+                "params": ""
+            },
+            {
+                "id": 7,
+                "status": "idle",
+                "moment": "2023-06-01T01:00:35+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "day",
+                "repeat_step": 1,
+                "name": "Compute points",
+                "controller": "contractika_calc-points",
+                "params": ""
+            },
+            {
+                "id": 8,
+                "status": "idle",
+                "moment": "2023-06-01T02:00:42+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "day",
+                "repeat_step": 1,
+                "name": "Delete items (Sync TE removed in AT)",
+                "controller": "contractika_sync-deletedentries",
+                "params": ""
+            },
+            {
+                "id": 9,
+                "status": "idle",
+                "moment": "2023-06-01T03:10:00+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "day",
+                "repeat_step": 1,
+                "name": "Pull Credit Lines (Navision invoice lines)",
+                "controller": "contractika_pull-credits",
+                "params": ""
+            },
+            {
+                "id": 10,
+                "status": "idle",
+                "moment": "2023-06-01T04:01:00+00:00",
+                "is_active": true,
+                "is_recurring": true,
+                "repeat_axis": "day",
+                "repeat_step": 1,
+                "name": "Auto Reconcile NAV Lines",
+                "controller": "contractika_reconcile-credits",
+                "params": ""
+            }
+        ]
+    }
+]

@@ -1,0 +1,68 @@
+{
+    "name": "CutOff Report Lines",
+    "description": "All lines from given CutOff Report.",
+    "order": "customer_id",
+    "sort": "asc",
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "label": "customer",
+                "value": "customer_id",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Service Account",
+                "value": "service_account_id",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Category",
+                "value": "sa_category_id",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "service_price",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "total_points",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "total_amount",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "variation",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "last_activity",
+                "width": "10%",
+                "sortable": true
+            }
+        ]
+    }
+}

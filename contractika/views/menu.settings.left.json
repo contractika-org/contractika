@@ -1,0 +1,486 @@
+{
+    "name": "Settings menu",
+    "access": {
+        "groups": ["setting.default.user"]
+    },
+    "layout": {
+        "items": [
+            {
+                "id": "base",
+                "label": "Base",
+                "description": "",
+                "icon": "now_widgets",
+                "type": "parent",
+                "route": "/settings/core",
+                "children": [
+                    {
+                        "id": "security",
+                        "label": "Security",
+                        "description": "",
+                        "icon": "lock_open",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "permissions",
+                                "type": "entry",
+                                "label": "Permissions",
+                                "description": "",
+                                "context": {
+                                    "entity": "core\\Permission",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "users",
+                                "type": "entry",
+                                "label": "Users",
+                                "description": "",
+                                "context": {
+                                    "entity": "identity\\User",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "groups",
+                                "type": "entry",
+                                "label": "Groups",
+                                "description": "",
+                                "context": {
+                                    "entity": "core\\Group",
+                                    "view": "list.default"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "identities",
+                        "label": "Identities",
+                        "description": "",
+                        "icon": "person",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "identities.identities",
+                                "type": "entry",
+                                "label": "Identities",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\identity\\Identity",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "identities.partners",
+                                "type": "entry",
+                                "label": "Partners",
+                                "description": "",
+                                "context": {
+                                    "entity": "identity\\Partner",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "identities.addresses",
+                                "type": "entry",
+                                "label": "Addresses",
+                                "description": "",
+                                "context": {
+                                    "entity": "identity\\Address",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "identities.establishments",
+                                "type": "entry",
+                                "label": "Establishments",
+                                "description": "",
+                                "context": {
+                                    "entity": "identity\\Establishment",
+                                    "view": "list.default"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "hr",
+                "label": "Human resources",
+                "description": "",
+                "icon": "groups",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "hr.employee",
+                        "label": "Employees",
+                        "description": "",
+                        "icon": "person",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "hr.employee.active",
+                                "type": "entry",
+                                "label": "Active employees",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\hr\\employee\\Employee",
+                                    "view": "list.default",
+                                    "domain": ["is_active", "=", true]
+                                }
+                            },
+                            {
+                                "id": "hr.employee.all",
+                                "type": "entry",
+                                "label": "All employees",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\hr\\employee\\Employee",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "hr.employee.roles",
+                                "type": "entry",
+                                "label": "Roles",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\hr\\employee\\Role",
+                                    "view": "list.default"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "hr.absences",
+                        "label": "Absences",
+                        "description": "",
+                        "icon": "schedule",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "hr.absences.all",
+                                "type": "entry",
+                                "label": "All absences",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\hr\\absence\\Absence",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "hr.absences.holidays",
+                                "type": "entry",
+                                "label": "Holiday absences",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\hr\\absence\\Absence",
+                                    "view": "list.holidays",
+                                    "domain": [ ["is_holiday", "=", true] ]
+                                }
+                            },
+                            {
+                                "id": "hr.absences.all",
+                                "type": "entry",
+                                "label": "Absence codes",
+                                "description": "",
+                                "context": {
+                                    "entity": "hr\\absence\\AbsenceCode",
+                                    "view": "list.default"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "hr.holidays",
+                        "label": "Calendar",
+                        "description": "",
+                        "icon": "calendar_today",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "hr.holidays.upcoming",
+                                "type": "entry",
+                                "label": "Upcoming Holidays",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\hr\\holiday\\Holiday",
+                                    "view": "list.default",
+                                    "domain": ["date", ">=", "date.this.day"],
+                                    "order": "date",
+                                    "sort": "asc"
+                                }
+                            },
+                            {
+                                "id": "hr.holidays.history",
+                                "type": "entry",
+                                "label": "Holidays history",
+                                "description": "",
+                                "context": {
+                                    "entity": "contractika\\hr\\holiday\\Holiday",
+                                    "view": "list.default",
+                                    "domain": ["date", "<", "date.this.year.first"],
+                                    "order": "date",
+                                    "sort": "desc"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "sales.customers",
+                "label": "Customers",
+                "description": "",
+                "icon": "person",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "sales.customers.properties",
+                        "label": "Properties",
+                        "description": "",
+                        "icon": "person_outline",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "sales.customers.properties.types",
+                                "type": "entry",
+                                "label": "Customer types",
+                                "description": "",
+                                "context": {
+                                    "entity": "sale\\customer\\CustomerType",
+                                    "view": "list.default"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "sales.customers.all",
+                        "type": "entry",
+                        "label": "All Customers",
+                        "description": "",
+                        "context": {
+                            "entity": "contractika\\sale\\customer\\Customer",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "sales.contacts.all",
+                        "type": "entry",
+                        "label": "All Contacts",
+                        "description": "",
+                        "context": {
+                            "entity": "contractika\\sale\\customer\\Contact",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "all_partners",
+                        "type": "entry",
+                        "label": "All partners",
+                        "description": "",
+                        "context": {
+                            "entity": "identity\\Partner",
+                            "view": "list.default"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "contractika",
+                "label": "Contractika",
+                "description": "",
+                "icon": "person",
+                "type": "parent",
+                "route": "/settings/contractika",
+                "children": [
+                    {
+                        "id": "sales.contracts.serviceaccounts",
+                        "type": "entry",
+                        "label": "Service Accounts",
+                        "description": "",
+                        "context": {
+                            "entity": "contractika\\ServiceAccount",
+                            "view": "list.settings"
+                        }
+                    },
+                    {
+                        "id": "sales.contracts.salinetypes",
+                        "type": "entry",
+                        "label": "SA Line Types",
+                        "description": "",
+                        "context": {
+                            "entity": "contractika\\SALineType",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "sales.contracts.salineclasses",
+                        "type": "entry",
+                        "label": "SA Line Classes",
+                        "description": "",
+                        "context": {
+                            "entity": "contractika\\SALineClass",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "sales.contracts.categories",
+                        "type": "entry",
+                        "label": "SA Categories",
+                        "description": "",
+                        "context": {
+                            "entity": "contractika\\SACategory",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "sales.contracts.types",
+                        "type": "entry",
+                        "label": "SA Types",
+                        "description": "",
+                        "context": {
+                            "entity": "contractika\\SAType",
+                            "view": "list.default"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "communication",
+                "label": "Communication",
+                "description": "",
+                "icon": "mode_comment",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "communication.alerts",
+                        "label": "Alerts",
+                        "description": "",
+                        "icon": "chrome_reader_mode",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "communication.alert.messages",
+                                "type": "entry",
+                                "label": "All messages",
+                                "description": "",
+                                "context": {
+                                    "entity": "core\\alert\\Message",
+                                    "view": "list.default"
+                                }
+                            },
+                            {
+                                "id": "communication.alert.message_models",
+                                "type": "entry",
+                                "label": "Message models",
+                                "description": "",
+                                "context": {
+                                    "entity": "core\\alert\\MessageModel",
+                                    "view": "list.default"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "communication.emails",
+                        "label": "Emails",
+                        "description": "",
+                        "icon": "alternate_email",
+                        "type": "parent",
+                        "children": [
+                            {
+                                "id": "communication.emails.all",
+                                "type": "entry",
+                                "label": "All emails",
+                                "description": "",
+                                "context": {
+                                    "entity": "core\\Mail",
+                                    "view": "list.default"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "settings.scheduler",
+                "label": "Scheduler",
+                "description": "",
+                "icon": "schedule",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "settings.cron.all_tasks",
+                        "type": "entry",
+                        "label": "All scheduled tasks",
+                        "description": "",
+                        "context": {
+                            "entity": "core\\Task",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "settings.cron.recurring_tasks",
+                        "type": "entry",
+                        "label": "Recurring tasks",
+                        "description": "",
+                        "context": {
+                            "entity": "core\\Task",
+                            "view": "list.default",
+                            "domain": ["is_recurring", "=", true]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "settings.settings",
+                "label": "Settings",
+                "description": "",
+                "icon": "settings",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "settings.settings.settings_values",
+                        "type": "entry",
+                        "label": "Settings",
+                        "description": "",
+                        "context": {
+                            "entity": "core\\setting\\SettingValue",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "settings.settings.settings_choices",
+                        "type": "entry",
+                        "label": "Settings Choices",
+                        "description": "",
+                        "context": {
+                            "entity": "core\\setting\\SettingChoice",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "settings.settings.settings",
+                        "type": "entry",
+                        "label": "Settings Models",
+                        "description": "",
+                        "context": {
+                            "entity": "core\\setting\\Setting",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "settings.settings.sections",
+                        "type": "entry",
+                        "label": "Setting Sections",
+                        "description": "",
+                        "context": {
+                            "entity": "core\\setting\\SettingSection",
+                            "view": "list.default"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

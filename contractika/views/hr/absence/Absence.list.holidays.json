@@ -1,0 +1,58 @@
+{
+    "name": "Holiday absences",
+    "description": "List of employees absences for holidays.",
+    "order": "date",
+    "sort": "desc",
+    "domain": ["is_holiday", "=", true],
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "date",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "day_part",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "label": "code",
+                "value": "code_id",
+                "width": "30%"
+            },
+            {
+                "type": "field",
+                "label": "employee",
+                "value": "employee_id",
+                "width": "25%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "AT Appointment ID",
+                "value": "extref_at_id",
+                "width": "20%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "created",
+                "width": "15%",
+                "widget": {
+                    "usage": "datetime/short"
+                }
+            },
+            {
+                "type": "field",
+                "value": "modified",
+                "width": "15%",
+                "widget": {
+                    "usage": "datetime/short"
+                }
+            }
+        ]
+    }
+}

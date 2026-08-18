@@ -1,0 +1,45 @@
+{
+    "name": "Bonus Reports Lines",
+    "description": "Lines related to Bonus Report.",
+    "order": "customer_id",
+    "sort": "asc",
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        },
+        "selection": {
+            "default" : false
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "id",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "Customer",
+                "value": "customer_id",
+                "width": "35%"
+            },
+            {
+                "type": "field",
+                "label": "Service Account",
+                "value": "service_account_id",
+                "width": "35%"
+            },
+            {
+                "type": "field",
+                "label": "Points",
+                "value": "total_points",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            }
+        ]
+    }
+}

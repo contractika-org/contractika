@@ -1,0 +1,44 @@
+[
+    {
+        "name": "contractika\\SAType",
+        "lang": "en",
+        "data": [
+            {
+                "id": 1,
+                "name": "Time & Materials",
+                "description": "Time & Materials",
+                "extref_at_id": 1
+            },
+            {
+                "id": 2,
+                "name": "Fixed Price",
+                "description": "Fixed Price",
+                "extref_at_id": 3
+            },
+            {
+                "id": 3,
+                "name": "Block Hours",
+                "description": "Block Hours",
+                "extref_at_id": 4
+            },
+            {
+                "id": 4,
+                "name": "Retainer",
+                "description": "Retainer",
+                "extref_at_id": 6
+            },
+            {
+                "id": 5,
+                "name": "Recurring Service",
+                "description": "Recurring Service",
+                "extref_at_id": 7
+            },
+            {
+                "id": 6,
+                "name": "Per Ticket",
+                "description": "Per Ticket",
+                "extref_at_id": 8
+            }
+        ]
+    }
+]

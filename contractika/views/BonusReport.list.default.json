@@ -1,0 +1,73 @@
+{
+    "name": "Bonus Reports",
+    "description": "All Bonus Reports.",
+    "order": "created",
+    "sort": "desc",
+    "actions" : [
+        {
+            "id": "actions.generate",
+            "label": "Generate",
+            "icon": "folder_zip",
+            "description": "This will generate a new draft report for the oldest quarter not yet covered by a released report. If a pending report already exists, it will be replaced.",
+            "confirm": true,
+            "controller": "contractika_bonusreport_generate"
+        }
+    ],
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        },
+        "selection": {
+            "default" : false,
+            "actions" : [
+                {
+                    "id": "header.selection.actions.bulk_download",
+                    "label": "Bulk download",
+                    "icon": "folder_zip",
+                    "controller": "contractika_bonusreport_bulk-download"
+                }
+            ]
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "label": "from",
+                "value": "date_from",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "label": "to",
+                "value": "date_to",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "value": "created",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "status",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "total",
+                "width": "10%",
+                "sortable": true
+            }
+        ]
+    }
+}

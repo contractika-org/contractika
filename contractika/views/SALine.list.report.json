@@ -1,0 +1,146 @@
+{
+    "name": "Service Account Lines",
+    "description": "Lines from parent Report.",
+    "order": "id",
+    "sort": "asc",
+    "limit": 100,
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        },
+        "selection": {
+            "default" : false
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "date",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "value": "start",
+                "width": "10%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "time"
+                }
+            },
+            {
+                "type": "field",
+                "value": "end",
+                "width": "10%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "time"
+                }
+            },
+            {
+                "type": "field",
+                "value": "pause",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "on_site",
+                "width": "10%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "employee_id",
+                "label": "Employee",
+                "width": "10%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "role_id",
+                "label": "Role",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "description",
+                "width": "30%"
+            },
+            {
+                "type": "field",
+                "value": "is_posted",
+                "width": "15%",
+                "widget": {
+                    "readonly": true,
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "is_locked",
+                "width": "15%",
+                "widget": {
+                    "readonly": true,
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "postedOnTime",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "value": "taskNumber",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "taskLink",
+                "width": "10%",
+                "widget": {
+                    "link": "icon"
+                }
+            },
+            {
+                "type": "field",
+                "value": "ticketNumber",
+                "width": "15%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "value": "ticketLink",
+                "width": "10%",
+                "widget": {
+                    "link": "icon"
+                }
+            },
+            {
+                "type": "field",
+                "value": "points",
+                "width": "10%",
+                "widget": {
+                    "sortable": true
+                }
+            }
+        ]
+    }
+}

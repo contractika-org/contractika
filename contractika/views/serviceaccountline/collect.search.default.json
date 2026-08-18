@@ -1,0 +1,98 @@
+{
+    "name": "Service Account Lines",
+    "description": "Advanced collector for Service Account Lines",
+    "layout": {
+        "groups": [
+            {
+                "sections": [
+                    {
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "25%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "id",
+                                                "width": "100%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "date_from",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "date_to",
+                                                "width": "50%"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "25%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "label": "Employee",
+                                                "value": "employee_id",
+                                                "width": "100%",
+                                                "widget": {
+                                                    "limit": 10
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Customer",
+                                                "value": "customer_id",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Customer ID",
+                                                "value": "customer_identifier",
+                                                "width": "50%"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "50%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "timeEntryID",
+                                                "width": "3%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "ticketNumber",
+                                                "width": "3%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "taskNumber",
+                                                "width": "3%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Posted / Billed (AT)",
+                                                "value": "is_posted",
+                                                "width": "33%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Locked / Report sent (CT)",
+                                                "value": "is_locked",
+                                                "width": "3%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

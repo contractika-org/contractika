@@ -1,0 +1,15 @@
+{
+    "before_release": {
+        "balance_new": 8.5,
+        "balance_old": 0,
+        "has_non_posted": true,
+        "is_empty": false,
+        "status": "pending",
+        "total_credits": 12.5,
+        "total_points": -4
+    },
+    "release_guard": {
+        "expected_lock_field": "is_locked",
+        "status_callback": "onupdateStatus"
+    }
+}

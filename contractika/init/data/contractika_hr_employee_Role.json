@@ -1,0 +1,107 @@
+[
+    {
+        "name": "contractika\\hr\\employee\\Role",
+        "lang": "en",
+        "data": [
+            {
+                "id": 3,
+                "is_active": true,
+                "name": "ADMIN",
+                "code": "ADMIN",
+                "description": "Admin and RH tasks",
+                "fullname": "Administration",
+                "extref_at_id": 29682834,
+                "hourly_factor": 1,
+                "hourly_rate": 92.06
+            },
+            {
+                "id": 4,
+                "is_active": true,
+                "name": "NA",
+                "code": "NA",
+                "description": "",
+                "fullname": "Network Administrator",
+                "extref_at_id": 29683355,
+                "hourly_factor": 1,
+                "hourly_rate": 92.06
+            },
+            {
+                "id": 5,
+                "is_active": true,
+                "name": "SSE",
+                "code": "SSE",
+                "description": "",
+                "fullname": "Senior System Engineer",
+                "extref_at_id": 29683461,
+                "hourly_factor": 1.4,
+                "hourly_rate": 128.88
+            },
+            {
+                "id": 6,
+                "is_active": true,
+                "name": "SD",
+                "code": "SD",
+                "description": "",
+                "fullname": "Service Desk",
+                "extref_at_id": 29683464,
+                "hourly_factor": 1,
+                "hourly_rate": 92.06
+            },
+            {
+                "id": 7,
+                "is_active": true,
+                "name": "AM",
+                "code": "AM",
+                "description": "",
+                "fullname": "Account Management",
+                "extref_at_id": 29683465,
+                "hourly_factor": 1,
+                "hourly_rate": 92.06
+            },
+            {
+                "id": 8,
+                "is_active": true,
+                "name": "IE",
+                "code": "IE",
+                "description": "",
+                "fullname": "Information Engineer",
+                "extref_at_id": 29683466,
+                "hourly_factor": 1.2,
+                "hourly_rate": 110.47
+            },
+            {
+                "id": 9,
+                "is_active": true,
+                "name": "PO",
+                "code": "PO",
+                "description": "",
+                "fullname": "Project Organiser",
+                "extref_at_id": 29683467,
+                "hourly_factor": 1.4,
+                "hourly_rate": 128.88
+            },
+            {
+                "id": 10,
+                "is_active": true,
+                "name": "SE",
+                "code": "SE",
+                "description": "",
+                "fullname": "System Engineer",
+                "extref_at_id": 29683468,
+                "hourly_factor": 1.2,
+                "hourly_rate": 110.47
+            },
+            {
+                "id": 11,
+                "is_active": true,
+                "name": "T",
+                "code": "T",
+                "description": "stagiaire",
+                "fullname": "Trainee",
+                "extref_at_id": 29683469,
+                "hourly_factor": 0.8,
+                "hourly_rate": 73.65
+            }
+        ]
+    }
+]

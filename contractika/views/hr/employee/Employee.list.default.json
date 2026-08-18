@@ -1,0 +1,72 @@
+{
+    "name": "Employees list",
+    "description": "List of all employees.",
+    "domain": ["relationship", "=", "employee"],
+    "sort": "asc",
+    "order": "name",
+    "limit": 100,
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "label": "Code",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "display_name",
+                "label": "Name",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "SD id",
+                "value": "extref_sd_id",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "AT id",
+                "value": "extref_at_id",
+                "width": "10%",
+                "sortable": true,
+                "readonly": true
+            },
+            {
+                "type": "field",
+                "value": "date_start",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "date_end",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "Active",
+                "value": "is_active",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "mobile",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "email",
+                "width": "20%",
+                "sortable": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "name": "CutOff Reports",
+    "description": "All CutOff Reports.",
+    "order": "date_from",
+    "sort": "desc",
+    "actions" : [
+        {
+            "id": "actions.generate",
+            "label": "Generate",
+            "description": "This will generate a new draft Cut-off report for the oldest month not yet covered by a released report. If a pending Cut-off report already exists, it will be replaced.",
+            "confirm": true,
+            "controller": "contractika_cutoffreport_generate"
+        }
+    ],
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "label": "from",
+                "value": "date_from",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "label": "to",
+                "value": "date_to",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "value": "created",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "status",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "has_pending_report",
+                "width": "15%",
+                "sortable": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,182 @@
+{
+    "name": "Settings menu",
+    "access": {
+        "groups": ["setting.default.user"]
+    },
+    "layout": {
+        "items": [
+            {
+                "id": "service_accounts",
+                "label": "Service Accounts",
+                "description": "",
+                "icon": "business_center",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "service_accounts.all",
+                        "type": "entry",
+                        "label": "Service Accounts",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\ServiceAccount",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "service_accounts.salines",
+                        "type": "entry",
+                        "label": "All SA Lines",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\SALine",
+                            "view": "list.default"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sales.reports",
+                "label": "Reports",
+                "description": "",
+                "icon": "description",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "sales.reports.drafts",
+                        "type": "entry",
+                        "label": "Pending Reports",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\Report",
+                            "view": "list.pending"
+                        }
+                    },
+                    {
+                        "id": "sales.reports.released",
+                        "type": "entry",
+                        "label": "Released Reports",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\Report",
+                            "view": "list.released"
+                        }
+                    },
+                    {
+                        "id": "sales.reports.history",
+                        "type": "entry",
+                        "label": "Archived Reports",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\Report",
+                            "view": "list.default",
+                            "domain": ["status", "in", ["archived", "sent"]]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "sales.customers",
+                "label": "Customers",
+                "description": "",
+                "icon": "person",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "sales.customers.all",
+                        "type": "entry",
+                        "label": "All customers",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\sale\\customer\\Customer",
+                            "view": "list.default",
+                            "domain": [ ["is_active", "=", true], ["has_sa", "=", true] ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "contractika.imports",
+                "label": "Imports NAV",
+                "description": "",
+                "icon": "currency_exchange",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "contractika.imports.nav",
+                        "type": "entry",
+                        "label": "NAV lines",
+                        "icon": "checklist",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\NAVLine",
+                            "domain": ["status", "=", "pending"],
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "contractika.imports.nav_history",
+                        "type": "entry",
+                        "label": "History",
+                        "icon": "history",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\NAVLine",
+                            "view": "list.reconciled"
+                        }
+                    },
+                    {
+                        "id": "contractika.imports.nav_trash",
+                        "type": "entry",
+                        "label": "Ignored lines",
+                        "icon": "delete",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\NAVLine",
+                            "view": "list.ignored"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "other_reports",
+                "label": "Other Reports Accounts",
+                "description": "",
+                "icon": "description",
+                "type": "parent",
+                "children": [
+                    {
+                        "id": "other_reports.bonus",
+                        "type": "entry",
+                        "label": "Bonus Reports",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\BonusReport",
+                            "view": "list.default"
+                        }
+                    },
+                    {
+                        "id": "other_reports.cutoff",
+                        "type": "entry",
+                        "label": "CutOff Reports",
+                        "description": "",
+                        "route": "/",
+                        "context": {
+                            "entity": "contractika\\CutOffReport",
+                            "view": "list.default"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

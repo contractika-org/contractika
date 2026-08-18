@@ -1,0 +1,262 @@
+{
+    "at": {
+        "billingcode": [
+            {
+                "departmentID": 29682808,
+                "externalNumber": "HD",
+                "isActive": true,
+                "name": "Helpdesk"
+            },
+            {
+                "departmentID": 29682808,
+                "externalNumber": "RS",
+                "isActive": true,
+                "name": "Remote Service"
+            }
+        ],
+        "billingitems": [
+            {
+                "nonBillable": false,
+                "postedOnTime": "2026-01-16T08:00:00Z",
+                "timeEntryID": 700001
+            }
+        ],
+        "contacts": [
+            {
+                "companyID": 486001,
+                "emailAddress": "jane.doe@example.test",
+                "firstName": "Jane",
+                "isActive": true,
+                "lastName": "Doe",
+                "primaryContact": true,
+                "userDefinedFields": [
+                    {
+                        "name": "Language",
+                        "value": "FRA"
+                    },
+                    {
+                        "name": "TimeSheets Report",
+                        "value": "Yes"
+                    }
+                ]
+            }
+        ],
+        "contracts": [
+            {
+                "companyID": 486001,
+                "contactName": "Jane Doe",
+                "contractCategory": 11,
+                "contractName": "ServicePackage Mock",
+                "contractType": 7,
+                "description": "Mock service account contract.",
+                "endDate": "2026-12-31T00:00:00Z",
+                "startDate": "2026-01-01T00:00:00Z",
+                "status": true,
+                "userDefinedFields": [
+                    {
+                        "name": "Bonus",
+                        "value": "No"
+                    },
+                    {
+                        "name": "CutOff",
+                        "value": "Yes"
+                    },
+                    {
+                        "name": "TSreport",
+                        "value": "Send"
+                    },
+                    {
+                        "name": "SP_Renew_auto",
+                        "value": "Yes"
+                    },
+                    {
+                        "name": "SP_Renew_amount",
+                        "value": "250.00"
+                    },
+                    {
+                        "name": "SP_Renew_floor",
+                        "value": "10.00"
+                    }
+                ]
+            }
+        ],
+        "customers": [
+            {
+                "companyName": "Mock Customer",
+                "companyType": 1,
+                "isActive": true,
+                "lastActivityDate": "2026-01-15T10:00:00Z",
+                "parentCompanyID": null,
+                "taxID": "BE0123456789",
+                "userDefinedFields": [
+                    {
+                        "name": "NAV ID",
+                        "value": "C-MOCK-001"
+                    },
+                    {
+                        "name": "Payment Terms",
+                        "value": "30D"
+                    },
+                    {
+                        "name": "Discount",
+                        "value": "0.0000"
+                    },
+                    {
+                        "name": "Service Price",
+                        "value": "20.6400"
+                    },
+                    {
+                        "name": "Target Margin",
+                        "value": "0.1500"
+                    },
+                    {
+                        "name": "Language",
+                        "value": "FRA"
+                    },
+                    {
+                        "name": "Travel",
+                        "value": "1.0000"
+                    },
+                    {
+                        "name": "Work Report",
+                        "value": "Yes"
+                    }
+                ]
+            }
+        ],
+        "holidays": [
+            {
+                "holidayDate": "2026-05-01T00:00:00Z",
+                "holidayName": "Mock Holiday"
+            }
+        ],
+        "projects": [
+            {
+                "contractID": 29683374,
+                "projectName": "Mock Project",
+                "projectNumber": "PRJ-MOCK"
+            }
+        ],
+        "resources": [
+            {
+                "defaultRoleID": 29683355,
+                "email": "alex.worker@example.test",
+                "firstName": "Alex",
+                "isActive": true,
+                "lastName": "Worker"
+            }
+        ],
+        "roles": [
+            {
+                "hourlyFactor": 1,
+                "isActive": true,
+                "name": "Engineer"
+            }
+        ],
+        "tasks": [
+            {
+                "description": "Mock task",
+                "lastActivityDateTime": "2026-01-15T12:00:00Z",
+                "projectID": 500001,
+                "taskCategoryID": 2,
+                "taskNumber": "T-MOCK-001"
+            }
+        ],
+        "tickets": [
+            {
+                "contactID": 300001,
+                "contractID": 29683374,
+                "description": "Mock ticket description",
+                "lastActivityDate": "2026-01-15T12:00:00Z",
+                "priority": 2,
+                "ticketCategory": 108,
+                "ticketNumber": "TK-MOCK-001",
+                "title": "Mock ticket"
+            }
+        ],
+        "timeentries": [
+            {
+                "billingCodeID": 29683517,
+                "contractID": 29683374,
+                "createDateTime": "2026-01-15T08:00:00Z",
+                "dateWorked": "2026-01-15T00:00:00Z",
+                "endDateTime": "2026-01-15T10:00:00Z",
+                "hoursWorked": 1,
+                "isNonBillable": false,
+                "lastModifiedDateTime": "2026-01-15T10:05:00Z",
+                "offsetHours": 0,
+                "resourceID": 29682899,
+                "roleID": 29683355,
+                "startDateTime": "2026-01-15T09:00:00Z",
+                "summaryNotes": "Mock time entry",
+                "taskID": null,
+                "ticketID": 8998,
+                "timeEntryType": 2
+            }
+        ]
+    },
+    "bc": {
+        "customers": [
+            {
+                "Blocked": false,
+                "Discount": 0,
+                "Id": "C-MOCK-001",
+                "Name": "Mock Customer",
+                "PaymentTermsCode": "30D",
+                "PaymentTermsDescription": "30 days",
+                "ServicePrice": 20.64,
+                "Vat": "BE0123456789"
+            }
+        ],
+        "nav_lines": [
+            {
+                "date": "2026-01-15",
+                "description": "Mock service package credit",
+                "extref_amount": "206.40",
+                "extref_customer": "C-MOCK-001",
+                "extref_description2": "#AT-29683374#",
+                "extref_document_no": "INV-MOCK-001",
+                "extref_line_uuid": "00000000-0000-0000-0000-000000000001",
+                "extref_no": "NTK-SERVICEPACKAGE",
+                "extref_quantity": "10",
+                "extref_unit_price": "20.64",
+                "points": 10
+            }
+        ],
+        "payment_terms": [
+            {
+                "Code": "30D",
+                "Description": "30 days",
+                "Discount": 0
+            }
+        ]
+    },
+    "empty_timeentries": [],
+    "sd": {
+        "absences": [
+            {
+                "AbsenceCodeId": "T350",
+                "Date": "2026-02-02T00:00:00",
+                "DayPart": "FullDay",
+                "EmployeeNumber": "0000001",
+                "EmployerNumber": "4056772",
+                "Id": "SD-MOCK-ABS-001",
+                "InterpretedAmount": "1.00",
+                "InterpretedMeasureUnit": "FullDay",
+                "Layer": "Planning",
+                "Status": "Approved"
+            }
+        ],
+        "employees": [
+            {
+                "CurrentWorkscheme": "| 7,6 | 7,6 | 7,6 | 7,6 | 7,6 | 0 | 0 |",
+                "EmployeeNumber": "0000001",
+                "EmployerNumber": "4056772",
+                "EndDate": null,
+                "FirstName": "Alex",
+                "LastName": "Worker",
+                "StartDate": "2026-01-01T00:00:00"
+            }
+        ]
+    }
+}

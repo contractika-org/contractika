@@ -1,0 +1,74 @@
+[
+{
+        "name": "core\\setting\\Setting",
+        "lang": "en",
+        "data": [
+            {
+                "id": 9911,
+                "package": "contractika",
+                "code": "sd_sync.last_run",
+                "section_id": 9911,
+                "title": "SD absences sync last run",
+                "description": "Timestamp of the last sync with SDworx absences.",
+                "help": "",
+                "type": "integer",
+                "form_control": "input"
+            },
+            {
+                "id": 9912,
+                "package": "contractika",
+                "code": "sd_sync.api_entrypoint_url",
+                "section_id": 9911,
+                "title": "SDworx API entrypoint URL",
+                "description": "SDworx API entrypoint URL",
+                "help": "",
+                "type": "string",
+                "form_control": "input"
+            },
+            {
+                "id": 9913,
+                "package": "contractika",
+                "code": "at_sync.api_entrypoint_url",
+                "section_id": 9911,
+                "title": "AutoTask API entrypoint URL",
+                "description": "AutoTask API entrypoint URL",
+                "help": "",
+                "type": "string",
+                "form_control": "input"
+            },
+            {
+                "id": 9914,
+                "package": "contractika",
+                "code": "at_sync_absences.last_run",
+                "section_id": 9911,
+                "title": "AT sync absences last run",
+                "description": "",
+                "help": "",
+                "type": "integer",
+                "form_control": "input"
+            },
+            {
+                "id": 9915,
+                "package": "contractika",
+                "code": "at_sync_customers.last_run",
+                "section_id": 9911,
+                "title": "AT sync customers last run",
+                "description": "",
+                "help": "",
+                "type": "integer",
+                "form_control": "input"
+            },
+            {
+                "id": 9915,
+                "package": "contractika",
+                "code": "onerror.resend_count",
+                "section_id": 9912,
+                "title": "Error resend delay",
+                "description": "#days before resending an error.",
+                "help": "",
+                "type": "integer",
+                "form_control": "input"
+            }
+        ]
+    }
+]

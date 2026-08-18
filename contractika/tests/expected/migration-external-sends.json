@@ -1,0 +1,42 @@
+{
+    "at_create_appointment": {
+        "accepted": true,
+        "item_count": 1,
+        "operation": "create",
+        "payload": {
+            "datetime_from": 1770019200,
+            "datetime_to": 1770053400,
+            "description": "SD-MOCK-ABS-001",
+            "resource_id": 29682899,
+            "title": "SDworx ~ Holiday ~ approved"
+        },
+        "provider": "at",
+        "resource": "appointments",
+        "status_code": 200
+    },
+    "at_update_contract": {
+        "accepted": true,
+        "item_count": 1,
+        "operation": "patch",
+        "payload": {
+            "Balance": 42.5
+        },
+        "provider": "at",
+        "resource": "contracts",
+        "status_code": 200
+    },
+    "bc_credit_line": {
+        "accepted": true,
+        "item_count": 1,
+        "operation": "read",
+        "payload": [
+            {
+                "documentNo": "CM-MOCK-001",
+                "quantity": 2
+            }
+        ],
+        "provider": "bc",
+        "resource": "salescreditmemolines",
+        "status_code": 200
+    }
+}

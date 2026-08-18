@@ -1,0 +1,84 @@
+{
+    "name": "Service Account Lines",
+    "description": "Credit Lines from a specfici Service Accounts.",
+    "order": "id",
+    "sort": "desc",
+    "limit": 100,
+    "header": {
+        "actions": {
+            "ACTION.CREATE": [{"view": "form.credit"}],
+            "ACTION.EDIT": [{"view": "form.credit"}]
+        },
+        "selection": {
+            "default" : false,
+            "actions" : [
+                {
+                    "id": "header.selection.actions.delete",
+                    "label": "Remove",
+                    "icon": "delete",
+                    "controller": "contractika_saline_bulk-delete"
+                }
+            ]
+        }
+    },
+    "operations": {
+        "total": {
+            "points": {
+                "operation": "SUM"
+            }
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "date",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "label": "Reconciled",
+                "value": "created",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "value": "employee_id",
+                "label": "Employee",
+                "width": "10%",
+                "widget": {
+                    "sortable": true
+                }
+            },
+            {
+                "type": "field",
+                "label": "Line Class",
+                "value": "sa_line_class_id",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "description",
+                "width": "30%"
+            },
+            {
+                "type": "field",
+                "value": "is_locked",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "points",
+                "width": "30%"
+            }
+        ]
+    }
+}

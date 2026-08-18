@@ -1,0 +1,107 @@
+{
+    "name": "Reports",
+    "description": "All reports.",
+    "order": "created",
+    "sort": "desc",
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        },
+        "selection": {
+            "default" : false,
+            "actions" : [
+                {
+                    "id": "header.selection.actions.bulk_download",
+                    "label": "Bulk download",
+                    "icon": "folder_zip",
+                    "controller": "contractika_report_bulk-download"
+                }
+            ]
+        }
+    },
+    "controller": "contractika_report-collect",
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "id",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "created",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "creator",
+                "width": "20%"
+            },
+            {
+                "type": "field",
+                "label": "from",
+                "value": "date_from",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "label": "to",
+                "value": "date",
+                "width": "15%",
+                "widget": {
+                    "sortable": true,
+                    "usage": "date"
+                }
+            },
+            {
+                "type": "field",
+                "value": "has_non_posted",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "is_empty",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "status",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "Customer",
+                "value": "customer_id",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "Service Account",
+                "value": "service_account_id",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "balance_old",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "balance_new",
+                "width": "15%",
+                "sortable": true
+            }
+        ]
+    }
+}

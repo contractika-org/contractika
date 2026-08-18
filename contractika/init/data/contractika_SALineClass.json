@@ -1,0 +1,32 @@
+[
+    {
+        "name": "contractika\\SALineClass",
+        "lang": "en",
+        "data": [
+            {
+                "id": 1,
+                "is_active": true,
+                "name": "Task",
+                "description": ""
+            },
+            {
+                "id": 2,
+                "is_active": true,
+                "name": "Ticket",
+                "description": ""
+            },
+            {
+                "id": 3,
+                "is_active": true,
+                "name": "Credit",
+                "description": ""
+            },
+            {
+                "id": 4,
+                "is_active": true,
+                "name": "Correction",
+                "description": ""
+            }
+        ]
+    }
+]

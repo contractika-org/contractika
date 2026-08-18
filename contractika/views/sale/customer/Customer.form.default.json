@@ -1,0 +1,406 @@
+{
+    "name": "Customer",
+    "description": "Basic form for displaying a customer (Partner)",
+    "header": {
+        "actions": {
+            "ACTION.EDIT": true,
+            "description": "All fields are marked as readonly, and only the ones that are not synced with AT are available for change."
+        }
+    },
+    "layout": {
+        "groups": [
+            {
+                "sections": [
+                    {
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "75%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "label": "Name of Customer",
+                                                "value": "name",
+                                                "width": "100%",
+                                                "widget": {
+                                                    "heading": true,
+                                                    "readonly": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sections": [
+                    {
+                        "id": "section.customer_details",
+                        "label": "Details",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "50%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "label": "Identity of Customer",
+                                                "value": "partner_identity_id",
+                                                "width": "50%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "companyType",
+                                                "width": "25%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Parent Company",
+                                                "value": "parent_customer_id",
+                                                "width": "25%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Owner Identity",
+                                                "value": "owner_identity_id",
+                                                "visible": false,
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "relationship",
+                                                "visible": false,
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Reporting frequency",
+                                                "value": "f_reporting",
+                                                "width": "50%"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "50%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "discount",
+                                                "width": "50%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "label",
+                                                "value": "",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "service_price",
+                                                "width": "50%",
+                                                "readonly": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "50%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "is_active",
+                                                "width": "33%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "NAV id",
+                                                "value": "extref_nav_id",
+                                                "width": "33%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "AT id",
+                                                "value": "extref_at_id",
+                                                "width": "33%",
+                                                "readonly": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "section.settings",
+                        "label": "Settings",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "Travel",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Specific Travel Time",
+                                                "value": "has_d_travel",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Travel",
+                                                "value": "d_travel",
+                                                "width": "20%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "Half/Full Day",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "HDFD_reduction",
+                                                "value": "f_hfd_discount",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "HD_coef",
+                                                "value": "c_halfday",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "FD_coef",
+                                                "value": "c_fullday",
+                                                "width": "20%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "Day",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Saturday_coef",
+                                                "value": "c_saturday",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Sunday_coef",
+                                                "value": "c_sunday",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "DayOff_coef",
+                                                "value": "c_dayoff",
+                                                "width": "20%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "Type",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Helpdesk_coef",
+                                                "value": "c_helpdesk",
+                                                "width": "20%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "Priority",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "PriorityCritical_coef",
+                                                "value": "c_priority_critical",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "PriorityHigh_coef",
+                                                "value": "c_priority_high",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "PriorityNormal_coef",
+                                                "value": "c_priority_normal",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "PriorityLow_coef",
+                                                "value": "c_priority_low",
+                                                "width": "20%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "Limit",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Coefficient_limit",
+                                                "value": "c_limit",
+                                                "width": "20%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "Renewal",
+                                                "width": "20%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "SP_Renew_floor",
+                                                "value": "renewal_balance_floor",
+                                                "width": "20%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "section.service_accounts",
+                        "label": "Service Accounts",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "service_accounts_ids",
+                                                "width": "100%",
+                                                "widget": {
+                                                    "header": {
+                                                        "actions": {
+                                                            "ACTION.CREATE": false
+                                                        }
+                                                    },
+                                                    "actions": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "section.ts_contacts",
+                        "label": "TS Contacts",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "contacts_ids",
+                                                "width": "100%",
+                                                "widget": {
+                                                    "header": {
+                                                        "actions": {
+                                                            "ACTION.CREATE": false
+                                                        }
+                                                    },
+                                                    "actions": false,
+                                                    "view": "list.customer"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "Contractika menu",
+    "layout": {
+        "items": [
+            {
+                "id": "item.service_accounts",
+                "label": "Service Accounts",
+                "description": "",
+                "icon": "account_balance",
+                "type": "entry",
+                "route": "/",
+                "context": {
+                    "entity": "contractika\\ServiceAccount",
+                    "view": "list.default"
+                }
+            },
+            {
+                "id": "item.customers",
+                "label": "Customers",
+                "description": "",
+                "icon": "people_alt",
+                "type": "entry",
+                "route": "/",
+                "context": {
+                    "entity": "contractika\\sale\\customer\\Customer",
+                    "view": "list.default",
+                    "domain": [ ["is_active", "=", true], ["has_sa", "=", true] ]
+                }
+            }
+
+        ]
+    }
+}

@@ -1,0 +1,94 @@
+{
+    "name": "Absences",
+    "description": "List of employees absences.",
+    "order": "date",
+    "sort": "desc",
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "date",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "day_part",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "label": "code",
+                "value": "code_id",
+                "width": "30%"
+            },
+            {
+                "type": "field",
+                "label": "employee",
+                "value": "employee_id",
+                "width": "25%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "measure_unit",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "qty",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "value": "duration",
+                "width": "10%"
+            },
+            {
+                "type": "field",
+                "label": "Holiday?",
+                "value": "is_holiday",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "status",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "SDworx ID",
+                "value": "extref_sd_id",
+                "width": "30%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "label": "AT Appointment ID",
+                "value": "extref_at_id",
+                "width": "20%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "created",
+                "width": "15%",
+                "sortable": true,
+                "widget": {
+                    "usage": "datetime/short"
+                }
+            },
+            {
+                "type": "field",
+                "value": "modified",
+                "width": "15%",
+                "sortable": true,
+                "widget": {
+                    "usage": "datetime/short"
+                }
+            }
+        ]
+    }
+}

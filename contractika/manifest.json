@@ -1,0 +1,13 @@
+{
+    "name": "contractika",
+    "author": "Yesbabylon SRL",
+    "version": "1.0",
+    "depends_on": [
+        "core",
+        "sale",
+        "hr",
+        "identity",
+        "settings"
+    ],
+    "apps": ["apps", "auth", "settings", "contractika"]
+}

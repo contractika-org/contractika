@@ -1,0 +1,74 @@
+[
+	{
+        "name": "core\\setting\\SettingSection",
+        "lang": "en",
+        "data": [
+            {
+                "id": 9911,
+                "code": "sync",
+                "name": "Synchronization",
+                "description": "Settings related to synchronisation with extenral products."
+            },
+            {
+                "id": 9912,
+                "code": "general",
+                "name": "General",
+                "description": ""
+            },
+            {
+                "id": 9913,
+                "code": "travel",
+                "name": "Travel",
+                "description": ""
+            },
+            {
+                "id": 9914,
+                "code": "hf_day",
+                "name": "Half / Full day",
+                "description": ""
+            },
+            {
+                "id": 9915,
+                "code": "hours",
+                "name": "Hours",
+                "description": ""
+            },
+            {
+                "id": 9916,
+                "code": "day",
+                "name": "Day",
+                "description": ""
+            },
+            {
+                "id": 9917,
+                "code": "type",
+                "name": "Type",
+                "description": ""
+            },
+            {
+                "id": 9918,
+                "code": "priority",
+                "name": "Priority",
+                "description": ""
+            },
+            {
+                "id": 9919,
+                "code": "limit",
+                "name": "Limit",
+                "description": ""
+            },
+            {
+                "id": 9920,
+                "code": "renewal",
+                "name": "Renewal",
+                "description": ""
+            },
+            {
+                "id": 9921,
+                "code": "ts_reporting",
+                "name": "TS Reporting",
+                "description": ""
+            }
+       ]
+    }
+]

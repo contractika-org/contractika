@@ -1,0 +1,20 @@
+{
+    "name": "Customer",
+    "plural": "Customers",
+    "description": "",
+    "model": {
+    },
+    "view": {
+        "form.default": {
+            "name": "Customer",
+            "description": "",
+            "layout": {}
+        },
+        "list.default": {
+            "name": "Customers",
+            "description": "",
+            "layout": {}
+        }
+    },
+    "error": {}
+}

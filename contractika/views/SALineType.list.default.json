@@ -1,0 +1,30 @@
+{
+    "name": "Service Account Line Types",
+    "description": "All Service Account Line Types.",
+    "order": "extref_at_id",
+    "sort": "asc",
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "25%"
+            },
+            {
+                "type": "field",
+                "value": "externalNumber",
+                "width": "25%"
+            },
+            {
+                "type": "field",
+                "value": "extref_at_id",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "department_id",
+                "width": "15%"
+            }
+        ]
+    }
+}

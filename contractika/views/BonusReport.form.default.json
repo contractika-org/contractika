@@ -1,0 +1,110 @@
+{
+    "name": "Bonus Report",
+    "description": "Bonus Report form.",
+    "header": {
+        "actions": {
+            "ACTION.EDIT": false
+        }
+    },
+    "actions": [
+        {
+            "id": "action.release",
+            "label": "Release",
+            "description": "The report will be released and the service account will be updated. (This action cannot be undone.)",
+            "controller": "model_transition",
+            "confirm": true,
+            "params": {
+                "entity": "contractika\\BonusReport",
+                "transition": "release",
+                "ids": []
+            },
+            "visible": ["status", "in", ["pending"]]
+        },
+        {
+            "id": "action.delete",
+            "label": "Delete",
+            "description": "This will remove the Report and detach all related Service Account lines from it.",
+            "controller": "model_delete",
+            "params": {
+                "entity": "contractika\\BonusReport",
+                "ids": []
+            },
+            "confirm": true,
+            "visible": ["status", "=", "pending"]
+        }
+    ],
+    "layout": {
+        "groups": [
+            {
+                "sections": [
+                    {
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "50%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "status",
+                                                "visible": false
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "date_from",
+                                                "width": "33%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "date_to",
+                                                "width": "33%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "View as PDF",
+                                                "value": "link",
+                                                "width": "33%",
+                                                "readonly": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sections": [
+                    {
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "report_lines_ids",
+                                                "width": "100%",
+                                                "widget": {
+                                                    "header": {
+                                                        "actions": {
+                                                            "ACTION.CREATE": false
+                                                        }
+                                                    },
+                                                    "actions": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

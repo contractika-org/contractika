@@ -1,0 +1,13 @@
+{
+    "name": "Contractika",
+    "description": "",
+    "url": "/contractika",
+    "icon": "edit_note",
+    "color": "#d2252c",
+    "access": {
+        "groups": [
+            "users", "admin"
+        ]
+    },
+    "show_in_apps": true
+}

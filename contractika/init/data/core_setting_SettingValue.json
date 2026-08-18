@@ -1,0 +1,33 @@
+[
+    {
+        "name": "core\\setting\\SettingValue",
+        "lang": "en",
+        "data": [
+            {
+                "id": 9911,
+                "setting_id": 9911,
+                "value": 0
+            },
+            {
+                "id": 9912,
+                "setting_id": 9912,
+                "value": "https://www.sd.be/pos/acc/V20/server/"
+            },
+            {
+                "id": 9913,
+                "setting_id": 9913,
+                "value": "https://webservices19.autotask.net/atservicesrest/v1.0/"
+            },
+            {
+                "id": 9914,
+                "setting_id": 9914,
+                "value": 0
+            },
+            {
+                "id": 9915,
+                "setting_id": 9915,
+                "value": 0
+            }
+        ]
+    }
+]

@@ -1,0 +1,12 @@
+{
+    "name": "",
+    "plural": "",
+    "description": "Advanced search for SA lines: returns a collection of lines matching extra parameters.",
+    "model": {
+    },
+    "view": {
+
+    },
+    "error": {
+    }
+}

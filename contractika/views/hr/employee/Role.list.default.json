@@ -1,0 +1,40 @@
+{
+    "name": "Roles list",
+    "description": "List of all HR Roles.",
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "value": "name",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "fullname",
+                "width": "25%"
+            },
+            {
+                "type": "field",
+                "value": "description",
+                "width": "35%"
+            },
+            {
+                "type": "field",
+                "value": "is_active",
+                "width": "10%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "extref_at_id",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "hourly_factor",
+                "width": "15%"
+            }
+        ]
+    }
+}

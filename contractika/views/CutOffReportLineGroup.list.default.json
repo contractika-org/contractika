@@ -1,0 +1,55 @@
+{
+    "name": "CutOff Report Line Groups",
+    "description": "All Groups from given CutOff Report.",
+    "order": "created",
+    "sort": "desc",
+    "header": {
+        "actions": {
+            "ACTION.CREATE": false
+        }
+    },
+    "operations": {
+        "total": {
+            "total_points": {
+                "operation": "SUM",
+                "usage": "number/real:5.2"
+            },
+            "total_amount": {
+                "operation": "SUM",
+                "usage": "amount/money:6.2"
+            }
+        }
+    },
+    "layout": {
+        "items": [
+            {
+                "type": "field",
+                "label": "Category",
+                "value": "sa_category_id",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "year",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "month",
+                "width": "15%"
+            },
+            {
+                "type": "field",
+                "value": "total_points",
+                "width": "15%",
+                "sortable": true
+            },
+            {
+                "type": "field",
+                "value": "total_amount",
+                "width": "15%",
+                "sortable": true
+            }
+        ]
+    }
+}

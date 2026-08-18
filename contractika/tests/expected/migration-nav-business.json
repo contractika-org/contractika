@@ -1,0 +1,50 @@
+{
+    "creation_error": {
+        "code": -1,
+        "message": "creation_failed"
+    },
+    "workflow": {
+        "ignored": {
+            "transitions": {
+                "restore": {
+                    "description": "Update the line status to 'pending'. This transition is meant to be called manually.",
+                    "status": "pending"
+                }
+            }
+        },
+        "pending": {
+            "transitions": {
+                "ignore": {
+                    "description": "Update the line status to `ignored`. This transition is meant to be called manually.",
+                    "status": "ignored"
+                },
+                "reconcile": {
+                    "description": "Update the line status to `reconciled`.",
+                    "domain": [
+                        [
+                            "service_account_id",
+                            ">",
+                            0
+                        ],
+                        [
+                            "customer_id",
+                            ">",
+                            0
+                        ],
+                        [
+                            "has_error",
+                            "=",
+                            false
+                        ]
+                    ],
+                    "help": "The transition will be allowed only if there are no pending errors.",
+                    "onafter": "doReconcile",
+                    "status": "reconciled"
+                }
+            }
+        },
+        "reconciled": {
+            "transitions": []
+        }
+    }
+}

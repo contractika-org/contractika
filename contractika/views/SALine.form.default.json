@@ -1,0 +1,445 @@
+{
+    "name": "Service Account Line",
+    "description": "Service Account Line form.",
+    "header": {
+        "actions": {
+            "ACTION.EDIT": true
+        }
+    },
+    "actions": [
+        {
+            "id": "action.reset",
+            "label": "Reset Points",
+            "description": "Recompute the points of the service account line.",
+            "controller": "contractika_saline_do-reset",
+            "confirm": true
+        },
+        {
+            "id": "action.mark_sent",
+            "label": "Mark as sent",
+            "description": "Force flag 'Report sent' to true (is_locked).",
+            "controller": "contractika_saline_do-lock",
+            "confirm": true
+        }
+    ],
+    "layout": {
+        "groups": [
+            {
+                "sections": [
+                    {
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "50%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "label": "Customer",
+                                                "value": "customer_id",
+                                                "width": "50%",
+                                                "widget": {
+                                                    "heading": true
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Service Account",
+                                                "value": "service_account_id",
+                                                "width": "50%",
+                                                "widget": {
+                                                    "heading": true,
+                                                    "domain": [["customer_id", "=", "object.customer_id"], ["is_active", "=", true]]
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Employee",
+                                                "value": "employee_id",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Role",
+                                                "value": "role_id",
+                                                "width": "50%"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "50%",
+                                        "align": "right",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "label": "Line Type",
+                                                "value": "sa_line_type_id",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Line Class",
+                                                "value": "sa_line_class_id",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "has_ticket",
+                                                "visible": false
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "has_task",
+                                                "visible": false
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Billed (AT)",
+                                                "value": "is_posted",
+                                                "width": "50%",
+                                                "widget": {
+                                                    "readonly": true
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Report sent (CT)",
+                                                "value": "is_locked",
+                                                "width": "50%",
+                                                "widget": {
+                                                    "readonly": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sections": [
+                    {
+                        "id": "section.main",
+                        "label": "Details",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "75%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "timeEntryID",
+                                                "width": "33%",
+                                                "widget": {
+                                                    "heading": true
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "date",
+                                                "width": "16%",
+                                                "widget": {
+                                                    "usage": "date"
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "priority",
+                                                "width": "16%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "on_site",
+                                                "width": "16%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Travel",
+                                                "value": "travel_time",
+                                                "width": "16%",
+                                                "visible": ["on_site", "=", true]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "25%",
+                                        "align": "right",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "calculation_time",
+                                                "width": "50%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "75%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "start",
+                                                "width": "18%",
+                                                "widget": {
+                                                    "usage": "time"
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "end",
+                                                "width": "18%",
+                                                "widget": {
+                                                    "usage": "time"
+                                                }
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "delta_time",
+                                                "width": "18%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Offset",
+                                                "value": "pause",
+                                                "width": "18%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "Offset Time",
+                                                "value": "pause_time",
+                                                "width": "18%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "label": "to Bill",
+                                                "value": "duration",
+                                                "width": "18%"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "25%",
+                                        "align": "right",
+                                        "items": [
+                                            {
+                                                "type": "label",
+                                                "value": "",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "points",
+                                                "width": "50%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "description",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "calculation_log",
+                                                "width": "50%",
+                                                "readonly": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "section.ticket",
+                        "label": "Ticket",
+                        "visible": ["has_ticket", "=", true],
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "33%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "ticketID",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "ticketLastActivityDate",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "ticketNumber",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "ticketCategory",
+                                                "width": "50%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "contact",
+                                                "width": "50%"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "66%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "ticketLink",
+                                                "width": "100%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "ticketDescription",
+                                                "width": "100%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "section.task",
+                        "label": "Task",
+                        "visible": ["has_task", "=", true],
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "100%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "taskID",
+                                                "width": "25%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "taskDescription",
+                                                "width": "75%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "taskNumber",
+                                                "width": "25%"
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "taskLink",
+                                                "width": "25%"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": "section.status",
+                        "label": "Status",
+                        "rows": [
+                            {
+                                "columns": [
+                                    {
+                                        "width": "50%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "resourceID",
+                                                "width": "50%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "postedOnTime",
+                                                "width": "50%",
+                                                "readonly": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "width": "25%",
+                                        "align": "left",
+                                        "items": []
+                                    },
+                                    {
+                                        "width": "25%",
+                                        "align": "left",
+                                        "items": [
+                                            {
+                                                "type": "field",
+                                                "value": "is_async",
+                                                "width": "100%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "is_orphan",
+                                                "width": "100%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "locked_date",
+                                                "width": "100%",
+                                                "readonly": true,
+                                                "visible": ["is_locked", "=", true]
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "has_report",
+                                                "width": "100%",
+                                                "readonly": true
+                                            },
+                                            {
+                                                "type": "field",
+                                                "value": "report_id",
+                                                "width": "100%",
+                                                "readonly": true,
+                                                "visible": ["has_report", "=", true]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

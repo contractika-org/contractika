@@ -1,0 +1,56 @@
+[
+    {
+        "name": "contractika\\SACategory",
+        "lang": "en",
+        "data": [
+            {
+                "id": 1,
+                "name": "Forfait",
+                "description": "Coaching ou Projet r\u00e9alis\u00e9 dans le cadre d'un forfait : mini-audit, installation, ...",
+                "extref_at_id": 9
+            },
+            {
+                "id": 2,
+                "name": "ServicePackage",
+                "description": "Compte Service pr\u00e9pay\u00e9",
+                "extref_at_id": 11
+            },
+            {
+                "id": 3,
+                "name": "Provision",
+                "description": "Compte Service aliment\u00e9 par une provision mensuelle",
+                "extref_at_id": 12
+            },
+            {
+                "id": 4,
+                "name": "R\u00e9gie",
+                "description": "Compte Service factur\u00e9 mensuellement, sans pr\u00e9paiement",
+                "extref_at_id": 13
+            },
+            {
+                "id": 5,
+                "name": "Agile-IT & licences",
+                "description": "Compte pour la facturation des licences et agile-IT",
+                "extref_at_id": 14
+            },
+            {
+                "id": 6,
+                "name": "Project",
+                "description": "Projet (non forfaitaire) r\u00e9alis\u00e9 dans le cadre d'un ServicePackage s\u00e9par\u00e9 et compl\u00e9mentaire \u00e0 une Provision ou un ServicePackage",
+                "extref_at_id": 15
+            },
+            {
+                "id": 7,
+                "name": "CloudBerry",
+                "description": "Cloud Backups",
+                "extref_at_id": 16
+            },
+            {
+                "id": 8,
+                "name": "Omnium",
+                "description": "Compte Service pr\u00e9pay\u00e9 + helpdesk omnium",
+                "extref_at_id": 17
+            }
+        ]
+    }
+]
