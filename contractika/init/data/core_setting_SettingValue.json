@@ -5,27 +5,27 @@
         "data": [
             {
                 "id": 9911,
-                "setting_id": 9911,
+                "name": "contractika.sync.sd_sync.last_run",
                 "value": 0
             },
             {
                 "id": 9912,
-                "setting_id": 9912,
+                "name": "contractika.sync.sd_sync.api_entrypoint_url",
                 "value": "https://www.sd.be/pos/acc/V20/server/"
             },
             {
                 "id": 9913,
-                "setting_id": 9913,
+                "name": "contractika.sync.at_sync.api_entrypoint_url",
                 "value": "https://webservices19.autotask.net/atservicesrest/v1.0/"
             },
             {
                 "id": 9914,
-                "setting_id": 9914,
+                "name": "contractika.sync.at_sync_absences.last_run",
                 "value": 0
             },
             {
                 "id": 9915,
-                "setting_id": 9915,
+                "name": "contractika.sync.at_sync_customers.last_run",
                 "value": 0
             }
         ]
