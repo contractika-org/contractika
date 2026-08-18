@@ -13,8 +13,9 @@ jobs:
     working_directory: ~/repo
     steps:
       # install PHP dependencies
-      - run: apt-get update && apt-get -y install git libzip-dev
-      - run: docker-php-ext-install pdo pdo_mysql mysqli zip
+      - run: apt-get update && apt-get -y install git libpng-dev libjpeg-dev libfreetype6-dev libzip-dev
+      - run: docker-php-ext-configure gd --with-freetype --with-jpeg
+      - run: docker-php-ext-install gd pdo pdo_mysql mysqli zip
       - run: docker-php-ext-enable mysqli
       # install equal
       - run:
@@ -78,6 +79,9 @@ jobs:
           name: Initialize Composer Dependencies
           command: php run.php --do=init_composer
       - run:
+          name: Check Composer Platform Requirements
+          command: php composer.phar check-platform-reqs
+      - run:
           name: Create a bin folder with write permissions
           command: mkdir -p ~/repo/bin && chmod 775 ~/repo/bin
       - run:
@@ -92,7 +96,7 @@ jobs:
       # create an empty database
       - run: php run.php --do=init_db
       # initialize database with demo data
-      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
+      - run: php run.php --do=init_package --package=contractika
       # run test units
       - run: php run.php --do=test_package --package=core
       - run: php run.php --do=test_package --package=contractika
