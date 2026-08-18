@@ -125,109 +125,9 @@ jobs:
     working_directory: ~/repo
     steps:
       # install PHP dependencies
-      - run: apt-get update && apt-get -y install git libzip-dev
-      - run: docker-php-ext-install pdo pdo_mysql mysqli zip
-      - run: docker-php-ext-enable mysqli
-      # install equal
-      - run:
-          name: Clone equal (#todo - use dockerhub image)
-          command: |
-            git clone https://github.com/equalframework/equal.git ~/repo
-            git checkout dev-2.0
-            mv ~/repo/packages ~/repo/packages.core
-      - checkout:
-          path: ~/repo/packages
-      - run:
-          name: Copy core package
-          command: |
-            cp -r ~/repo/packages.core/core ~/repo/packages/
-      - run:
-          name: List files in config directory
-          command: ls -la ~/repo/config/
-      # create a config file with Contractika specifics
-      - run:
-          name: Create a config file with Contractika specifics
-          command: |
-            echo '{"DEFAULT_LANG": "fr", "ORM_EVENTS_FORCE_ONUPDATE_AT_CREATION": true}' > ~/repo/config/config.json
-      # Verify the content of the file
-      - run:
-          name: Verify the content of the config file
-          command: cat ~/repo/config/config.json
-      - run:
-          name: List files in repo directory
-          command: ls -la ~/repo/
-      - run:
-          name: Create a composer.json file
-          command: |
-            echo '{
-              "require": {
-                "swiftmailer/swiftmailer": "^6.2",
-                "phpoffice/phpspreadsheet": "^1.4",
-                "dompdf/dompdf": "~3.0.0",
-                "electrolinux/phpquery": "^0.9.6",
-                "twig/twig": "^2.0",
-                "twig/intl-extra": "^3.3",
-                "smhg/sepa-qr-data": "^1.1",
-                "endroid/qr-code": "^4.3",
-                "codelicious/php-coda-parser": "^2.0"
-              },
-              "require-dev": {
-                "phpunit/phpunit": "^9.5",
-                "phpunit/php-code-coverage": "^9.2",
-                "symplify/easy-coding-standard": "^11.1"
-              },
-              "config": {
-                "audit": {
-                  "block-insecure": false
-                }
-              }
-            }' > ~/repo/composer.json
-      # Verify the composer of the file
-      - run:
-          name: Verify the composer of the config file
-          command: cat ~/repo/composer.json
-      - run:
-          name: Initialize Composer Dependencies
-          command: php run.php --do=init_composer
-      - run:
-          name: Create a bin folder with write permissions
-          command: mkdir -p ~/repo/bin && chmod 775 ~/repo/bin
-      - run:
-          name: List files in repo directory
-          command: ls -la ~/repo/
-      # assign folders permissions
-      - run: php run.php --do=init_fs
-      # check that mandatory directories are present and have correct access rights set
-      - run: php run.php --do=test_fs-consistency
-      # check ability to connect to the dbms service
-      - run: php run.php --do=test_db-connectivity
-      # create an empty database
-      - run: php run.php --do=init_db
-      # initialize database with demo data
-      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
-      # run test units
-      - run: php run.php --do=test_package --package=core
-      - run: php run.php --do=test_package --package=contractika
-      # export logs on failure
-      - run:
-          command: |
-            mkdir -p /tmp/dumps
-            cp ~/repo/log/equal.log /tmp/dumps
-          when: on_fail
-      - store_artifacts:
-          path: /tmp/dumps
-  php_8-3:
-    docker:
-    - image: php:8.3-apache
-    - image: mysql:5.7
-      environment:
-        MYSQL_ROOT_PASSWORD: test
-        MYSQL_DATABASE: equal
-    working_directory: ~/repo
-    steps:
-      # install PHP dependencies
-      - run: apt-get update && apt-get -y install git libzip-dev
-      - run: docker-php-ext-install pdo pdo_mysql mysqli zip
+      - run: apt-get update && apt-get -y install git libpng-dev libjpeg-dev libfreetype6-dev libzip-dev
+      - run: docker-php-ext-configure gd --with-freetype --with-jpeg
+      - run: docker-php-ext-install gd pdo pdo_mysql mysqli zip
       - run: docker-php-ext-enable mysqli
       # install equal
       - run:
@@ -291,106 +191,8 @@ jobs:
           name: Initialize Composer Dependencies
           command: php run.php --do=init_composer
       - run:
-          name: Create a bin folder with write permissions
-          command: mkdir -p ~/repo/bin && chmod 775 ~/repo/bin
-      - run:
-          name: List files in repo directory
-          command: ls -la ~/repo/
-      # assign folders permissions
-      - run: php run.php --do=init_fs
-      # check that mandatory directories are present and have correct access rights set
-      - run: php run.php --do=test_fs-consistency
-      # check ability to connect to the dbms service
-      - run: php run.php --do=test_db-connectivity
-      # create an empty database
-      - run: php run.php --do=init_db
-      # initialize database with demo data
-      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
-      # run test units
-      - run: php run.php --do=test_package --package=core
-      - run: php run.php --do=test_package --package=contractika
-      # export logs on failure
-      - run:
-          command: |
-            mkdir -p /tmp/dumps
-            cp ~/repo/log/equal.log /tmp/dumps
-          when: on_fail
-      - store_artifacts:
-          path: /tmp/dumps
-  php_8-4:
-    docker:
-    - image: php:8.4-apache
-    - image: mysql:5.7
-      environment:
-        MYSQL_ROOT_PASSWORD: test
-        MYSQL_DATABASE: equal
-    working_directory: ~/repo
-    steps:
-      # install PHP dependencies
-      - run: apt-get update && apt-get -y install git libzip-dev
-      - run: docker-php-ext-install pdo pdo_mysql mysqli zip
-      - run: docker-php-ext-enable mysqli
-      # install equal
-      - run:
-          name: Clone equal (#todo - use dockerhub image)
-          command: |
-            git clone https://github.com/equalframework/equal.git ~/repo
-            git checkout 2.0.1
-            mv ~/repo/packages ~/repo/packages.core
-      - checkout:
-          path: ~/repo/packages
-      - run:
-          name: Copy core package
-          command: |
-            cp -r ~/repo/packages.core/core ~/repo/packages/
-      - run:
-          name: List files in config directory
-          command: ls -la ~/repo/config/
-      # create a config file with Contractika specifics
-      - run:
-          name: Create a config file with Contractika specifics
-          command: |
-            echo '{"DEFAULT_LANG": "fr", "ORM_EVENTS_FORCE_ONUPDATE_AT_CREATION": true}' > ~/repo/config/config.json
-      # Verify the content of the file
-      - run:
-          name: Verify the content of the config file
-          command: cat ~/repo/config/config.json
-      - run:
-          name: List files in repo directory
-          command: ls -la ~/repo/
-      - run:
-          name: Create a composer.json file
-          command: |
-            echo '{
-              "require": {
-                "swiftmailer/swiftmailer": "^6.2",
-                "phpoffice/phpspreadsheet": "^1.4",
-                "dompdf/dompdf": "~3.0.0",
-                "electrolinux/phpquery": "^0.9.6",
-                "twig/twig": "^2.0",
-                "twig/intl-extra": "^3.3",
-                "smhg/sepa-qr-data": "^1.1",
-                "endroid/qr-code": "^4.3",
-                "codelicious/php-coda-parser": "^2.0"
-              },
-              "require-dev": {
-                "phpunit/phpunit": "^9.5",
-                "phpunit/php-code-coverage": "^9.2",
-                "symplify/easy-coding-standard": "^11.1"
-              },
-              "config": {
-                "audit": {
-                  "block-insecure": false
-                }
-              }
-            }' > ~/repo/composer.json
-      # Verify the composer of the file
-      - run:
-          name: Verify the composer of the config file
-          command: cat ~/repo/composer.json
-      - run:
-          name: Initialize Composer Dependencies
-          command: php run.php --do=init_composer
+          name: Check Composer Platform Requirements
+          command: php composer.phar check-platform-reqs
       - run:
           name: Create a bin folder with write permissions
           command: mkdir -p ~/repo/bin && chmod 775 ~/repo/bin
@@ -405,10 +207,19 @@ jobs:
       - run: php run.php --do=test_db-connectivity
       # create an empty database
       - run: php run.php --do=init_db
-      # initialize database with demo data
-      - run: php run.php --do=init_package --package=contractika --ignore_platform=true
-      # run test units
+      # initialize core schema and initial data before package tests
+      - run: php run.php --do=init_package --package=core --import=true
+      - run:
+          name: Check Composer Platform Requirements After Core Init
+          command: php composer.phar check-platform-reqs
+      # run core test units before initializing business packages
       - run: php run.php --do=test_package --package=core
+      # initialize database with demo data
+      - run: php run.php --do=init_package --package=contractika
+      - run:
+          name: Check Composer Platform Requirements After Package Init
+          command: php composer.phar check-platform-reqs
+      # run test units
       - run: php run.php --do=test_package --package=contractika
       # export logs on failure
       - run:
@@ -423,4 +234,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - php_7-4
+      - php_8-1
