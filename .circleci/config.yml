@@ -115,9 +115,9 @@ jobs:
           when: on_fail
       - store_artifacts:
           path: /tmp/dumps
-  php_8-1:
+  php_8-3:
     docker:
-    - image: php:8.1-apache
+    - image: php:8.3-apache
     - image: mysql:5.7
       environment:
         MYSQL_ROOT_PASSWORD: test
