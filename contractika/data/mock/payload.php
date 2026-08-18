@@ -239,6 +239,7 @@ $payloads = [
                 'extref_customer'     => 'C-MOCK-001',
                 'extref_no'           => 'NTK-SERVICEPACKAGE',
                 'extref_description2' => '#AT-29683374#',
+                'extref_uom_code'     => 'PNT',
                 'extref_unit_price'   => '20.64',
                 'extref_quantity'     => '10',
                 'extref_amount'       => '206.40',

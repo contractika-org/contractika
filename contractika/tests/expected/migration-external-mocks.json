@@ -219,6 +219,7 @@
                 "extref_line_uuid": "00000000-0000-0000-0000-000000000001",
                 "extref_no": "NTK-SERVICEPACKAGE",
                 "extref_quantity": "10",
+                "extref_uom_code": "PNT",
                 "extref_unit_price": "20.64",
                 "points": 10
             }

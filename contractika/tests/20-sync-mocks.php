@@ -132,6 +132,33 @@ $tests = [
         'assert'      => function ($payload) {
             return is_array($payload) && count($payload) === 0;
         }
+    ],
+
+    '2006' => [
+        'description' => 'Fetch mock NAV line payload for credit reconciliation.',
+        'help'        => 'NAV imports must be testable through deterministic Business Central lines without calling the real API.',
+        'act'         => function () {
+            return eQual::run('get', 'contractika_mock_payload', [
+                'provider' => 'bc',
+                'resource' => 'nav_lines'
+            ]);
+        },
+        'assert'      => function ($payload) {
+            if(!is_array($payload) || count($payload) !== 1) {
+                return false;
+            }
+
+            $line = reset($payload);
+
+            return (
+                ($line['extref_document_no'] ?? null) === 'INV-MOCK-001'
+                && ($line['extref_customer'] ?? null) === 'C-MOCK-001'
+                && ($line['extref_description2'] ?? null) === '#AT-29683374#'
+                && ($line['extref_uom_code'] ?? null) === 'PNT'
+                && (float) ($line['extref_unit_price'] ?? 0) === 20.64
+                && (float) ($line['points'] ?? 0) === 10.0
+            );
+        }
     ]
 
 ];
