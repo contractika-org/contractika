@@ -1,7 +1,5 @@
 version: 2.1
 
-# Define the jobs we want to run for this project.
-# We always test 2 previous PHP versions.
 jobs:
   php_7-4:
     docker:
@@ -95,10 +93,19 @@ jobs:
       - run: php run.php --do=test_db-connectivity
       # create an empty database
       - run: php run.php --do=init_db
+      # initialize core schema and initial data before package tests
+      - run: php run.php --do=init_package --package=core --import=true
+      - run:
+          name: Check Composer Platform Requirements After Core Init
+          command: php composer.phar check-platform-reqs
+      # run core test units before initializing business packages
+      - run: php run.php --do=test_package --package=core
       # initialize database with demo data
       - run: php run.php --do=init_package --package=contractika
+      - run:
+          name: Check Composer Platform Requirements After Package Init
+          command: php composer.phar check-platform-reqs
       # run test units
-      - run: php run.php --do=test_package --package=core
       - run: php run.php --do=test_package --package=contractika
       # export logs on failure
       - run:
