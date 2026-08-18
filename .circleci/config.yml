@@ -234,4 +234,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - php_8-1
+      - php_8-3
