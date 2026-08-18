@@ -6,8 +6,7 @@
         "core",
         "sale",
         "hr",
-        "identity",
-        "settings"
+        "identity"
     ],
     "apps": ["apps", "auth", "settings", "contractika"]
 }
