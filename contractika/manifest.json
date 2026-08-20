@@ -17,5 +17,26 @@
         "smhg/sepa-qr-data": "^1.1",
         "endroid/qr-code": "^4.3"
     },
-    "apps": ["apps", "auth", "settings", "contractika"]
+    "apps": [
+        "app", "apps", "auth", "contractika",
+        {
+            "id": "settings",
+            "name": "Settings",
+            "extends": "app",
+            "description": "Settings & Config params",
+            "icon": "settings",
+            "color": "#ff9741",
+            "access": {
+                "groups": [
+                    "admins"
+                ]
+            },
+            "params": {
+                "menus": {
+                    "left": "settings.left"
+                }
+            },
+            "show_in_apps": true
+        }
+    ]
 }
