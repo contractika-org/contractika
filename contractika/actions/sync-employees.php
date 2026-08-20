@@ -20,7 +20,7 @@ use core\Mail;
  * @var \equal\php\Context                $context
  * @var \equal\error\Reporter             $reporter
  */
-['context' => $context, 'reporter' => $reporter] = $providers;
+['context' => $context, 'report' => $reporter] = $providers;
 
 $result = [];
 
