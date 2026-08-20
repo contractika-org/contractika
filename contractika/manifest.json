@@ -1,6 +1,6 @@
 {
     "name": "contractika",
-    "author": "Yesbabylon SRL",
+    "author": "Yesbabylon SA",
     "version": "1.0",
     "depends_on": [
         "core",
@@ -8,5 +8,14 @@
         "hr",
         "identity"
     ],
+    "requires": {
+        "swiftmailer/swiftmailer": "^6.2",
+        "phpoffice/phpspreadsheet": "^1.4",
+        "dompdf/dompdf": "~3.0.0",
+        "twig/twig": "^2.0",
+        "twig/intl-extra": "^3.3",
+        "smhg/sepa-qr-data": "^1.1",
+        "endroid/qr-code": "^4.3"
+    },
     "apps": ["apps", "auth", "settings", "contractika"]
 }
