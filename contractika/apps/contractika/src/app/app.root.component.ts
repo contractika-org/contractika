@@ -25,6 +25,7 @@ export class AppRootComponent implements OnInit {
 
     public show_side_menu: boolean = false;
     public show_side_bar: boolean = true;
+    public show_search_side_menu: boolean = true;
 
     public filter: string;
 
@@ -77,6 +78,9 @@ export class AppRootComponent implements OnInit {
 
     private translateMenu(menu:any, translation: any) {
         let result: any[] = [];
+        if(!Array.isArray(menu)) {
+            return [];
+        }
         for(let item of menu) {
             if(item.id && translation.hasOwnProperty(item.id)) {
                 item.label = translation[item.id].label;
@@ -200,5 +204,9 @@ export class AppRootComponent implements OnInit {
 
     public toggleSideBar() {
         this.show_side_bar = !this.show_side_bar;
+    }
+
+    public onUpdateSideMenu(show: boolean) {
+        this.show_side_menu = show;
     }
 }

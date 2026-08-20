@@ -2,7 +2,7 @@
 use contractika\hr\absence\Absence;
 use core\setting\Setting;
 
-list($params, $providers) = eQual::announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Makes sure that planned absences are linked to AT Appointments. \n
                         Reviews all absences that have been updated since last synch, and creates, updates or deletes AT Appointments accordingly.",
     'response'      => [
@@ -20,7 +20,7 @@ list($params, $providers) = eQual::announce([
  * @var \equal\php\Context                $context
  * @var \equal\error\Reporter             $reporter
  */
-list($context, $reporter) = [ $providers['context'], $providers['report'] ];
+['context' => $context, 'reporter' => $reporter] = $providers;
 
 $result = [
     'errors'  => 0,
@@ -61,7 +61,7 @@ foreach($absences as $absence) {
     if(!isset($absence['employee_id']) || !$absence['employee_id']['is_active'] || !isset($absence['employee_id']['extref_at_id'])) {
         // skip irrelevant absences
         ++$result['ignored'];
-        $result['logs'][] = 'INFO- ignoring unknown or inactive employee '.$absence['employee_id']['id'];
+        $result['logs'][] = 'INFO- ignoring unknown or inactive employee ' . ($absence['employee_id']['id'] ?? '');
         continue;
     }
 
