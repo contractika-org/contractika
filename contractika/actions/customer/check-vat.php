@@ -7,7 +7,7 @@
 use contractika\identity\Identity;
 use contractika\sale\customer\Customer;
 
-list($params, $providers) = eQual::announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Check if the VAT number associated to a given Customer is unique.",
     'params'        => [
         'id' =>  [
@@ -54,9 +54,10 @@ if( $customer['is_active']
         && isset($customer['partner_identity_id']['vat_number'])
         && strlen($customer['partner_identity_id']['vat_number']) ) {
 
+    $parent_identity_id = $customer['parent_customer_id']['partner_identity_id'] ?? null;
     $children_identities_ids = [];
     foreach($customer['children_customers_ids'] ?? [] as $child_customer) {
-        if($child_customer['is_active']) {
+        if($child_customer['is_active'] && isset($child_customer['partner_identity_id'])) {
             $children_identities_ids[] = $child_customer['partner_identity_id'];
         }
     }
@@ -71,7 +72,7 @@ if( $customer['is_active']
 
     foreach($identities as $index => $identity) {
         // discard parent identity of customer
-        if($identity['id'] == $customer['parent_customer_id']['partner_identity_id'] ?? null) {
+        if($parent_identity_id && $identity['id'] == $parent_identity_id) {
             unset($identities[$index]);
         }
         // discard children identities of customer
@@ -89,8 +90,8 @@ if( $customer['is_active']
         if(!$identityCustomer) {
             unset($identities[$index]);
         }
-        elseif(isset($identityCustomer['parent_customer_id']['partner_identity_id'])) {
-            if($identityCustomer['parent_customer_id']['partner_identity_id'] == $customer['parent_customer_id']['partner_identity_id'] ?? null) {
+        elseif($parent_identity_id && isset($identityCustomer['parent_customer_id']['partner_identity_id'])) {
+            if($identityCustomer['parent_customer_id']['partner_identity_id'] == $parent_identity_id) {
                 unset($identities[$index]);
             }
         }

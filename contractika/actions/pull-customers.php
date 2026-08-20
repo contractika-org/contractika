@@ -53,7 +53,7 @@ $result = [
 // retrieve last_run from settings (defaults to 'all times')
 $last_run = Setting::get_value('contractika', 'sync', 'at_sync_customers.last_run', 0);
 
-if($params['date_from'] && $params['date_from'] > 0) {
+if(isset($params['date_from']) && $params['date_from'] > 0) {
     $last_run = $params['date_from'];
 }
 
@@ -374,7 +374,7 @@ try {
                         'email'            => $at_contact['emailAddress'],
                         'firstname'        => $at_contact['firstName'],
                         'lastname'         => $at_contact['lastName'],
-                        'language'         => ['ENU' => 'en', 'FRA' => 'fr', 'NLD' => 'nl'][$at_contact['Language']],
+                        'language'         => ['ENU' => 'en', 'FRA' => 'fr', 'NLD' => 'nl'][$at_contact['Language'] ?? 'FRA'],
                         'customer_id'      => $customer['id']
                     ]);
                 $result['logs'][] = 'OK  - updated contact AT'.$at_contact['id'].', '.$at_contact['firstName'].' '.$at_contact['lastName'];
