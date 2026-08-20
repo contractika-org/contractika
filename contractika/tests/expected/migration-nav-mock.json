@@ -1,0 +1,18 @@
+{
+    "nav_lines": [
+        {
+            "date": "2026-01-15",
+            "description": "Mock service package credit",
+            "extref_amount": "206.40",
+            "extref_customer": "C-MOCK-001",
+            "extref_description2": "#AT-29683374#",
+            "extref_document_no": "INV-MOCK-001",
+            "extref_line_uuid": "00000000-0000-0000-0000-000000000001",
+            "extref_no": "NTK-SERVICEPACKAGE",
+            "extref_quantity": "10",
+            "extref_unit_price": "20.64",
+            "extref_uom_code": "PNT",
+            "points": 10
+        }
+    ]
+}

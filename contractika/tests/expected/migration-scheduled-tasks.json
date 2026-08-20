@@ -1,0 +1,361 @@
+{
+    "controllers": {
+        "contractika_calc-points": {
+            "calls": [],
+            "controller": "contractika_calc-points",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/calc-points.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_pull-contracts": {
+            "calls": [
+                {
+                    "controller": "contractika_at_contracts",
+                    "path": "packages/contractika/data/at/contracts.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_serviceaccount_check-company",
+                    "path": "packages/contractika/actions/serviceaccount/check-company.php",
+                    "resolves": true,
+                    "type": "do"
+                }
+            ],
+            "controller": "contractika_pull-contracts",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "constants",
+                "logs",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/pull-contracts.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_pull-credits": {
+            "calls": [
+                {
+                    "controller": "contractika_bc_token",
+                    "path": "packages/contractika/data/bc/token.php",
+                    "resolves": true,
+                    "type": "get"
+                }
+            ],
+            "controller": "contractika_pull-credits",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "constants",
+                "logs",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/pull-credits.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_pull-customers": {
+            "calls": [
+                {
+                    "controller": "contractika_at_customers",
+                    "path": "packages/contractika/data/at/customers.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_customer_check-nav",
+                    "path": "packages/contractika/actions/customer/check-nav.php",
+                    "resolves": true,
+                    "type": "do"
+                },
+                {
+                    "controller": "contractika_customer_check-identity",
+                    "path": "packages/contractika/actions/customer/check-identity.php",
+                    "resolves": true,
+                    "type": "do"
+                },
+                {
+                    "controller": "contractika_at_contacts",
+                    "path": "packages/contractika/data/at/contacts.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_customer_check-vat",
+                    "path": "packages/contractika/actions/customer/check-vat.php",
+                    "resolves": true,
+                    "type": "do"
+                },
+                {
+                    "controller": "contractika_customer_check-contacts",
+                    "path": "packages/contractika/actions/customer/check-contacts.php",
+                    "resolves": true,
+                    "type": "do"
+                }
+            ],
+            "controller": "contractika_pull-customers",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "constants",
+                "date_from",
+                "language",
+                "logs",
+                "params",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/pull-customers.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_reconcile-credits": {
+            "calls": [],
+            "controller": "contractika_reconcile-credits",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "logs",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/reconcile-credits.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_reset-points": {
+            "calls": [],
+            "controller": "contractika_reset-points",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/reset-points.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_serviceaccount_batch-reports": {
+            "calls": [
+                {
+                    "controller": "contractika_serviceaccount_do-report",
+                    "path": "packages/contractika/actions/serviceaccount/do-report.php",
+                    "resolves": true,
+                    "type": "do"
+                }
+            ],
+            "controller": "contractika_serviceaccount_batch-reports",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "logs",
+                "params",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/serviceaccount/batch-reports.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_sync-deletedentries": {
+            "calls": [
+                {
+                    "controller": "contractika_at_timeentries",
+                    "path": "packages/contractika/data/at/timeentries.php",
+                    "resolves": true,
+                    "type": "get"
+                }
+            ],
+            "controller": "contractika_sync-deletedentries",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "constants",
+                "fields",
+                "logs",
+                "providers",
+                "response"
+            ],
+            "path": "packages/contractika/actions/sync-deletedentries.php",
+            "type": "do",
+            "visibility": "protected"
+        },
+        "contractika_sync-timeentries": {
+            "calls": [
+                {
+                    "controller": "contractika_at_timeentries",
+                    "path": "packages/contractika/data/at/timeentries.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_at_tickets",
+                    "path": "packages/contractika/data/at/tickets.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_at_tickets",
+                    "path": "packages/contractika/data/at/tickets.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_at_tasks",
+                    "path": "packages/contractika/data/at/tasks.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_at_tasks",
+                    "path": "packages/contractika/data/at/tasks.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_at_projects",
+                    "path": "packages/contractika/data/at/projects.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_at_contacts",
+                    "path": "packages/contractika/data/at/contacts.php",
+                    "resolves": true,
+                    "type": "get"
+                },
+                {
+                    "controller": "contractika_at_billingitems",
+                    "path": "packages/contractika/data/at/billingitems.php",
+                    "resolves": true,
+                    "type": "get"
+                }
+            ],
+            "controller": "contractika_sync-timeentries",
+            "file_exists": true,
+            "has_announce": true,
+            "has_description": true,
+            "params": [
+                "access",
+                "constants",
+                "email_alerts",
+                "logs",
+                "providers",
+                "response",
+                "sa_line_type_id"
+            ],
+            "path": "packages/contractika/actions/sync-timeentries.php",
+            "type": "do",
+            "visibility": "protected"
+        }
+    },
+    "tasks": [
+        {
+            "controller": "contractika_calc-points",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Compute points",
+            "repeat_axis": "day",
+            "repeat_step": 1,
+            "time_utc": "01:00"
+        },
+        {
+            "controller": "contractika_pull-contracts",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Pull Service Accounts (AT contracts)",
+            "repeat_axis": "day",
+            "repeat_step": 1,
+            "time_utc": "20:00"
+        },
+        {
+            "controller": "contractika_pull-credits",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Pull Credit Lines (Navision invoice lines)",
+            "repeat_axis": "day",
+            "repeat_step": 1,
+            "time_utc": "03:10"
+        },
+        {
+            "controller": "contractika_pull-customers",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Pull Customers (AT companies)",
+            "repeat_axis": "day",
+            "repeat_step": 1,
+            "time_utc": "19:00"
+        },
+        {
+            "controller": "contractika_reconcile-credits",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Auto Reconcile NAV Lines",
+            "repeat_axis": "day",
+            "repeat_step": 1,
+            "time_utc": "04:01"
+        },
+        {
+            "controller": "contractika_reset-points",
+            "is_active": false,
+            "is_recurring": false,
+            "name": "Reset All Points",
+            "repeat_axis": "week",
+            "repeat_step": 4,
+            "time_utc": "13:23"
+        },
+        {
+            "controller": "contractika_serviceaccount_batch-reports",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Generate reports",
+            "repeat_axis": "month",
+            "repeat_step": 1,
+            "time_utc": "03:00"
+        },
+        {
+            "controller": "contractika_sync-deletedentries",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Delete items (Sync TE removed in AT)",
+            "repeat_axis": "day",
+            "repeat_step": 1,
+            "time_utc": "02:00"
+        },
+        {
+            "controller": "contractika_sync-timeentries",
+            "is_active": true,
+            "is_recurring": true,
+            "name": "Pull SA Lines (AT time entries & ticket/task)",
+            "repeat_axis": "day",
+            "repeat_step": 1,
+            "time_utc": "21:00"
+        }
+    ]
+}

@@ -1,0 +1,520 @@
+{
+    "do:contractika_at_create-appointment": {
+        "calls": [],
+        "controller": "contractika_at_create-appointment",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "datetime_from",
+            "datetime_to",
+            "description",
+            "params",
+            "providers",
+            "resource_id",
+            "response",
+            "title"
+        ],
+        "path": "packages/contractika/actions/at/create-appointment.php",
+        "type": "do",
+        "visibility": "protected"
+    },
+    "do:contractika_at_create-ticket": {
+        "calls": [],
+        "controller": "contractika_at_create-ticket",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "company_id",
+            "constants",
+            "contract_id",
+            "description",
+            "due_datetime",
+            "external_id",
+            "params",
+            "providers",
+            "response",
+            "title"
+        ],
+        "path": "packages/contractika/actions/at/create-ticket.php",
+        "type": "do",
+        "visibility": "protected"
+    },
+    "do:contractika_at_delete-appointment": {
+        "calls": [],
+        "controller": "contractika_at_delete-appointment",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "id",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/actions/at/delete-appointment.php",
+        "type": "do",
+        "visibility": "protected"
+    },
+    "do:contractika_at_update-appointment": {
+        "calls": [],
+        "controller": "contractika_at_update-appointment",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "datetime_from",
+            "datetime_to",
+            "description",
+            "id",
+            "params",
+            "providers",
+            "resource_id",
+            "response",
+            "title"
+        ],
+        "path": "packages/contractika/actions/at/update-appointment.php",
+        "type": "do",
+        "visibility": "protected"
+    },
+    "do:contractika_at_update-company": {
+        "calls": [],
+        "controller": "contractika_at_update-company",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "discount",
+            "id",
+            "is_active",
+            "params",
+            "payment_terms",
+            "providers",
+            "response",
+            "service_price",
+            "target_margin",
+            "userDefinedFields",
+            "vat_id"
+        ],
+        "path": "packages/contractika/actions/at/update-company.php",
+        "type": "do",
+        "visibility": "protected"
+    },
+    "do:contractika_at_update-contract": {
+        "calls": [],
+        "controller": "contractika_at_update-contract",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "balance",
+            "constants",
+            "id",
+            "params",
+            "providers",
+            "response",
+            "userDefinedFields"
+        ],
+        "path": "packages/contractika/actions/at/update-contract.php",
+        "type": "do",
+        "visibility": "protected"
+    },
+    "do:contractika_mock_send": {
+        "calls": [],
+        "controller": "contractika_mock_send",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "default",
+            "operation",
+            "params",
+            "payload",
+            "provider",
+            "providers",
+            "resource",
+            "response",
+            "result",
+            "selection"
+        ],
+        "path": "packages/contractika/actions/mock/send.php",
+        "type": "do",
+        "visibility": "protected"
+    },
+    "get:contractika_at_billingitems": {
+        "calls": [],
+        "controller": "contractika_at_billingitems",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "date_from",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/billingitems.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_contacts": {
+        "calls": [],
+        "controller": "contractika_at_contacts",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "company_id",
+            "constants",
+            "date_from",
+            "default",
+            "ids",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/contacts.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_contracts": {
+        "calls": [],
+        "controller": "contractika_at_contracts",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/contracts.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_customers": {
+        "calls": [],
+        "controller": "contractika_at_customers",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "date_from",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/customers.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_holidays": {
+        "calls": [],
+        "controller": "contractika_at_holidays",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/holidays.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_projects": {
+        "calls": [],
+        "controller": "contractika_at_projects",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "ids",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/projects.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_resource": {
+        "calls": [],
+        "controller": "contractika_at_resource",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "id",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/resource.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_resources": {
+        "calls": [],
+        "controller": "contractika_at_resources",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/resources.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_roles": {
+        "calls": [],
+        "controller": "contractika_at_roles",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/roles.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_tasks": {
+        "calls": [],
+        "controller": "contractika_at_tasks",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "date_from",
+            "default",
+            "ids",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/tasks.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_tickets": {
+        "calls": [],
+        "controller": "contractika_at_tickets",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "date_from",
+            "default",
+            "ids",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/at/tickets.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_at_timeentries": {
+        "calls": [],
+        "controller": "contractika_at_timeentries",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "date_field",
+            "date_from",
+            "date_to",
+            "default",
+            "fields",
+            "ids",
+            "params",
+            "providers",
+            "response",
+            "task_id",
+            "ticket_id"
+        ],
+        "path": "packages/contractika/data/at/timeentries.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_bc_customers": {
+        "calls": [
+            {
+                "controller": "contractika_bc_token",
+                "path": "packages/contractika/data/bc/token.php",
+                "resolves": true,
+                "type": "get"
+            }
+        ],
+        "controller": "contractika_bc_customers",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "date_from",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/bc/customers.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_bc_token": {
+        "calls": [],
+        "controller": "contractika_bc_token",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "examples",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/bc/token.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_dash_absence": {
+        "calls": [],
+        "controller": "contractika_dash_absence",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "id",
+            "params",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/dash/absence.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_mock_payload": {
+        "calls": [],
+        "controller": "contractika_mock_payload",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "absences",
+            "access",
+            "at",
+            "bc",
+            "billingcode",
+            "billingitems",
+            "contacts",
+            "contracts",
+            "customers",
+            "employees",
+            "envelope",
+            "holidays",
+            "limit",
+            "nav_lines",
+            "params",
+            "payment_terms",
+            "projects",
+            "provider",
+            "providers",
+            "resource",
+            "resources",
+            "response",
+            "roles",
+            "scenario",
+            "sd",
+            "selection",
+            "tasks",
+            "tickets",
+            "timeentries",
+            "userDefinedFields"
+        ],
+        "path": "packages/contractika/data/mock/payload.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_sd_absences": {
+        "calls": [],
+        "controller": "contractika_sd_absences",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "examples",
+            "future_months",
+            "id",
+            "last_run",
+            "params",
+            "passed_months",
+            "providers",
+            "response"
+        ],
+        "path": "packages/contractika/data/sd/absences.php",
+        "type": "get",
+        "visibility": "protected"
+    },
+    "get:contractika_sd_employees": {
+        "calls": [],
+        "controller": "contractika_sd_employees",
+        "file_exists": true,
+        "has_announce": true,
+        "has_description": true,
+        "params": [
+            "access",
+            "constants",
+            "providers",
+            "request",
+            "response"
+        ],
+        "path": "packages/contractika/data/sd/employees.php",
+        "type": "get",
+        "visibility": "protected"
+    }
+}

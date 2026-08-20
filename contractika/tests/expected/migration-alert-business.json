@@ -1,0 +1,32 @@
+{
+    "customer_contacts": {
+        "alert": "contractika.customer.missing_contact",
+        "cancel": true,
+        "dispatch": true
+    },
+    "customer_identity": {
+        "alert": "contractika.customer.missing_identity",
+        "cancel": true,
+        "dispatch": true
+    },
+    "customer_nav": {
+        "alert": "contractika.customer.missing_nav_id",
+        "cancel": true,
+        "dispatch": true
+    },
+    "report_contacts": {
+        "alert": "contractika.report.missing_contact",
+        "cancel": true,
+        "dispatch": true
+    },
+    "report_email": {
+        "alert": "contractika.report.failed_email_sending",
+        "cancel": true,
+        "dispatch": true
+    },
+    "service_company": {
+        "alert": "contractika.service_account.unknown_company",
+        "cancel": true,
+        "dispatch": true
+    }
+}
