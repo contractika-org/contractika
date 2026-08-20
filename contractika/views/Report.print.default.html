@@ -367,24 +367,24 @@ hr {
 <div class="inner">
     <div class="wrapper">
         <div class="section-title" style="width: 100%; border-bottom: solid 1px black;">Service Account Balance</div>
-        <div style="margin-top: 20px;">
-            <div style="width: 100%; height: 18px;">
-                <div style="display: inline-block; width: 80%;">Initial Balance</div>
-                <div style="display: inline-block; width: 20%; text-align: right; font-weight: bold;">{{balance_old}}</div>
-            </div>
-            <div style="width: 100%; height: 18px;">
-                <div style="display: inline-block; width: 80%;">Total Services for period (details on previous pages)</div>
-                <div style="display: inline-block; width: 20%; text-align: right; font-weight: bold;">{{total_tickets}}</div>
-            </div>
-            <div style="width: 100%; height: 18px;">
-                <div style="display: inline-block; width: 80%;">Total Credits & Corrections for period</div>
-                <div style="display: inline-block; width: 20%; text-align: right; font-weight: bold;">{{total_credits}}</div>
-            </div>
-            <div style="width: 100%; height: 18px;">
-                <div style="display: inline-block; width: 80%;">New balance</div>
-                <div style="display: inline-block; width: 20%; text-align: right; font-weight: bold;">{{balance_new}}</div>
-            </div>
-        </div>
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 20px;">
+            <tr style="height: 18px;">
+                <td width="80%" style="text-align: left;">Initial Balance</td>
+                <td width="20%" style="text-align: right; font-weight: bold;">{{balance_old}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td width="80%" style="text-align: left;">Total Services for period (details on previous pages)</td>
+                <td width="20%" style="text-align: right; font-weight: bold;">{{total_tickets}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td width="80%" style="text-align: left;">Total Credits & Corrections for period</td>
+                <td width="20%" style="text-align: right; font-weight: bold;">{{total_credits}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td width="80%" style="text-align: left;">New balance</td>
+                <td width="20%" style="text-align: right; font-weight: bold;">{{balance_new}}</td>
+            </tr>
+        </table>
     </div>
 </div>
 
