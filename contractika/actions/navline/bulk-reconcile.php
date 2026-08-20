@@ -6,7 +6,7 @@
 */
 use contractika\NAVLine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Attempt to reconcile given NAV lines.",
     'params'        => [
         'ids' =>  [

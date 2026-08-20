@@ -11,7 +11,7 @@ use core\setting\Setting;
  * HTTP native support
  *
  */
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => '',
     'params'        => [
     ],

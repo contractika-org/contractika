@@ -3,7 +3,7 @@ use contractika\hr\employee\Employee;
 use contractika\identity\Identity;
 use equal\text\TextTransformer;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Updates the list of Employee objects based on latest list from SDWorx.',
     'response'      => [
         'content-type'  => 'application/json',

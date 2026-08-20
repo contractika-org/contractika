@@ -2,7 +2,7 @@
 use equal\email\Email;
 use core\Mail;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Synchronizes AutoTask with the local list of holidays based on data from AutoTask.',
     'response'      => [
         'content-type'  => 'application/json',

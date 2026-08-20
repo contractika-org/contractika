@@ -6,7 +6,7 @@
 */
 use equal\db\DBManipulatorSqlSrv;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Requests the list of payment terms from Navision database and returns it as a JSON array.',
     'response'      => [
         'content-type'  => 'application/json',

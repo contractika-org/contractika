@@ -6,7 +6,7 @@
 */
 use contractika\Report;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Delete a report. The report will be deleted and SA lines detached from it.",
     'params'        => [
         'id' =>  [

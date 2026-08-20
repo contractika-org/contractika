@@ -8,7 +8,7 @@ use contractika\sale\customer\Customer;
 use contractika\ServiceAccount;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Generate draft reports for all contracts for the current period.",
     'params'        => [],
     'access' => [

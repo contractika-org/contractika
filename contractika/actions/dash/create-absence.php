@@ -8,7 +8,7 @@ use equal\db\DBManipulatorSqlSrv;
 use contractika\hr\absence\Absence;
 use contractika\identity\Identity;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Fetches data for a specific absence and creates a related record into ITs Dashboard database. Related record is expected to be absent from database.',
     'params'        => [
         'id' => [

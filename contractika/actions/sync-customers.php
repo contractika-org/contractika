@@ -3,7 +3,7 @@ use equal\email\Email;
 use core\Mail;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Synchronizes AutoTask with the local list of customers based on data from Navision and AutoTask.',
     'response'      => [
         'content-type'  => 'application/json',

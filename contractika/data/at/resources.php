@@ -8,7 +8,7 @@ use contractika\identity\Identity;
 use core\setting\Setting;
 
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Retrieve the Employee and Identity objects from AT.',
     'response'      => [
         'content-type'  => 'application/json',

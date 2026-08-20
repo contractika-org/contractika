@@ -2,7 +2,7 @@
 use core\setting\Setting;
 use contractika\sale\customer\Customer;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Update AutoTask according to latest values for Customer objects retrieved from Navision.',
     'response'      => [
         'content-type'  => 'application/json',

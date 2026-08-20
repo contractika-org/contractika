@@ -7,7 +7,7 @@
 
 use contractika\NAVLine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Discard all alerts for given NAV line.",
     'params'        => [
         'id' =>  [

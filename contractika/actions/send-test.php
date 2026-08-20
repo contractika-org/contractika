@@ -9,7 +9,7 @@ use core\Mail;
 
 
 // announce script and fetch parameters values
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'	=>	"Send an instant email with given details with a booking quote as attachment.",
     'params' 		=>	[
     ],

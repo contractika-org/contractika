@@ -3,7 +3,7 @@ use equal\http\HttpRequest;
 use equal\http\HttpResponse;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Fetches the Customers from Datto AutoTask API, with their user-defined fields, and returns it as a JSON array.',
     'params'        => [
         'date_from' => [

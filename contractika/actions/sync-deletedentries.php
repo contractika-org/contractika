@@ -8,7 +8,7 @@ use core\Mail;
 use equal\email\Email;
 use contractika\SALine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Checks if entries present in Contractika have been removed in Autotask.',
     'help'          => 'This is necessary because we only get notified of new entries, but not about deletions. \n
                         Besides, once detelete, an entry cannot be found in the AT database.',

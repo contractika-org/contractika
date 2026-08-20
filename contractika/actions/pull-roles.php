@@ -3,7 +3,7 @@ use contractika\hr\employee\Employee;
 use contractika\hr\employee\Role;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Updates the list of Role objects based on list from AT, and create objects that do not exist yet.',
     'response'      => [
         'content-type'  => 'application/json',

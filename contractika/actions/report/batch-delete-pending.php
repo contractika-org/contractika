@@ -6,7 +6,7 @@
 */
 use contractika\Report;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Delete all pending Reports. This is intended to be used as a batch task.",
     'params'        => [],
     'access' => [

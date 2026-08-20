@@ -6,7 +6,7 @@
 */
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Attempt to generate draft reports for a selection of Service Accounts.",
     'params'        => [
         'ids' =>  [

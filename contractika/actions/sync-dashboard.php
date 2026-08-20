@@ -5,7 +5,7 @@ use equal\email\Email;
 use core\Mail;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Synchronizes database ITs Dashboard with the local list of absences on data from SDworx.',
     'response'      => [
         'content-type'  => 'application/json',

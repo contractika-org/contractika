@@ -6,7 +6,7 @@
 */
 use contractika\SALine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Reset computed fields related to points calculation for a given Service Account Line.",
     'params'        => [
         'id' =>  [

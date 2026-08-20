@@ -3,7 +3,7 @@ use contractika\hr\employee\Employee;
 use contractika\hr\holiday\Holiday;
 use contractika\hr\absence\Absence;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Makes sure that all upcoming holiday absences (AT Holidays x Employees) are linked to AT Appointments, and creates new Appointments in AT when necessary.',
     'response'      => [
         'content-type'  => 'application/json',

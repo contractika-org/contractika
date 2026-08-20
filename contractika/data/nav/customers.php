@@ -1,7 +1,7 @@
 <?php
 use equal\db\DBManipulatorSqlSrv;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Requests the list of customers from Navision database and returns it as a JSON array.',
     'params'        => [
         'date_from' => [

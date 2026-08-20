@@ -12,7 +12,7 @@ use contractika\sale\customer\Contact;
 use contractika\SALine;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Updates the list of Customer objects based on latest list of Companies from AutoTask.',
     'params'        => [
         'date_from'   => [
@@ -37,7 +37,7 @@ list($params, $providers) = announce([
  * @var \equal\error\Reporter             $reporter
  * @var \equal\dispatch\Dispatcher        $dispatch
  */
-list($context, $reporter, $dispatch) = [ $providers['context'], $providers['report'], $providers['dispatch'] ];
+['context' => $context, 'report' => $reporter, 'dispatch' => $dispatch] = $providers;
 
 
 $result = [
@@ -190,6 +190,21 @@ try {
                     'SP_Renew_floor'        => 'renewal_balance_floor',
                     'TSreport_frequency'    => 'f_reporting'
                 ];
+                $float_settings = [
+                    'd_travel',
+                    'c_halfday',
+                    'c_fullday',
+                    'c_saturday',
+                    'c_sunday',
+                    'c_dayoff',
+                    'c_helpdesk',
+                    'c_priority_critical',
+                    'c_priority_high',
+                    'c_priority_normal',
+                    'c_priority_low',
+                    'c_limit',
+                    'renewal_balance_floor'
+                ];
                 $has_setting_change = false;
                 foreach($settings as $setting => $field) {
                     if(isset($values[$setting]) && !is_null($values[$setting])) {
@@ -199,6 +214,9 @@ try {
                             if($value == 'none') {
                                 $value = 'eurojob';
                             }
+                        }
+                        elseif(in_array($field, $float_settings, true) && is_numeric($value)) {
+                            $value = round(floatval($value), 2);
                         }
                         $item[$field] = $value;
                     }

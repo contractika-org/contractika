@@ -5,7 +5,7 @@ use hr\absence\AbsenceCode;
 use contractika\hr\employee\Employee;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Requests the updated list of absences for a given employee from SDworx XML API and returns it as a JSON array.',
     'params'        => [
         'id'   => [

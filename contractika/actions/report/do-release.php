@@ -7,7 +7,7 @@
 use contractika\Report;
 use contractika\SALine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Release a report. Status will change from 'pending' to 'released' and all posted lines will be marked as invoiced.",
     'params'        => [
         'id' =>  [

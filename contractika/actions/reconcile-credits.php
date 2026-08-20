@@ -6,7 +6,7 @@
 */
 use contractika\NAVLine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Try to auto reconcile imported NAV lines according to their current status.',
     'response'      => [
         'content-type'  => 'application/json',

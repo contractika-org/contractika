@@ -6,7 +6,7 @@
 */
 use contractika\SALine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Delete a set of SA line. This is used for deleting CC lines from Service Accounts.",
     'params'        => [
         'ids' =>  [

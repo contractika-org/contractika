@@ -5,7 +5,7 @@ use contractika\hr\absence\Absence;
 use hr\absence\AbsenceCode;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Updates the list of Holiday objects (legal days-off) based on list of Holidays from AT, and create related Absence objects that do not exist yet for each employee.',
     'response'      => [
         'content-type'  => 'application/json',

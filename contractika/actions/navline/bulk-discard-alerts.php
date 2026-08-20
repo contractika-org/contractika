@@ -5,7 +5,7 @@
     License: GNU AGPL 3 license <http://www.gnu.org/licenses/>
 */
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Attempt to discard alerts for a selection of NAV lines.",
     'params'        => [
         'ids' =>  [

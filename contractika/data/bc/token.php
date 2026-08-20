@@ -2,7 +2,7 @@
 use equal\http\HttpRequest;
 use equal\http\HttpResponse;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Requests a new token for accessing Business Central API (validity 60 min).',
     'params'        => [
     ],

@@ -9,7 +9,7 @@ use contractika\SALine;
 use contractika\ServiceAccount;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Generate a draft report with all posted lines from a given service account. If config doesn't allow it, generation is skipped.",
     'params'        => [
         'id' =>  [

@@ -7,7 +7,7 @@
 use equal\http\HttpRequest;
 use contractika\NAVLine;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Import (create) NAVLine from NAVISION for reconciliation as SALine.',
     'response'      => [
         'content-type'  => 'application/json',

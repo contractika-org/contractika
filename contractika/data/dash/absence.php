@@ -1,7 +1,7 @@
 <?php
 use equal\db\DBManipulatorSqlSrv;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Request a specific absence, identified by its SDworx ID, from ITs Dashboard database and returns it as a JSON array (wich might empty if absence is not found).',
     'params'        => [
         'id' => [

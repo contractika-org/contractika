@@ -8,7 +8,7 @@ use contractika\identity\Identity;
 use core\setting\Setting;
 
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Retrieve a single Employee (Resource) from AT.',
     'params'        => [
         'id' => [

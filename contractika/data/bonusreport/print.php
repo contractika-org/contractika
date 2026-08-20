@@ -10,7 +10,7 @@ use contractika\BonusReport;
     We use this controller as a "print" controller, for printing the result of a Report.
     We force the generation of the resulting PDF, whatever the value of the `pdf_data` field.
 */
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Generates a PDF version of a Bonus Report.",
     'params'        => [
         'id' => [

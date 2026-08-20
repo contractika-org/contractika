@@ -1,6 +1,6 @@
 <?php
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Provide the final value of a given constant (from config file).',
     'params'        => [
         'constant' =>  [

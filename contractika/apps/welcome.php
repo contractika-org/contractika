@@ -4,7 +4,7 @@
     Author: Yesbabylon SRL, 2022-2023
     License: GNU AGPL 3 license <http://www.gnu.org/licenses/>
 */
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Redirect to the Apps webapp.',
     'params'        => [],
     'response'      => [

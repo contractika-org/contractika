@@ -9,7 +9,7 @@ use equal\http\HttpResponse;
 use core\setting\Setting;
 
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Deletes an Appointment on AT given its ID, using Datto AutoTask API.',
     'params'        => [
         'id'   => [

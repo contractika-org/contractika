@@ -3,7 +3,7 @@ use equal\http\HttpRequest;
 use equal\http\HttpResponse;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Requests the list of employees from SDworx XML API and returns it as a JSON array.',
     'response'      => [
         'content-type'  => 'application/json',

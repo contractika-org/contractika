@@ -11,7 +11,7 @@ use contractika\SACategory;
 use contractika\SAType;
 use contractika\sale\customer\Customer;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Updates the list of Contract objects based on list from AT, and create objects that do not exist yet.',
     'response'      => [
         'content-type'  => 'application/json',

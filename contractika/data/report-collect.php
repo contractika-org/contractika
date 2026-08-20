@@ -8,7 +8,7 @@ use contractika\Report;
 use contractika\ServiceAccount;
 use equal\orm\Domain;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Advanced search for Reports: returns a collection of Reports according to extra paramaters.',
     'extends'       => 'core_model_collect',
     'params'        => [

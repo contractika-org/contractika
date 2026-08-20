@@ -6,7 +6,7 @@
 */
 use contractika\Report;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Archive a report. Status will change from 'released' to 'archived'.",
     'params'        => [
         'id' =>  [

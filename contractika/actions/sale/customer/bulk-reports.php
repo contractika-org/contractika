@@ -7,7 +7,7 @@
 use contractika\ServiceAccount;
 use core\setting\Setting;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => "Attempt to generate draft reports for a selection of Customers.",
     'params'        => [
         'ids' =>  [

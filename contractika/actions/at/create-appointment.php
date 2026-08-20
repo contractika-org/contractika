@@ -10,7 +10,7 @@ use contractika\identity\Identity;
 use core\setting\Setting;
 
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Creates an Appointment on AT using Datto AutoTask API.',
     'params'        => [
         'resource_id'   => [
