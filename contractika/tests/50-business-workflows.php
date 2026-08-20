@@ -9,57 +9,85 @@ use contractika\NAVLine;
 use contractika\Report;
 use contractika\SALine;
 
+require_once(__DIR__ . '/lib/golden.php');
+
 if(!function_exists('contractika_business_source')) {
     function contractika_business_source(string $path): string {
         return is_file($path) ? file_get_contents($path) : '';
     }
 }
 
+if(!function_exists('contractika_business_every_flag')) {
+    function contractika_business_every_flag(array $value): bool {
+        foreach($value as $item) {
+            if(is_array($item)) {
+                if(!contractika_business_every_flag($item)) {
+                    return false;
+                }
+                continue;
+            }
+            if($item !== true) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
 $tests = [
 
     '5001' => [
-        'description' => 'Documented report generation and release safeguards stay implemented.',
+        'description' => 'Golden master: report generation and release safeguards stay implemented.',
         'help'        => 'Reports must follow the documented eligibility and release workflow without involving external APIs.',
         'act'         => function () {
+            $do_report = contractika_business_source('packages/contractika/actions/serviceaccount/do-report.php');
+            $do_release = contractika_business_source('packages/contractika/actions/report/do-release.php');
+            $report_cols = Report::getColumns();
+
             return [
-                'do_report'   => contractika_business_source('packages/contractika/actions/serviceaccount/do-report.php'),
-                'do_release'  => contractika_business_source('packages/contractika/actions/report/do-release.php'),
-                'report_cols' => Report::getColumns()
+                'report_generation' => [
+                    'uses_reporting_setting'    => strpos($do_report, "Setting::get_value('contractika', 'ts_reporting', 'f_reporting', 'eurojob')") !== false,
+                    'requires_eurojob_mode'     => strpos($do_report, "\$f_reporting == 'eurojob'") !== false,
+                    'rejects_inactive_contract' => strpos($do_report, 'inactive_contract') !== false,
+                    'rejects_missing_mode'      => strpos($do_report, 'missing_reporting_mode') !== false,
+                    'rejects_incompatible_mode' => strpos($do_report, 'incompatible_reporting_mode') !== false,
+                    'rejects_inactive_customer' => strpos($do_report, 'inactive_customer') !== false,
+                    'rejects_missing_frequency' => strpos($do_report, 'missing_frequency') !== false,
+                    'rejects_bad_frequency'     => strpos($do_report, 'incompatible_frequency') !== false,
+                    'cleans_pending_report'     => strpos($do_report, "Report::search([['service_account_id', '=', \$params['id']], ['status', '=', 'pending']])->delete(true);") !== false,
+                    'month_end_limit'           => strpos($do_report, 'Y-m-t 23:59:59') !== false,
+                    'weekly_limit'              => strpos($do_report, '+6 day') !== false,
+                    'uses_unlocked_lines'       => strpos($do_report, "['is_locked', '=', false]") !== false,
+                    'uses_line_date_limit'      => strpos($do_report, "['date', '<=', \$date_to]") !== false,
+                    'assigns_report_to_lines'   => strpos($do_report, "'report_id'     => \$report['id']") !== false
+                ],
+                'release' => [
+                    'blocks_non_posted'       => strpos($do_release, 'has_non_posted') !== false,
+                    'blocks_already_released' => strpos($do_release, 'already_released_report') !== false,
+                    'sets_released_status'    => strpos($do_release, "['status' => 'released']") !== false,
+                    'archives_empty_report'   => strpos($do_release, "['status' => 'archived']") !== false
+                ],
+                'report_columns' => [
+                    'date_from_function'   => $report_cols['date_from']['function'] ?? null,
+                    'is_sendable_function' => $report_cols['is_sendable']['function'] ?? null,
+                    'status_onupdate'      => $report_cols['status']['onupdate'] ?? null
+                ]
             ];
         },
         'assert'      => function ($data) {
-            $do_report = $data['do_report'];
-            $do_release = $data['do_release'];
-            $report_cols = $data['report_cols'];
-
             return (
-                strpos($do_report, "Setting::get_value('contractika', 'ts_reporting', 'f_reporting', 'eurojob')") !== false
-                && strpos($do_report, "\$f_reporting == 'eurojob'") !== false
-                && strpos($do_report, "inactive_contract") !== false
-                && strpos($do_report, "missing_reporting_mode") !== false
-                && strpos($do_report, "incompatible_reporting_mode") !== false
-                && strpos($do_report, "inactive_customer") !== false
-                && strpos($do_report, "missing_frequency") !== false
-                && strpos($do_report, "incompatible_frequency") !== false
-                && strpos($do_report, "Report::search([['service_account_id', '=', \$params['id']], ['status', '=', 'pending']])->delete(true);") !== false
-                && strpos($do_report, 'Y-m-t 23:59:59') !== false
-                && strpos($do_report, '+6 day') !== false
-                && strpos($do_report, "['is_locked', '=', false]") !== false
-                && strpos($do_report, "['date', '<=', \$date_to]") !== false
-                && strpos($do_report, "'report_id'     => \$report['id']") !== false
-                && strpos($do_release, 'has_non_posted') !== false
-                && strpos($do_release, 'already_released_report') !== false
-                && strpos($do_release, "['status' => 'released']") !== false
-                && strpos($do_release, "['status' => 'archived']") !== false
-                && (($report_cols['date_from']['function'] ?? null) === 'calcDateFrom')
-                && (($report_cols['is_sendable']['function'] ?? null) === 'calcIsSendable')
-                && (($report_cols['status']['onupdate'] ?? null) === 'onupdateStatus')
+                contractika_business_every_flag($data['report_generation'])
+                && contractika_business_every_flag($data['release'])
+                && (($data['report_columns']['date_from_function'] ?? null) === 'calcDateFrom')
+                && (($data['report_columns']['is_sendable_function'] ?? null) === 'calcIsSendable')
+                && (($data['report_columns']['status_onupdate'] ?? null) === 'onupdateStatus')
+                && contractika_golden_assert('migration-report-business', $data)
             );
         }
     ],
 
     '5002' => [
-        'description' => 'NAV credit reconciliation has a deterministic mock payload.',
+        'description' => 'Golden master: NAV credit reconciliation has a deterministic mock payload.',
         'help'        => 'NAV credit behavior must be testable through a local mock payload instead of the Business Central import controller.',
         'act'         => function () {
             return [
@@ -69,67 +97,70 @@ $tests = [
                 ])
             ];
         },
-        'assert'      => function ($data) {
-            if(!is_array($data['nav_lines']) || count($data['nav_lines']) !== 1) {
-                return false;
-            }
-
-            $line = reset($data['nav_lines']);
-            foreach(['extref_document_no', 'extref_line_uuid', 'extref_customer', 'extref_description2', 'extref_uom_code', 'extref_unit_price', 'extref_quantity', 'extref_amount', 'points'] as $field) {
-                if(!array_key_exists($field, $line)) {
-                    return false;
-                }
-            }
-
-            return (
-                ($line['extref_customer'] ?? null) === 'C-MOCK-001'
-                && ($line['extref_description2'] ?? null) === '#AT-29683374#'
-                && ($line['extref_uom_code'] ?? null) === 'PNT'
-                && (float) ($line['extref_unit_price'] ?? 0) === 20.64
-                && (float) ($line['points'] ?? 0) === 10.0
-            );
-        }
+        'assert'      => fn($data) => contractika_golden_assert('migration-nav-mock', $data)
     ],
 
     '5003' => [
-        'description' => 'NAVLine reconciliation keeps the documented credit/correction workflow.',
+        'description' => 'Golden master: NAVLine reconciliation keeps the documented credit/correction workflow.',
         'help'        => 'A pending NAV line can reconcile only when references are resolved and it must create a credit or correction SA line.',
         'act'         => function () {
+            $workflow = NAVLine::getWorkflow();
+            $columns = NAVLine::getColumns();
+            $source = contractika_business_source('packages/contractika/classes/NAVLine.class.php');
+            $reconcile = $workflow['pending']['transitions']['reconcile'] ?? [];
+
             return [
-                'workflow' => NAVLine::getWorkflow(),
-                'columns'  => NAVLine::getColumns(),
-                'source'   => contractika_business_source('packages/contractika/classes/NAVLine.class.php')
+                'columns' => [
+                    'customer_id_function'        => $columns['customer_id']['function'] ?? null,
+                    'service_account_id_function' => $columns['service_account_id']['function'] ?? null,
+                    'has_error_function'          => $columns['has_error']['function'] ?? null,
+                    'has_alert_function'          => $columns['has_alert']['function'] ?? null
+                ],
+                'workflow' => [
+                    'pending_reconcile_status'  => $reconcile['status'] ?? null,
+                    'pending_reconcile_onafter' => $reconcile['onafter'] ?? null,
+                    'requires_service_account'  => in_array(['service_account_id', '>', 0], (array) ($reconcile['domain'] ?? []), true),
+                    'requires_customer'         => in_array(['customer_id', '>', 0], (array) ($reconcile['domain'] ?? []), true),
+                    'requires_no_error'         => in_array(['has_error', '=', false], (array) ($reconcile['domain'] ?? []), true),
+                    'pending_ignore_status'     => $workflow['pending']['transitions']['ignore']['status'] ?? null,
+                    'ignored_restore_status'    => $workflow['ignored']['transitions']['restore']['status'] ?? null,
+                    'reconciled_is_terminal'    => empty($workflow['reconciled']['transitions'] ?? [])
+                ],
+                'reconciliation' => [
+                    'creates_sa_line'          => strpos($source, 'SALine::create($values)') !== false,
+                    'creates_credit_line'      => strpos($source, '$line_class_id = 3') !== false,
+                    'creates_correction_line'  => strpos($source, '$line_class_id = 4') !== false,
+                    'stores_sa_line_link'      => strpos($source, "'sa_line_id'") !== false,
+                    'detects_alert_uom'        => strpos($source, 'has_alert_uom') !== false,
+                    'detects_alert_unit_price' => strpos($source, 'has_alert_unit_price') !== false
+                ]
             ];
         },
         'assert'      => function ($data) {
-            $reconcile = $data['workflow']['pending']['transitions']['reconcile'] ?? [];
-            $source = $data['source'];
-
             return (
-                (($data['columns']['customer_id']['function'] ?? null) === 'calcCustomerId')
-                && (($data['columns']['service_account_id']['function'] ?? null) === 'calcServiceAccountId')
-                && (($data['columns']['has_error']['function'] ?? null) === 'calcHasError')
-                && (($data['columns']['has_alert']['function'] ?? null) === 'calcHasAlert')
-                && (($reconcile['status'] ?? null) === 'reconciled')
-                && (($reconcile['onafter'] ?? null) === 'doReconcile')
-                && in_array(['service_account_id', '>', 0], (array) ($reconcile['domain'] ?? []), true)
-                && in_array(['customer_id', '>', 0], (array) ($reconcile['domain'] ?? []), true)
-                && in_array(['has_error', '=', false], (array) ($reconcile['domain'] ?? []), true)
-                && strpos($source, 'SALine::create($values)') !== false
-                && strpos($source, '$line_class_id = 3') !== false
-                && strpos($source, '$line_class_id = 4') !== false
-                && strpos($source, "'sa_line_id'") !== false
-                && strpos($source, "has_alert_uom") !== false
-                && strpos($source, "has_alert_unit_price") !== false
+                (($data['columns']['customer_id_function'] ?? null) === 'calcCustomerId')
+                && (($data['columns']['service_account_id_function'] ?? null) === 'calcServiceAccountId')
+                && (($data['columns']['has_error_function'] ?? null) === 'calcHasError')
+                && (($data['columns']['has_alert_function'] ?? null) === 'calcHasAlert')
+                && (($data['workflow']['pending_reconcile_status'] ?? null) === 'reconciled')
+                && (($data['workflow']['pending_reconcile_onafter'] ?? null) === 'doReconcile')
+                && (($data['workflow']['requires_service_account'] ?? null) === true)
+                && (($data['workflow']['requires_customer'] ?? null) === true)
+                && (($data['workflow']['requires_no_error'] ?? null) === true)
+                && (($data['workflow']['pending_ignore_status'] ?? null) === 'ignored')
+                && (($data['workflow']['ignored_restore_status'] ?? null) === 'pending')
+                && (($data['workflow']['reconciled_is_terminal'] ?? null) === true)
+                && contractika_business_every_flag($data['reconciliation'])
+                && contractika_golden_assert('migration-nav-business', $data)
             );
         }
     ],
 
     '5004' => [
-        'description' => 'Documented Contractika alert controllers dispatch and cancel their alerts.',
+        'description' => 'Golden master: Contractika alert controllers dispatch and cancel their alerts.',
         'help'        => 'Coherence checks must create an alert while data is invalid and cancel it once the retry succeeds.',
         'act'         => function () {
-            return [
+            $sources = [
                 'customer_contacts' => contractika_business_source('packages/contractika/actions/customer/check-contacts.php'),
                 'customer_nav'      => contractika_business_source('packages/contractika/actions/customer/check-nav.php'),
                 'customer_identity' => contractika_business_source('packages/contractika/actions/customer/check-identity.php'),
@@ -137,8 +168,6 @@ $tests = [
                 'report_contacts'   => contractika_business_source('packages/contractika/actions/report/check-contacts.php'),
                 'report_email'      => contractika_business_source('packages/contractika/actions/report/check-email.php')
             ];
-        },
-        'assert'      => function ($sources) {
             $alerts = [
                 'customer_contacts' => 'contractika.customer.missing_contact',
                 'customer_nav'      => 'contractika.customer.missing_nav_id',
@@ -147,45 +176,66 @@ $tests = [
                 'report_contacts'   => 'contractika.report.missing_contact',
                 'report_email'      => 'contractika.report.failed_email_sending'
             ];
-
+            $snapshot = [];
             foreach($alerts as $key => $alert) {
                 $source = $sources[$key] ?? '';
-                if(strpos($source, "dispatch('{$alert}'") === false || strpos($source, "cancel('{$alert}'") === false) {
+                $snapshot[$key] = [
+                    'alert'    => $alert,
+                    'dispatch' => strpos($source, "dispatch('{$alert}'") !== false,
+                    'cancel'   => strpos($source, "cancel('{$alert}'") !== false
+                ];
+            }
+
+            return $snapshot;
+        },
+        'assert'      => function ($snapshot) {
+            foreach($snapshot as $alert) {
+                if(($alert['dispatch'] ?? null) !== true || ($alert['cancel'] ?? null) !== true) {
                     return false;
                 }
             }
 
-            return true;
+            return contractika_golden_assert('migration-alert-business', $snapshot);
         }
     ],
 
     '5005' => [
-        'description' => 'Point calculation keeps the documented coefficient inputs.',
+        'description' => 'Golden master: point calculation keeps the documented coefficient inputs.',
         'help'        => 'The point formula must keep using duration, pause, calendar, service type, priority, travel and role factors.',
         'act'         => function () {
+            $columns = SALine::getColumns();
+            $source = contractika_business_source('packages/contractika/classes/SALine.class.php');
+
             return [
-                'columns' => SALine::getColumns(),
-                'source'  => contractika_business_source('packages/contractika/classes/SALine.class.php')
+                'columns' => [
+                    'points_function'      => $columns['points']['function'] ?? null,
+                    'duration_function'    => $columns['duration']['function'] ?? null,
+                    'pause_time_function'  => $columns['pause_time']['function'] ?? null,
+                    'travel_time_function' => $columns['travel_time']['function'] ?? null
+                ],
+                'formula_inputs' => [
+                    'duration'              => strpos($source, '$duration = $line[\'duration\'];') !== false,
+                    'pause'                 => strpos($source, '$pause = $line[\'pause_time\'];') !== false,
+                    'weekday'               => strpos($source, "date('N', \$line['date'])") !== false,
+                    'holiday'               => strpos($source, 'Holiday::search') !== false,
+                    'helpdesk'              => strpos($source, "if(\$line['helpdesk'])") !== false,
+                    'standby'               => strpos($source, "if(\$line['standby'])") !== false,
+                    'priority'              => strpos($source, "switch(\$line['priority'])") !== false,
+                    'coef_limit'            => strpos($source, "if(\$coef > \$coef_limit)") !== false,
+                    'on_site'               => strpos($source, "if(\$line['on_site'])") !== false,
+                    'role_hourly_factor'    => strpos($source, "\$line['role_id']['hourly_factor']") !== false,
+                    'quarter_hour_rounding' => strpos($source, 'round($time / (15 * 60), 2)') !== false
+                ]
             ];
         },
         'assert'      => function ($data) {
-            $source = $data['source'];
             return (
-                (($data['columns']['points']['function'] ?? null) === 'calcPoints')
-                && (($data['columns']['duration']['function'] ?? null) === 'calcDuration')
-                && (($data['columns']['pause_time']['function'] ?? null) === 'calcPauseTime')
-                && (($data['columns']['travel_time']['function'] ?? null) === 'calcTravelTime')
-                && strpos($source, '$duration = $line[\'duration\'];') !== false
-                && strpos($source, '$pause = $line[\'pause_time\'];') !== false
-                && strpos($source, "date('N', \$line['date'])") !== false
-                && strpos($source, "Holiday::search") !== false
-                && strpos($source, "if(\$line['helpdesk'])") !== false
-                && strpos($source, "if(\$line['standby'])") !== false
-                && strpos($source, "switch(\$line['priority'])") !== false
-                && strpos($source, "if(\$coef > \$coef_limit)") !== false
-                && strpos($source, "if(\$line['on_site'])") !== false
-                && strpos($source, "\$line['role_id']['hourly_factor']") !== false
-                && strpos($source, 'round($time / (15 * 60), 2)') !== false
+                (($data['columns']['points_function'] ?? null) === 'calcPoints')
+                && (($data['columns']['duration_function'] ?? null) === 'calcDuration')
+                && (($data['columns']['pause_time_function'] ?? null) === 'calcPauseTime')
+                && (($data['columns']['travel_time_function'] ?? null) === 'calcTravelTime')
+                && contractika_business_every_flag($data['formula_inputs'])
+                && contractika_golden_assert('migration-saline-business', $data)
             );
         }
     ]

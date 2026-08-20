@@ -1,18 +1,21 @@
 {
-    "guards": {
-        "locked_delete_guard": true,
-        "locked_update_guard": true
+    "columns": {
+        "duration_function": "calcDuration",
+        "pause_time_function": "calcPauseTime",
+        "points_function": "calcPoints",
+        "travel_time_function": "calcTravelTime"
     },
-    "line": {
-        "delta_time": 3300,
-        "duration": 2700,
-        "helpdesk": false,
-        "on_site": false,
-        "pause_time": 900,
-        "procrastin": 7080,
-        "standby": false,
-        "ticketLink": "https://ww19.autotask.net/Autotask/AutotaskExtend/ExecuteCommand.aspx?Code=OpenTicketDetail&TicketID=990001",
-        "timeEntryID": 990000001,
-        "travel_time": 0
+    "formula_inputs": {
+        "coef_limit": true,
+        "duration": true,
+        "helpdesk": true,
+        "holiday": true,
+        "on_site": true,
+        "pause": true,
+        "priority": true,
+        "quarter_hour_rounding": true,
+        "role_hourly_factor": true,
+        "standby": true,
+        "weekday": true
     }
 }

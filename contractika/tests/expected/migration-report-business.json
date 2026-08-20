@@ -1,15 +1,29 @@
 {
-    "before_release": {
-        "balance_new": 8.5,
-        "balance_old": 0,
-        "has_non_posted": true,
-        "is_empty": false,
-        "status": "pending",
-        "total_credits": 12.5,
-        "total_points": -4
+    "release": {
+        "archives_empty_report": true,
+        "blocks_already_released": true,
+        "blocks_non_posted": true,
+        "sets_released_status": true
     },
-    "release_guard": {
-        "expected_lock_field": "is_locked",
-        "status_callback": "onupdateStatus"
+    "report_columns": {
+        "date_from_function": "calcDateFrom",
+        "is_sendable_function": "calcIsSendable",
+        "status_onupdate": "onupdateStatus"
+    },
+    "report_generation": {
+        "assigns_report_to_lines": true,
+        "cleans_pending_report": true,
+        "month_end_limit": true,
+        "rejects_bad_frequency": true,
+        "rejects_inactive_contract": true,
+        "rejects_inactive_customer": true,
+        "rejects_incompatible_mode": true,
+        "rejects_missing_frequency": true,
+        "rejects_missing_mode": true,
+        "requires_eurojob_mode": true,
+        "uses_line_date_limit": true,
+        "uses_reporting_setting": true,
+        "uses_unlocked_lines": true,
+        "weekly_limit": true
     }
 }

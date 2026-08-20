@@ -5,6 +5,8 @@
     License: GNU AGPL 3 license <http://www.gnu.org/licenses/>
 */
 
+require_once(__DIR__ . '/lib/golden.php');
+
 function contractika_migration_entrypoints(): array {
     return [
         ['do', 'contractika_sync-customers'],
@@ -191,7 +193,7 @@ $tests = [
                     return false;
                 }
             }
-            return true;
+            return contractika_golden_assert('migration-operation-graph', $graph);
         }
     ],
 
@@ -232,7 +234,7 @@ $tests = [
                 }
             }
 
-            return true;
+            return contractika_golden_assert('migration-scheduled-tasks', $data);
         }
     ],
 
@@ -258,7 +260,7 @@ $tests = [
                     }
                 }
             }
-            return true;
+            return contractika_golden_assert('migration-provider-contracts', $surfaces);
         }
     ]
 ];

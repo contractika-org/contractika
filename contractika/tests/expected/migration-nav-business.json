@@ -1,50 +1,26 @@
 {
-    "creation_error": {
-        "code": -1,
-        "message": "creation_failed"
+    "columns": {
+        "customer_id_function": "calcCustomerId",
+        "has_alert_function": "calcHasAlert",
+        "has_error_function": "calcHasError",
+        "service_account_id_function": "calcServiceAccountId"
+    },
+    "reconciliation": {
+        "creates_correction_line": true,
+        "creates_credit_line": true,
+        "creates_sa_line": true,
+        "detects_alert_unit_price": true,
+        "detects_alert_uom": true,
+        "stores_sa_line_link": true
     },
     "workflow": {
-        "ignored": {
-            "transitions": {
-                "restore": {
-                    "description": "Update the line status to 'pending'. This transition is meant to be called manually.",
-                    "status": "pending"
-                }
-            }
-        },
-        "pending": {
-            "transitions": {
-                "ignore": {
-                    "description": "Update the line status to `ignored`. This transition is meant to be called manually.",
-                    "status": "ignored"
-                },
-                "reconcile": {
-                    "description": "Update the line status to `reconciled`.",
-                    "domain": [
-                        [
-                            "service_account_id",
-                            ">",
-                            0
-                        ],
-                        [
-                            "customer_id",
-                            ">",
-                            0
-                        ],
-                        [
-                            "has_error",
-                            "=",
-                            false
-                        ]
-                    ],
-                    "help": "The transition will be allowed only if there are no pending errors.",
-                    "onafter": "doReconcile",
-                    "status": "reconciled"
-                }
-            }
-        },
-        "reconciled": {
-            "transitions": []
-        }
+        "ignored_restore_status": "pending",
+        "pending_ignore_status": "ignored",
+        "pending_reconcile_onafter": "doReconcile",
+        "pending_reconcile_status": "reconciled",
+        "reconciled_is_terminal": true,
+        "requires_customer": true,
+        "requires_no_error": true,
+        "requires_service_account": true
     }
 }
