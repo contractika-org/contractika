@@ -83,7 +83,7 @@ foreach($data as $values) {
             $collection->update([
                     'is_active'     => $is_active,
                     'date_start'    => strtotime($values['StartDate']),
-                    'date_end'      => ($values['EndDate'])?strtotime($values['EndDate']):null
+                    'date_end'      => ($values['EndDate']) ? strtotime($values['EndDate']) : null
                 ]);
             $ids = Identity::ids($employee['partner_identity_id'])->ids();
             if(!count($ids)) {

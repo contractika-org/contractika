@@ -9,7 +9,7 @@ use contractika\hr\employee\Role;
 use contractika\identity\Identity;
 
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Enriches the Employee and Identity objects with Resource objects from AT.',
     'response'      => [
         'content-type'  => 'application/json',
@@ -26,7 +26,7 @@ list($params, $providers) = announce([
  * @var \equal\php\Context                $context
  * @var \equal\error\Reporter             $reporter
  */
-list($context, $reporter) = [ $providers['context'], $providers['report'] ];
+['context' => $context, 'report' => $reporter] = $providers;
 
 
 $result = [
@@ -45,7 +45,7 @@ $result = [
  *
  * @param string    $a      String to normalize (UTF-8 supported).
  */
-$normalize_name = function ($a) {
+$getNormalizedName = function ($a) {
     // remove invalid spaces
     $a = str_replace(["\r", "\n", "\t", "  "], ' ', $a);
     // capitalize
@@ -59,6 +59,15 @@ $normalize_name = function ($a) {
     }
     return $res;
 };
+
+$getNormalizedPhone = function ($a) {
+    $res = null;
+    if($a && is_string($a) && strlen($a) > 0) {
+        $res = str_replace([' ', '.'], '', $a);
+    }
+    return strlen($res > 0) ? $res : null;
+};
+
 
 // fetch the latest listing of resources from AutoTask (using API)
 $data = eQual::run('get', 'contractika_at_resources');
@@ -103,9 +112,9 @@ foreach($employees as $employee) {
                 'extref_at_id'  => $resource['id'],
                 'email'         => $resource['email'],
                 'gender'        => $resource['gender'],
-                'firstname'     => $normalize_name($resource['firstName']),
-                'lastname'      => $normalize_name($resource['lastName']),
-                'mobile'        => str_replace([' ', '.'], '', $resource['mobilePhone'])
+                'firstname'     => $getNormalizedName($resource['firstName']),
+                'lastname'      => $getNormalizedName($resource['lastName']),
+                'mobile'        => $getNormalizedPhone($resource['mobilePhone'])
             ])
             ->read(['id', 'display_name']);
 
@@ -145,8 +154,8 @@ foreach($data as $at_resource) {
             if(!count($ids)) {
                 // create identity
                 $ids = Identity::create([
-                        'firstname'     => $normalize_name($at_resource['firstName']),
-                        'lastname'      => $normalize_name($at_resource['lastName']),
+                        'firstname'     => $getNormalizedName($at_resource['firstName']),
+                        'lastname'      => $getNormalizedName($at_resource['lastName']),
                         'extref_at_id'  => $at_resource['id'],
                         'email'         => $at_resource['email']
                     ])

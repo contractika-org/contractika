@@ -2,7 +2,7 @@
 use equal\email\Email;
 use core\Mail;
 
-list($params, $providers) = announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Synchronizes the local list of employees based on data from SDworx and AutoTask.',
     'response'      => [
         'content-type'  => 'application/json',
@@ -20,7 +20,7 @@ list($params, $providers) = announce([
  * @var \equal\php\Context                $context
  * @var \equal\error\Reporter             $reporter
  */
-list($context, $reporter) = [ $providers['context'], $providers['report'] ];
+['context' => $context, 'reporter' => $reporter] = $providers;
 
 $result = [];
 

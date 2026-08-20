@@ -8,7 +8,7 @@ use contractika\identity\Identity;
 use contractika\sale\customer\Customer;
 use core\setting\Setting;
 
-list($params, $providers) = eQual::announce([
+[$params, $providers] = eQual::announce([
     'description'   => 'Enriches the Customer objects with data from NAV/BC.',
     'params'        => [
         'date_from'   => [
@@ -31,7 +31,7 @@ list($params, $providers) = eQual::announce([
  * @var \equal\php\Context                $context
  * @var \equal\error\Reporter             $reporter
  */
-list($context, $reporter) = [ $providers['context'], $providers['report'] ];
+['context' => $context, 'report' => $reporter] = $providers;
 
 
 $result = [
