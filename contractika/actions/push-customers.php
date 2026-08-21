@@ -26,6 +26,23 @@ use contractika\sale\customer\Customer;
  */
 ['context' => $context, 'report' => $reporter] = $providers;
 
+$formatVat = function ($vat_id) {
+    $vat_id = strtoupper(str_replace([' ', '.', '-'], '', $vat_id));
+    $len = strlen($vat_id);
+    if(substr($vat_id, 0, 2) == 'BE') {
+        // 'BE' + 10 digits
+        return substr($vat_id, 0, 2).' '.substr($vat_id, 2, 4).'.'.substr($vat_id, 6, 3).'.'.substr($vat_id, 9);
+    }
+    /*
+        FR : 	'FR' + 2 digits (as validation key ) + 9 digits (as SIREN)
+        example: FR 32 123456789
+
+        DE: 'DE' + 9 digits
+        example: DE 123456789
+    */
+    return substr($vat_id, 0, 2).' '.substr($vat_id, 2);
+};
+
 $result = [
     'ignored' => 0,
     'updated' => 0,
@@ -64,7 +81,7 @@ foreach($customers as $customer) {
         $data = eQual::run('do', 'contractika_at_update-company', [
                 'id'            => $customer['extref_at_id'],
                 'is_active'     => $customer['is_active'],
-                'vat_id'        => format_vat($customer['partner_identity_id']['vat_number']),
+                'vat_id'        => $formatVat($customer['partner_identity_id']['vat_number']),
                 'discount'      => floatval($customer['discount']),
                 'payment_terms' => ($customer['payment_terms'])?$customer['payment_terms']:'',
                 'service_price' => $customer['service_price'],
@@ -86,21 +103,3 @@ $context
     ->status(200)
     ->body(['result' => $result])
     ->send();
-
-
-function format_vat($vat_id) {
-    $vat_id = strtoupper(str_replace([' ', '.', '-'], '', $vat_id));
-    $len = strlen($vat_id);
-    if(substr($vat_id, 0, 2) == 'BE') {
-        // 'BE' + 10 digits
-        return substr($vat_id, 0, 2).' '.substr($vat_id, 2, 4).'.'.substr($vat_id, 6, 3).'.'.substr($vat_id, 9);
-    }
-    /*
-        FR : 	'FR' + 2 digits (as validation key ) + 9 digits (as SIREN)
-        example: FR 32 123456789
-
-        DE: 'DE' + 9 digits
-        example: DE 123456789
-    */
-    return substr($vat_id, 0, 2).' '.substr($vat_id, 2);
-}
