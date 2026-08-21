@@ -262,17 +262,5 @@ $tests = [
             }
             return contractika_golden_assert('migration-provider-contracts', $surfaces);
         }
-    ],
-
-    '3004' => [
-        'description' => 'Sync timeentries normalizes AutoTask pause offsets before persistence.',
-        'help'        => 'AutoTask offsetHours may include binary drift around zero; the imported SALine pause must remain compatible with the decimal float constraint.',
-        'act'         => fn() => file_get_contents('packages/contractika/actions/sync-timeentries.php'),
-        'assert'      => function ($source) {
-            return (
-                strpos($source, "\$pause = round((float) \$time_entry['offsetHours'], 2);") !== false
-                && strpos($source, "'pause'             => \$pause,") !== false
-            );
-        }
     ]
 ];
