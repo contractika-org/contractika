@@ -1,5 +1,9 @@
 <?php
-
+/*
+    This file is part of the Contractika contract management software.
+    Author: Yesbabylon SA, 2022-2026
+    License: GNU AGPL 3 license <http://www.gnu.org/licenses/>
+*/
 [$params, $providers] = eQual::announce([
     'description'   => 'Provide the final value of a given constant (from config file).',
     'params'        => [

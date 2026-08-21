@@ -1,4 +1,9 @@
 <?php
+/*
+    This file is part of the Contractika contract management software.
+    Author: Yesbabylon SA, 2022-2026
+    License: GNU AGPL 3 license <http://www.gnu.org/licenses/>
+*/
 use equal\email\Email;
 use core\Mail;
 use core\setting\Setting;
@@ -21,7 +26,7 @@ use core\setting\Setting;
  * @var \equal\php\Context                $context
  * @var \equal\error\Reporter             $reporter
  */
-list($context, $reporter) = [ $providers['context'], $providers['report'] ];
+['context' => $context, 'report' => $reporter] = $providers;
 
 $result = [];
 

@@ -1,10 +1,9 @@
 <?php
 /*
     This file is part of the Contractika contract management software.
-    Author: Yesbabylon SRL, 2022-2023
+    Author: Yesbabylon SA, 2022-2026
     License: GNU AGPL 3 license <http://www.gnu.org/licenses/>
 */
-
 use contractika\hr\employee\Employee;
 use equal\email\Email;
 use core\Mail;
