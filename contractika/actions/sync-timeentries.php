@@ -41,7 +41,7 @@ $result = [
     'updated'       => 0,
     'ignored'       => 0,
     'logs'          => [],
-    'email_alerts'  => [],
+    'alerts'        => [],
     'created_ids'   => '',
     'updated_ids'   => '',
     'ignored_ids'   => ''
@@ -215,7 +215,7 @@ try {
             if(!$account) {
                 // queue time entry for contractID retrieval through related Ticket or Task
                 // throw new Exception("Service account not found for Contract {$time_entry['contractID']} (sync?)", QN_ERROR_UNKNOWN_OBJECT);
-                $map_missing_contract_lines[$time_entry['id']] = true;
+                $map_missing_contract_lines[$line['id']] = true;
             }
             else {
                 // #memo - we need to this this after creation/update (not to conflict with onupdateServiceAccountId)
@@ -497,7 +497,7 @@ try {
                                 ++$result['warnings'];
                                 $result['logs'][] = "WARN- No contractID for Project [{$task['projectID']}] referenced in task [{$task['id']} - {$task['taskNumber']}] (sync?)";
 
-                                $result['email_alerts'][] = [
+                                $result['alerts'][] = [
                                     "Projet sans contrat associé" => "{$project['projectNumber']} {$project['projectName']}",
                                     "Tâche concernée"             => "{$task['taskNumber']}",
                                     "Action attendue"             => "Vérifier ou créer le Contrat/Service Account associé au projet."
@@ -515,7 +515,7 @@ try {
                                 else {
                                     ++$result['warnings'];
                                     $result['logs'][] = "WARN- Service account referenced in [{$task['projectID']}] not present for task [{$task['id']} - {$task['taskNumber']}] (sync?)";
-                                    $result['email_alerts'][] = [
+                                    $result['alerts'][] = [
                                         "Projet sans contrat associé"   => "{$project['projectNumber']} {$project['projectName']}",
                                         "Tâche concernée"               => "{$task['taskNumber']}",
                                         "Action attendue"               => "Vérifier ou créer le Contrat/Service Account associé au projet."
@@ -587,7 +587,7 @@ try {
     // #memo - once marked as posted, a timeentry is not expected to be reverted
     $billing_updated_count = 0;
     foreach($map_billing_items_timeentries as $time_entry_id => $billing_item) {
-        $line = SALine::search(['timeEntryID', '=', $time_entry_id])->read(['id', 'is_locked', 'is_posted'])->first();
+        $line = SALine::search(['timeEntryID', '=', $time_entry_id])->read(['id', 'is_locked', 'is_posted', 'is_async'])->first();
         if($line) {
             if($line['is_posted']) {
                 // ignore lines already posted (prevents to raise an irrelevant warning)
@@ -668,15 +668,7 @@ if($result['warnings'] > 0 || $result['errors'] > 0) {
 
     $body = "<html><body><p>Alertes lors de l'exécution du script ".__FILE__." au ".date('d/m/Y').' à '.date('H:i').":</p>";
 
-    if(count($result['email_alerts']) > 0) {
-        foreach($result['email_alerts'] as $alert) {
-            $body .= '<div style="display: block; font-family: \'Courier New\', Courier, monospace; font-size: 14px; line-height: 1.4; margin: 16px 0; padding: 12px; border: 1px solid #cccccc; background-color: #ffffff; color: #24292e; white-space: pre-wrap;">';
-            foreach($alert as $section => $description) {
-                $body .= htmlspecialchars($section.': '.$description, ENT_QUOTES, 'UTF-8') . "<br/>\n";
-            }
-            $body .= "</div>";
-        }
-    }
+    $body .= "<pre>".htmlspecialchars($report, ENT_QUOTES, 'UTF-8')."</pre>";
 
     $body .= "</body></html>";
 
@@ -688,7 +680,7 @@ if($result['warnings'] > 0 || $result['errors'] > 0) {
             ->setContentType("text/html")
             ->setBody($body);
 
-    if(count($result['email_alerts']) > 0) {
+    if(count($result['alerts']) > 0) {
         $message->addCc(constant('EMAIL_SA_ALERTS_BCC'));
     }
 
