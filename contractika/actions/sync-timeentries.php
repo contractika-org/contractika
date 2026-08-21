@@ -128,7 +128,7 @@ try {
                     'date'              => strtotime($time_entry['dateWorked']),
                     'start'             => $start_time,
                     'end'               => $end_time,
-                    'pause'             => $time_entry['offsetHours'],
+                    'pause'             => round((float) $time_entry['offsetHours'], 2),
                     'createDateTime'    => strtotime($time_entry['createDateTime'])
                 ];
 

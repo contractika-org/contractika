@@ -150,7 +150,7 @@ if($params['fields'] && count($params['fields'])) {
 }
 
 // #todo - quick workaround : for some queries we need to use distinct date field. This should be improved.
-if($params['date_field'] && strlen($params['date_field']) > 0) {
+if(isset($params['date_field']) && strlen($params['date_field']) > 0) {
     $args = str_replace(['createDateTime', 'lastModifiedDateTime'], $params['date_field'], $args);
 }
 
