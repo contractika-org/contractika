@@ -50,8 +50,8 @@ $result = [
     'logs'      => []
 ];
 
-// retrieve last_run from settings (defaults to 'all times')
-$last_run = Setting::get_value('contractika', 'sync', 'at_sync_customers.last_run', 0);
+// retrieve last_run from settings
+$last_run = Setting::get_value('contractika', 'sync', 'at_sync_customers.last_run', strtotime("-4 weeks"));
 
 if(isset($params['date_from']) && $params['date_from'] > 0) {
     $last_run = $params['date_from'];
