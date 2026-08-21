@@ -1015,8 +1015,8 @@
         "has_description": true,
         "params": [
             "access",
+            "alerts",
             "constants",
-            "email_alerts",
             "logs",
             "providers",
             "response",
