@@ -119,11 +119,6 @@ try {
             if($time_worked != ($end_time-$start_time)) {
                 $time_entry['offsetHours'] -= ($end_time - $start_time - $time_worked) / 3600;
             }
-            // SALine::pause is constrained as a decimal float; collapse binary drift before persistence.
-            $pause = round((float) $time_entry['offsetHours'], 2);
-            if($pause == 0.0) {
-                $pause = 0.0;
-            }
 
             // map input data to values to be assigned (used either to create or update related SA Line)
             $values = [
@@ -133,7 +128,7 @@ try {
                     'date'              => strtotime($time_entry['dateWorked']),
                     'start'             => $start_time,
                     'end'               => $end_time,
-                    'pause'             => $pause,
+                    'pause'             => round((float) $time_entry['offsetHours'], 2),
                     'createDateTime'    => strtotime($time_entry['createDateTime'])
                 ];
 
